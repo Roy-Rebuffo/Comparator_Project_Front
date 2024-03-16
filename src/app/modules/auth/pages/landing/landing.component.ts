@@ -9,6 +9,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent {
+  name: string = "";
+  surname: string = "";
   email: string = "";
   password: string = "";
   isSignUpMode: boolean = false;
@@ -59,10 +61,10 @@ export class LandingComponent {
 
   handleRegister() {
     this.status = 'loading';
-    if (this.registerForm.valid) {
+    //if (this.registerForm.valid) {
       const { name, surname, email, password } = this.registerForm.value;
       const objectToSend = { name, surname, email, password };
-
+      console.log(name);
       this.authService.register(objectToSend).subscribe({
         next: (response: any) => {
           this.status = 'success';
@@ -77,5 +79,6 @@ export class LandingComponent {
       });
       this.registerForm.reset();
     }
+
   }
-}
+//}
