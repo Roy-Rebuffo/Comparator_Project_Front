@@ -8,6 +8,7 @@ import { RegisterFormComponent } from './components/register-form/register-form.
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ConfirmUserPageComponent } from './pages/confirm-user-page/confirm-user-page.component';
+import { LandingComponent } from './pages/landing/landing.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ConfirmUserPageComponent } from './pages/confirm-user-page/confirm-user
     RegisterFormComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    ConfirmUserPageComponent
+    ConfirmUserPageComponent,
+    LandingComponent
   ],
   imports: [
     CommonModule,
