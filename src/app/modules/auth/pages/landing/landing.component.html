@@ -30,19 +30,23 @@
       </form>
 
 
-      <form action="" class="sign-up-form">
+      <form (ngSubmit)="handleRegister()" class="sign-up-form">
           <h2 class="title">Register</h2>
           <div class="input-field">
               <i class="fa-solid fa-user"></i>
-              <input type="text" placeholder="Username">
+              <input name="name" type="text" placeholder="Username" [(ngModel)]="name" required >
           </div>
           <div class="input-field">
+            <i class="fa-solid fa-user"></i>
+            <input name="surname" type="text" placeholder="Surname" [(ngModel)]="surname" required>
+        </div>
+          <div class="input-field">
               <i class="fa-solid fa-envelope"></i>
-              <input type="text" placeholder="Email">
+              <input name="email" type="text" placeholder="Email" [(ngModel)]="email" required>
           </div>
           <div class="input-field">
               <i class="fa-solid fa-lock"></i>
-              <input type="password" placeholder="Password">
+              <input name="password" type="password" placeholder="Password" [(ngModel)]="password" required>
           </div>
           <input type="submit" value="Register" class="btn">
           <p class="social-text">Or Sign in with social platform</p>
