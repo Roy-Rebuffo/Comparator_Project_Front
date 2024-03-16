@@ -10,8 +10,19 @@ import { Router } from '@angular/router';
 export class LandingComponent {
   email: string = ""
   password: string = ""
+  isSignUpMode: boolean = false;
+  isSignUpMode2: boolean = false;
   constructor(private authService: AuthService, private router: Router){}
 
+  toggleSignIn() {
+    this.isSignUpMode = false;
+    this.isSignUpMode2 = false;
+  }
+  toggleSignUp() {
+    this.isSignUpMode = true;
+    this.isSignUpMode2 = true;
+  }
+  
   handleLogin() {
     const regExpEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const regExpPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,12}$/;
@@ -32,4 +43,5 @@ export class LandingComponent {
         }
       })
     }
+    
 }
