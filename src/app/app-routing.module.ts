@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { verifyTokenGuard } from './modules/auth/guards/verify-token.guard';
+import { LandingComponent } from './modules/auth/pages/landing/landing.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  {
+  path: '', loadChildren: () => import('./modules/auth/auth.module').then(module => module.AuthModule)
+  },
+  {
+    path: '**', redirectTo: 'landing', pathMatch: 'full'
+  }
 ];
 
 @NgModule({

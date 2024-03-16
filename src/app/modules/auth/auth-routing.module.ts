@@ -3,15 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ConfirmUserPageComponent } from './pages/confirm-user-page/confirm-user-page.component';
+import { LandingComponent } from './pages/landing/landing.component';
 
 const routes: Routes = [
   {
     path: '', children: [
       {
-        path: 'register', component: RegisterPageComponent,
-      },
-      {
-        path: 'login', component: LoginPageComponent
+        path: 'landing', component: LandingComponent
       },
       {
         path: 'confirm-user/:token', component: ConfirmUserPageComponent

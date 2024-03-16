@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './home/home.component';
+import {  HTTP_INTERCEPTORS , HttpClientModule } from '@angular/common/http';
+import { AssignTokenInterceptor } from './modules/auth/interceptors/assign-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,9 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{     provide: HTTP_INTERCEPTORS, useClass: AssignTokenInterceptor, multi: true   }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
