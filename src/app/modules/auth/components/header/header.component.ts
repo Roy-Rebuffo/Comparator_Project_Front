@@ -1,5 +1,6 @@
 import { AuthService } from './../../services/auth.service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,15 +9,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  resultados: any[] = [];
 
-  datos: any[] = [];   
-  resultados: any[] = [];    
-  constructor(private authsevice: AuthService) {}    
-  ngOnInit() {     
-    this.authsevice.searchData().subscribe((data:any) => {
-             this.datos = data;     });   }    
-    onInput(event: any) {   const query = event?.target?.value || '';   this.buscar(query); }
-    buscar(query: string) {     
-      this.resultados = this.datos.filter(item =>item.toLowerCase().includes(query.toLowerCase()));   
-    }
+  constructor(private authService: AuthService, private router: Router) {}
+
+  onInput(event: any): void {
+    const inputValue = event.target.value;
+    this.buscar(inputValue);
+  }
+
+  buscar(query: string): void {
+    this.authService.searchData(query).subscribe(data => { // Pass the query parameter to the searchData() method
+      console.log(data);
+      this.resultados = data.filter((item: any) => item && item.nombre && item.nombre.includes(query));
+      this.router.navigate(['/resultados']);
+    });
+  }
 }

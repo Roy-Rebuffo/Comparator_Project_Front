@@ -32,9 +32,14 @@ export class AuthService {
   getAhorramas(){
     return this.http.get('http://localhost:8084/scrapedataahorramas')
   }
-  searchData(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8084/scrapedatacarrefour');
+  searchData(query: string): Observable<any[]> {
+    return new Observable(observer => {
+      this.http.get<any[]>('http://localhost:8084/scrapedatacarrefour').subscribe(data => {
+        console.log(data);
+      });
+    });
   }
+
 
 
 }
