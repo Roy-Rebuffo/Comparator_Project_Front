@@ -10,6 +10,8 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { ConfirmUserPageComponent } from './pages/confirm-user-page/confirm-user-page.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     RegisterPageComponent,
     ConfirmUserPageComponent,
     LandingComponent,
-    HomePageComponent
+    HomePageComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
