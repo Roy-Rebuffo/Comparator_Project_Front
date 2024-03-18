@@ -26,5 +26,8 @@ export class AuthService {
     return this.http.get<boolean>('http://localhost:8084/api/users/is-admin')
   }
 
+  getCarrefour(){
+    return this.http.get('http://localhost:8084/scrapedatacarrefour')
+  }
 
 }

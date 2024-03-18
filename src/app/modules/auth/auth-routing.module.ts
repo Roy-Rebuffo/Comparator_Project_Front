@@ -4,6 +4,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ConfirmUserPageComponent } from './pages/confirm-user-page/confirm-user-page.component';
 import { LandingComponent } from './pages/landing/landing.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 const routes: Routes = [
   {
@@ -15,8 +16,11 @@ const routes: Routes = [
         path: 'confirm-user/:token', component: ConfirmUserPageComponent
       },
       {
+        path: 'home', component: HomePageComponent
+      },
+      {
         path: '**', redirectTo: 'login', pathMatch: 'full'
-      }
+      },
     ]
   }
 
