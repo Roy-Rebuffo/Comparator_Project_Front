@@ -29,5 +29,8 @@ export class AuthService {
   getCarrefour(){
     return this.http.get('http://localhost:8084/scrapedatacarrefour')
   }
+  getAhorramas(){
+    return this.http.get('http://localhost:8084/scrapedataahorramas')
+  }
 
 }
