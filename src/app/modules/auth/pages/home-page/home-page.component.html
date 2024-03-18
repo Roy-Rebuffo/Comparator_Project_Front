@@ -1,11 +1,21 @@
-<div *ngFor="let item of carrefour">
-  <img src={{item.image}} alt="">
-  <h1>{{ item.title }}</h1>
-  <h3>{{ item.price }}</h3>
+<div class="item-cards-container">
+  <h2>TOP PRODUCTS CARREFOUR</h2>
+  <div class="item-cards">
+    <div class="item" *ngFor="let item of carrefour">
+        <img src={{item.image}} alt="">
+        <h3>{{ item.title }}</h3>
+        <h3>{{ item.price }}</h3>
+    </div>
+  </div>
 </div>
 
-<div *ngFor="let item of ahorramas">
-  <img src={{item.image}} alt="">
-  <h1>{{ item.title }}</h1>
-  <h3>{{ item.price }}</h3>
+<div class="item-cards-container">
+  <h2>TOP PRODUCTS AHORRAMAS</h2>
+  <div class="item-cards">
+    <div class="item" *ngFor="let item of carrefour">
+        <img src={{item.image}} alt="">
+        <h3>{{ item.title }}</h3>
+        <h3>{{ item.price }}</h3>
+    </div>
+  </div>
 </div>
