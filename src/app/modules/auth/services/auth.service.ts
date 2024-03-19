@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  private inputValue: string = '';
 
   constructor(private http: HttpClient) { }
 
@@ -35,4 +36,19 @@ export class AuthService {
   obtenerDatos(){
     return this.http.get('http://localhost:8084/scrapeDataCarrefour');
   }
+
+  setInputValue(value: string) {
+    this.inputValue = value;
+  }
+
+  getInputValue() {
+    return this.inputValue;
+  }
 }
+
+// obtenerDatosDeVariasFuentes(): Observable<any> {
+//   const url1 = this.http.get('http://url1.com/datos');
+//   const url2 = this.http.get('http://url2.com/datos');
+
+//   // Combina las solicitudes HTTP usando forkJoin
+//   return forkJoin([url1, url2]);

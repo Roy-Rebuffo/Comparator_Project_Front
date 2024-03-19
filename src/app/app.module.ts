@@ -16,7 +16,7 @@ import { AssignTokenInterceptor } from './modules/auth/interceptors/assign-token
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [{     provide: HTTP_INTERCEPTORS, useClass: AssignTokenInterceptor, multi: true   }],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AssignTokenInterceptor, multi: true   }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

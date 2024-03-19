@@ -12,6 +12,7 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 
 
@@ -26,6 +27,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HomePageComponent,
     HeaderComponent,
     FooterComponent,
+    SearchResultsComponent,
 
   ],
   imports: [
