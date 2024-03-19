@@ -4,6 +4,7 @@ import { ConfirmUserPageComponent } from './pages/confirm-user-page/confirm-user
 import { LandingComponent } from './pages/landing/landing.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { ComparatorComponent } from './components/comparator/comparator.component';
 
 
 
@@ -21,6 +22,9 @@ import { SearchResultsComponent } from './components/search-results/search-resul
         },
         {
           path: 'results', component: SearchResultsComponent
+        },
+        {
+          path: 'comparator', component: ComparatorComponent
         },
         {
           path: '**', redirectTo: 'login', pathMatch: 'full'

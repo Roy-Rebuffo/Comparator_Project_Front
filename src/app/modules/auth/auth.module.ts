@@ -13,6 +13,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { ComparatorComponent } from './components/comparator/comparator.component';
 
 
 
@@ -28,6 +29,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     HeaderComponent,
     FooterComponent,
     SearchResultsComponent,
+    ComparatorComponent,
 
   ],
   imports: [

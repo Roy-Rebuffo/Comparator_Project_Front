@@ -1,5 +1,4 @@
-
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -8,24 +7,37 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
   query: string = '';
   resultados: any[] = [];
   datos: any[] = [];
 
-  constructor(private authservice: AuthService, private router: Router) { } 
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.authservice.obtenerDatos().subscribe((data: any) => { 
-      this.datos = data; 
+    this.authService.obtenerDatos().subscribe((data: any) => {
+      this.datos = data;
     });
-  }   
+  }
 
   buscar(event:any) {
     this.resultados = this.datos.filter(item => item.price && item.image && item.title.toLowerCase().includes(this.query.toLowerCase()));
     console.log('Resultados:', this.resultados); // Imprime los resultados
-    this.authservice.setInputValue(this.query);
+    this.authService.setInputValue(this.query);
     this.router.navigate(['/results'], { state: { resultados: this.resultados, query: this.query } });
   }
+  // comparator(){
+  //   let resultadosComparacion = []
+  //   for(let resultado of this.resultados){
+  //     let product = resultado.find((item:any) => item.title.toLowerCase()===this.query.toLowerCase());
+  //     if(product){
+  //       resultadosComparacion.push(product)
+  //     }
+  //   }
+
+  //   this.router.navigate(['/comparator'],{ state:{resultados:resultadosComparacion, query:this.query}});
+  //   console.log(resultadosComparacion);
+
+  // }
 }
