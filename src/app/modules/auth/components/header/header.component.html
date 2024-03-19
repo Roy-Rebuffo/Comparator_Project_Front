@@ -8,11 +8,17 @@
             <button type="button" onclick="">Carrefour</button>
             <button type="button" onclick="">Ahorra Mas</button>
             <label for="text">Buscar</label>   
-            <input type="text" (input)="onInput($event)" [value]="resultados.join(', ')" placeholder="Search.." name="Buscar">
-            <button type="button" onclick="">Buscar</button>
-            <button type="button" onclick="">Mi perfil</button>
+            <input type="text" [(ngModel)]="query" placeholder="Search.." name="Buscar">
+            <button type="button" (click)="buscar()">Buscar</button>
+            <button type="button" >Mi perfil</button>
             <button type="button" onclick="">Cerrar sesion</button>
     </nav>
  </div>
-
+ <ul>
+    <li *ngFor="let resultado of resultados">
+      <h2>{{ resultado.title }}</h2>
+      <p>Precio: {{ resultado.price }}</p>
+      <img [src]="resultado.image" alt="{{ resultado.title }}">
+    </li>
+  </ul>
 

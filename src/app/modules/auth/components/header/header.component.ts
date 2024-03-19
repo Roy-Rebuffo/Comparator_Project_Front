@@ -1,7 +1,6 @@
-import { AuthService } from './../../services/auth.service';
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
+import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,20 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+
+  query: string = '';
   resultados: any[] = [];
+  datos: any[] = [];
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authservice: AuthService ) { } // Inyecta tu servicio
 
-  onInput(event: any): void {
-    const inputValue = event.target.value;
-    this.buscar(inputValue);
-  }
-
-  buscar(query: string): void {
-    this.authService.searchData(query).subscribe(data => { // Pass the query parameter to the searchData() method
-      console.log(data);
-      this.resultados = data.filter((item: any) => item && item.nombre && item.nombre.includes(query));
-      this.router.navigate(['/resultados']);
+  ngOnInit(): void {
+    this.authservice.obtenerDatos().subscribe((data: any) => { 
+      this.datos = data; 
     });
+  }   
+
+  buscar() {
+    this.resultados = this.datos.filter(item => item.price && item.image && item.title.toLowerCase().includes(this.query.toLowerCase()));
+    console.log('Resultados:', this.resultados); // Imprime los resultados
   }
 }

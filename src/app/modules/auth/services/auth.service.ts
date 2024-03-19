@@ -23,23 +23,16 @@ export class AuthService {
   }
 
   isAdmin(): Observable<boolean> {
-    return this.http.get<boolean>('http://localhost:8084/api/users/is-admin')
+    return this.http.get<boolean>('http://localhost:8084/api/users/is-admin');
   }
 
   getCarrefour(){
-    return this.http.get('http://localhost:8084/scrapedatacarrefour')
+    return this.http.get('http://localhost:8084/scrapedatacarrefour');
   }
   getAhorramas(){
-    return this.http.get('http://localhost:8084/scrapedataahorramas')
+    return this.http.get('http://localhost:8084/scrapedataahorramas');
   }
-  searchData(query: string): Observable<any[]> {
-    return new Observable(observer => {
-      this.http.get<any[]>('http://localhost:8084/scrapedatacarrefour').subscribe(data => {
-        console.log(data);
-      });
-    });
+  obtenerDatos(){
+    return this.http.get('http://localhost:8084/scrapeDataCarrefour');
   }
-
-
-
 }
