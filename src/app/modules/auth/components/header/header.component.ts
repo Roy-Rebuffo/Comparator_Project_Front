@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   query: string = '';
   resultados: any[] = [];
   datos: any[] = [];
-
+  dataAhorramas: any[] = [];
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -27,17 +27,33 @@ export class HeaderComponent implements OnInit {
     this.authService.setInputValue(this.query);
     this.router.navigate(['/results'], { state: { resultados: this.resultados, query: this.query } });
   }
-  // comparator(){
-  //   let resultadosComparacion = []
-  //   for(let resultado of this.resultados){
-  //     let product = resultado.find((item:any) => item.title.toLowerCase()===this.query.toLowerCase());
-  //     if(product){
-  //       resultadosComparacion.push(product)
-  //     }
-  //   }
 
-  //   this.router.navigate(['/comparator'],{ state:{resultados:resultadosComparacion, query:this.query}});
-  //   console.log(resultadosComparacion);
+  comparator(){
 
-  // }
+     let ahorramas = localStorage.getItem("ahorramas");
+
+     if (ahorramas) {
+       this.dataAhorramas = JSON.parse(ahorramas);
+     } 
+
+     //1. Obtener el nombre del producto a comparar (el que has pichado)
+     //2. Buscar el nombre en el array del ahorramas con un find.
+     //3. Cuando lo encuentre comparar los precios y dar un mensaje de compralo...
+
+    // const titulosUnicos = new Set<string>(); // Utilizamos un Set para almacenar los títulos únicos
+    // this.resultados.forEach(producto => {
+    //   if (!titulosUnicos.has(producto.titulo)) {
+    //     titulosUnicos.add(producto.titulo);
+    //   } else {
+    //     const precioActual = producto.precio;
+    //     const productoAnterior = this.resultados.find(p => p.titulo === producto.titulo && p.precio < precioActual);
+    //     if (productoAnterior) {
+    //       productoAnterior.precio < producto.precio ? productoAnterior.color = 'green' : producto.color = 'green';
+    //     }
+        
+    //   }
+      
+    // });
+    
+  }
 }

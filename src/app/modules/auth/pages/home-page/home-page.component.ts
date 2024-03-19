@@ -17,11 +17,13 @@ export class HomePageComponent {
   ngOnInit(): void {
     this.authService.getCarrefour().subscribe((data: any) => {
       this.carrefour = data;
+      localStorage.setItem("carrefour", JSON.stringify(data));
       this.mostrarProductosAleatorios();
     });
 
     this.authService.getAhorramas().subscribe((data: any) => {
       this.ahorramas = data;
+      localStorage.setItem("ahorramas", JSON.stringify(data));
       this.mostrarProductosAleatoriosAhorraMas();
     });
   }
