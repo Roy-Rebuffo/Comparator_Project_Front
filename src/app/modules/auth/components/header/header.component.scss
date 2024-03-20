@@ -1,0 +1,94 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  list-style: none;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+  background-color: hsl(252, 30%, 95%);
+  color: hsl(252, 30%, 17%);
+  overflow: hidden;
+}
+.container{
+  width: 80%;
+  margin: 0 auto;
+}
+nav{
+  width: 100%;
+  background-color: hsl(252, 30%, 100%);
+  padding: 0.7rem 0;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+nav .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-bar{
+  background-color: hsl(252, 30%, 95%);
+  border-radius: 2rem;
+  padding: 0.6rem 1rem;
+}
+
+.search-bar input[type="text"]{
+  background: transparent;
+  width: 30vw;
+  margin-left: 1rem;
+  font-size: 0.9rem;
+  color: hsl(252, 100%, 17%);
+}
+nav .button{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+a{
+  text-decoration: none;
+}
+.btn{
+  display: inline-block;
+  padding: 0.6rem 2rem;
+  font-weight: 500;
+  border-radius: 2rem;
+  cursor: pointer;
+  color: white;
+  background-color: hsl(252, 75%, 60%);
+  transition: all 300ms ease;
+}
+.btn a{
+  color: white;
+}
+.btn:hover{
+  opacity: 0.8;
+}
+
+.button ul{
+  display: flex;
+  padding: 10px;
+}
+ul li{
+  padding: 20px;
+}
+@media screen and (max-width: 1510px) {
+  .container{
+      display: flex;
+      flex-direction: column;
+  }
+  .container .search-bar{
+      margin-top: 20px;
+  }
+}
+@media screen and (max-width: 465px) {
+  .button{
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+}
