@@ -2,6 +2,7 @@ import { catchError } from 'rxjs';
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Product } from '../../interfaces/Product.interface';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-home-page',
@@ -11,17 +12,17 @@ import { Product } from '../../interfaces/Product.interface';
 export class HomePageComponent {
   carrefour: Product[] = [];
   ahorramas: Product[] = [];
- 
-  constructor(private authService: AuthService) {}
+
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.authService.getCarrefour().subscribe((data: any) => {
+    this.productService.getCarrefour().subscribe((data: any) => {
       this.carrefour = data;
       localStorage.setItem("carrefour", JSON.stringify(data));
       this.mostrarProductosAleatorios();
     });
 
-    this.authService.getAhorramas().subscribe((data: any) => {
+    this.productService.getAhorramas().subscribe((data: any) => {
       this.ahorramas = data;
       localStorage.setItem("ahorramas", JSON.stringify(data));
       this.mostrarProductosAleatoriosAhorraMas();
@@ -31,7 +32,7 @@ export class HomePageComponent {
   mostrarProductosAleatorios() {
     const totalProductos = this.carrefour.length;
     const indicesAleatorios: number[] = [];
-    
+
     // Generar 10 índices aleatorios únicos
     while (indicesAleatorios.length < 10) {
       const indiceAleatorio = Math.floor(Math.random() * totalProductos);
@@ -47,7 +48,7 @@ export class HomePageComponent {
   mostrarProductosAleatoriosAhorraMas() {
     const totalProductos = this.ahorramas.length;
     const indicesAleatorios: number[] = [];
-    
+
     // Generar 10 índices aleatorios únicos
     while (indicesAleatorios.length < 10) {
       const indiceAleatorio = Math.floor(Math.random() * totalProductos);

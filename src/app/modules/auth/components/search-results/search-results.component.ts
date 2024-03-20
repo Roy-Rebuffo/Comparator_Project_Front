@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ChangeDetectorRef } from '@angular/core';
 import { map } from 'rxjs';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-search-results',
@@ -14,7 +15,7 @@ export class SearchResultsComponent implements OnInit {
   resultados: any[] = [];
   query: string = '';
 
-  constructor(private router: Router, private authservice: AuthService, private route:ActivatedRoute) { }
+  constructor(private router: Router, private route:ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit(): void {
   this.route.params.subscribe(params=>{
@@ -23,19 +24,19 @@ export class SearchResultsComponent implements OnInit {
     //   next: (res:any) => {
     //     this.resultados = res.filter((item:any) => item.title.toLowerCase().includes(this.query.toLowerCase()));
     //     console.log(this.resultados);
-        
+
     //   }
 
     // })
-    this.authservice.obtenerDatos().subscribe({
+    this.productService.obtenerDatos().subscribe({
       next: (res:any) => {
             this.resultados = res.filter((item:any) => item.title.toLowerCase().includes(this.query.toLowerCase()));
             console.log(this.resultados);
-            
+
           }
-      
+
     })
-    
+
   })
   }
 
