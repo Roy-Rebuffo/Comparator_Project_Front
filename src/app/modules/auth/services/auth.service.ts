@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
   private inputValue: string = '';
-
+  
   constructor(private http: HttpClient) { }
 
   register(user: any) {
@@ -53,6 +53,8 @@ export class AuthService {
   getInputValue() {
     return this.inputValue;
   }
+
+
 }
 
 // obtenerDatosDeVariasFuentes(): Observable<any> {

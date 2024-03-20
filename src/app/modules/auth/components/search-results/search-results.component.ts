@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ChangeDetectorRef } from '@angular/core';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-search-results',
@@ -13,17 +14,29 @@ export class SearchResultsComponent implements OnInit {
   resultados: any[] = [];
   query: string = '';
 
-  constructor(private router: Router, private authservice: AuthService, private cd: ChangeDetectorRef) { }
+  constructor(private router: Router, private authservice: AuthService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.query = this.authservice.getInputValue(); // Obtener el valor del input desde el servicio
-    this.cd.detectChanges();
-    console.log(this.query);
+  this.route.params.subscribe(params=>{
+    this.query = params["search"]
+    // this.authservice.getCarrefour().subscribe({
+    //   next: (res:any) => {
+    //     this.resultados = res.filter((item:any) => item.title.toLowerCase().includes(this.query.toLowerCase()));
+    //     console.log(this.resultados);
+        
+    //   }
+
+    // })
+    this.authservice.obtenerDatos().subscribe({
+      next: (res:any) => {
+            this.resultados = res.filter((item:any) => item.title.toLowerCase().includes(this.query.toLowerCase()));
+            console.log(this.resultados);
+            
+          }
+      
+    })
     
-    const navigation = this.router.getCurrentNavigation();
-    if (navigation && navigation.extras.state) {
-      this.resultados = navigation.extras.state['resultados'];
-    }
+  })
   }
 
 }

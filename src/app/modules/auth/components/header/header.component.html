@@ -1,29 +1,25 @@
- <nav>
-  <div class="container">
-      <h2>Comparator Project</h2>
-      <div class="search-bar">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="search" [(ngModel)]="query" (input)="buscar($event)" placeholder="search" name="Buscar">
-      </div>
-      <div class="button">
-          <ul>
-              <li><a href="">Ahorramas</a></li>
-              <li><a href="">Carrefour</a></li>
-          </ul>
-          <p class="link"><a href="">Login</a></p>
-          <button class="btn"><a href="">Signup</a></button>
-      </div>
-  </div>
-</nav>
 
-
-
+<div>
+    <a routerLink="/home"><h1>Market comparator</h1></a>
+</div>
+<div>
+    <nav>
+            <button type="button" routerLink="/home">Home</button>
+            <button type="button" onclick="">Carrefour</button>
+            <button type="button" onclick="">Ahorra Mas</button>
+            <label for="text">Buscar</label>
+            <input type="text" [(ngModel)]="query" (input)="buscar($event)" placeholder="Search.." name="Buscar">
+            <!-- <button type="button" (click)="buscar()">Buscar</button> -->
+            <button type="button" >Mi perfil</button>
+            <button type="button" onclick="">Cerrar sesion</button>
+    </nav>
+ </div>
  <ul>
     <li *ngFor="let resultado of resultados">
       <h2>{{ resultado.title }}</h2>
       <p>Precio: {{ resultado.price }}</p>
       <img [src]="resultado.image" alt="{{ resultado.title }}">
-      <!-- <button (click)="comparator()">Comparar</button> -->
+      <button (click)="comparator()">Comparar</button>
     </li>
   </ul>
 

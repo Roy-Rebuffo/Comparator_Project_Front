@@ -21,7 +21,7 @@ import { ComparatorComponent } from './components/comparator/comparator.componen
           path: 'home', component: HomePageComponent
         },
         {
-          path: 'results', component: SearchResultsComponent
+          path: 'results/:search', component: SearchResultsComponent
         },
         {
           path: 'comparator', component: ComparatorComponent
