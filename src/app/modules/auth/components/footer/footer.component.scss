@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 .container{
+  line-height: 1.5;
 	max-width: 1170px;
 	margin:auto;
-  line-height: 1.5;
-	font-family: 'Poppins', sans-serif;
 }
 .row{
 	display: flex;
@@ -84,3 +83,7 @@ ul{
     width: 100%;
 }
 }
+
+
+
+

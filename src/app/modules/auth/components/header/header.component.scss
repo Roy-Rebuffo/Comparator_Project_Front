@@ -17,9 +17,6 @@ body{
   width: 80%;
   margin: 0 auto;
 }
-.container h2{
-  font-size: 35px;
-}
 nav{
   width: 100%;
   background-color: hsl(252, 30%, 100%);
@@ -40,7 +37,7 @@ nav .container{
   padding: 0.6rem 1rem;
 }
 
-.search-bar input[type="search"]{
+.search-bar input[type="text"]{
   background: transparent;
   width: 30vw;
   margin-left: 1rem;
