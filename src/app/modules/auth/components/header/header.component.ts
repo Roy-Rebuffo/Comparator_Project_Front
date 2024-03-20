@@ -22,12 +22,9 @@ export class HeaderComponent implements OnInit {
   }
 
   buscar(event:any) {
-    this.resultados = this.datos.filter(item => item.price && item.image && item.title.toLowerCase().includes(this.query.toLowerCase()));
-    console.log('Resultados:', this.resultados); // Imprime los resultados
-    this.authService.setInputValue(this.query);
-    this.router.navigate(['/results'], { state: { resultados: this.resultados, query: this.query } });
+    
+    this.router.navigate(['/results',event.target.value]) 
   }
-
   // comparator(){
 
   //    let ahorramas = localStorage.getItem("ahorramas");

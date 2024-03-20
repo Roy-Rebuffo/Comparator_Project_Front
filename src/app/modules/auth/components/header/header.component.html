@@ -8,7 +8,7 @@
             <button type="button" onclick="">Carrefour</button>
             <button type="button" onclick="">Ahorra Mas</button>
             <label for="text">Buscar</label>
-            <input type="text" [(ngModel)]="query" (input)="buscar($event)" placeholder="Search.." name="Buscar">
+            <input type="text" [(ngModel)]="query" (keyup.enter)="buscar($event)" placeholder="Search.." name="Buscar">
             <!-- <button type="button" (click)="buscar()">Buscar</button> -->
             <button type="button" >Mi perfil</button>
             <button type="button" onclick="">Cerrar sesion</button>
