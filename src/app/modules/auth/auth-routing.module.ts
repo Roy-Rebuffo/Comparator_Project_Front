@@ -27,7 +27,7 @@ import { ComparatorComponent } from './components/comparator/comparator.componen
           path: 'comparator', component: ComparatorComponent
         },
         {
-          path: '**', redirectTo: 'login', pathMatch: 'full'
+          path: '**', redirectTo: 'landing', pathMatch: 'full'
         }
       ]
     }
