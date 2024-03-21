@@ -58,11 +58,7 @@ export class HeaderComponent implements OnInit {
   // }
 
   comparator() {
-    let ahorramas = localStorage.getItem("ahorramas");
 
-    if (ahorramas) {
-      this.dataAhorramas = JSON.parse(ahorramas);
-    }
 
     // 1. Guardar el producto seleccionado al hacer clic
     const productoSeleccionado = { ...this.resultados.find(item => item.selected) };

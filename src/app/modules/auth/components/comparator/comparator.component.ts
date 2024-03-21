@@ -36,8 +36,12 @@ export class ComparatorComponent implements OnInit {
   }
 
   findCompareProduct(): void {
-    const compareProduct = this.products.find(producto => producto.title.toLowerCase() === this.title.toLowerCase());
+    const compareProduct = this.products.find(producto => producto.title.toLowerCase().includes(this.title.toLowerCase()));
+    console.log(compareProduct);
+    console.log(this.productsToCompare);
+    
     if (compareProduct && compareProduct !== this.productsToCompare) {
+
       this.compareProduct = compareProduct;
     }
   }
