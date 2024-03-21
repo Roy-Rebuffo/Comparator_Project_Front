@@ -25,23 +25,29 @@ export class ComparatorComponent implements OnInit {
         this.findCompareProduct();
       });
     });
-  } 
+  }
 
   findSimilarProducts(): void {
     this.productsToCompare = this.products.find(producto => producto.title.toLowerCase() === this.title.toLowerCase());
     if (this.productsToCompare) {
       this.similarProducts = this.products.filter(producto => producto.title.toLowerCase() !== this.title.toLowerCase())
-      .slice(0, 5); 
+      .slice(0, 5);
     }
   }
 
   findCompareProduct(): void {
-    const compareProduct = this.products.find(producto => producto.title.toLowerCase().includes(this.title.toLowerCase()));
+    // Crea una expresión regular con el título de los productos a comparar
+    const regex = new RegExp(this.title.split(" ").join("|"), "i");// "i" para hacer la búsqueda insensible a mayúsculas y minúsculas
+
+    // Encuentra el primer producto que coincide con el título buscado
+    const compareProduct = this.products.find(producto => regex.test(producto.title));
+
+    // Imprime los resultados para depuración
     console.log(compareProduct);
     console.log(this.productsToCompare);
-    
-    if (compareProduct && compareProduct !== this.productsToCompare) {
 
+    // Verifica si se encontró un producto para comparar y si es diferente al producto actualmente comparado
+    if (compareProduct && compareProduct !== this.productsToCompare) {
       this.compareProduct = compareProduct;
     }
   }
@@ -49,12 +55,12 @@ export class ComparatorComponent implements OnInit {
   precioMenor(producto: any): string {
     const comparePrice = this.products.find(prod => prod.title.toLowerCase() === this.title.toLowerCase()).price;
     if (producto.price < comparePrice) {
-      return 'green'; 
+      return 'green';
     } else if (producto.price === comparePrice) {
-      return 'black'; 
+      return 'black';
     } else {
-      return 'red'; 
+      return 'red';
     }
   }
-  
+
 }
