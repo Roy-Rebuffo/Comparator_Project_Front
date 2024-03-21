@@ -1,17 +1,17 @@
 <nav>
   <div class="container">
-      <h2>Comparator Project</h2>
+      <h2 routerLink="/home">Comparator</h2>
       <div class="search-bar">
           <i class="fa-solid fa-magnifying-glass"></i>
           <input type="text" [(ngModel)]="query" (keyup.enter)="buscar($event)" placeholder="Search.." name="Buscar">
       </div>
       <div class="button">
           <ul>
+              <li><a routerLink="/home">Home</a></li>
               <li><a href="">Ahorramas</a></li>
               <li><a href="">Carrefour</a></li>
           </ul>
-          <p class="link"><a href="">Login</a></p>
-          <button class="btn"><a href="">Signup</a></button>
+          <button class="btn"><a href="">Logout</a></button>
       </div>
   </div>
 </nav>

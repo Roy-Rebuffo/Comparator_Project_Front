@@ -42,7 +42,7 @@ export class LandingComponent {
         next: (response: any) => {
           if (response) {
             sessionStorage.setItem('token-app', JSON.stringify(response.token));
-            this.router.navigate(['']);
+            this.router.navigate(['home']);
           }
         },
         error: (error) => {
@@ -68,7 +68,7 @@ export class LandingComponent {
       next: (response: any) => {
         this.status = 'success';
         this.message = response.msg;
-        this.router.navigate(['']);
+        this.router.navigate(['home']);
       },
       error: (error) => {
         console.log(error);
