@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, forkJoin } from 'rxjs';
+import { BehaviorSubject, Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -8,6 +8,8 @@ import { map } from 'rxjs/operators';
 })
 export class ProductService {
   private inputValue: string = '';
+  private resultadosSubject = new BehaviorSubject<any[]>([]);
+  resultados$ = this.resultadosSubject.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -29,4 +31,5 @@ export class ProductService {
       })
     );
   }
+  
 }

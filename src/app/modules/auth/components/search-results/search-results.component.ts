@@ -32,12 +32,15 @@ export class SearchResultsComponent implements OnInit {
       next: (res:any) => {
             this.resultados = res.filter((item:any) => item.title.toLowerCase().includes(this.query.toLowerCase()));
             console.log(this.resultados);
-
           }
 
     })
 
   })
   }
-
+  compareProduct(title: string): void {
+    // Redirigir a la ruta /comparator y pasar el título del producto como parámetro
+    this.router.navigate(['/comparator'], { queryParams: { title: title } })
+  }
+  
 }

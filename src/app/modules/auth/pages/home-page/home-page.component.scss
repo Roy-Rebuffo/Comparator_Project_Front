@@ -1,17 +1,54 @@
+// .item-cards-container {
+//     margin-top: 200px;
+//     width: 100%; 
+//     overflow-x: scroll; 
+//     white-space: nowrap; 
+//   }
+  
+//   .item-cards {
+//     display: inline-block; 
+//   }
+  
+//   .item {
+//     display: inline-block; 
+//     margin-right: 20px; 
+//   }
+
+.home-container {
+  margin-top: 200px;
+}
+
 .item-cards-container {
-    width: 100%; 
-    overflow-x: scroll; 
-    white-space: nowrap; 
-  }
-  
-  .item-cards {
-    display: inline-block; 
-  }
-  
-  .item {
-    display: inline-block; 
-    margin-right: 20px; 
-  }
-  
-  
+  width: 80%; /* Reducir el ancho del contenedor */
+  margin: 10px auto 10px auto ; 
+  overflow-x: scroll; 
+  white-space: nowrap; /* Evitar que los elementos se envuelvan */
+  border-top: 1px solid #ccc; /* Línea arriba */
+  padding-top: 20px; /* Espacio entre la línea y el h2 */
+  padding-bottom: 20px; /* Espacio entre los dos carruseles */
+  position: relative; /* Para posicionar la flecha */
+}
+
+.item-cards {
+  display: inline-block;
+}
+
+.item {
+  display: inline-block;
+  margin-right: 10px; /* Espacio entre los elementos */
+}
+
+.item:last-child {
+  margin-right: 0; /* No añadir margen a la derecha para el último elemento */
+}
+
+.item img {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  width: 300px; /* Establecer un ancho fijo para todas las imágenes */
+  height: 300px; /* Establecer una altura fija para todas las imágenes */
+  object-fit:contain; /* Ajustar el tamaño de la imagen para cubrir el contenedor sin distorsionar la relación de aspecto */
+}
+
+
   

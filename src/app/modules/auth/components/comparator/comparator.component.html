@@ -1,5 +1,40 @@
+<!-- <app-header></app-header> -->
 <h1>funca</h1>
 
 <!-- <div *ngFor="let producto of productos" [style.color]="producto.color ? producto.color : 'black'">
     <p>{{ producto.titulo }} - Precio: {{ producto.precio }}</p>
   </div> -->
+
+
+  <div *ngIf="productsToCompare">
+    <h1>Comparación para "{{ productsToCompare.title }}"</h1>
+    <div>
+      <h2>{{ productsToCompare.title }}</h2>
+      <p>Precio: {{ productsToCompare.price }}</p>
+      <img [src]="productsToCompare.image" alt="{{ productsToCompare.title }}">
+    </div>
+    <div *ngIf="compareProduct">
+      <h2>{{ title }}</h2>
+      <p [style.color]="precioMenor(compareProduct)">Precio: {{ compareProduct.price }}</p>
+      <img [src]="compareProduct.image" alt="{{ title }}">
+    </div>
+  </div>
+    
+  <div *ngIf="similarProducts.length > 0">
+    <h2>Productos similares:</h2>
+    <ul>
+      <li *ngFor="let producto of similarProducts">
+        <h3>{{ producto.title }}</h3>
+        <p [style.color]="precioMenor(producto)">Precio: {{ producto.price }}</p>
+        <img [src]="producto.image" alt="{{ producto.title }}">
+      </li>
+    </ul>
+  </div>
+  
+  <app-footer></app-footer>
+  
+  
+  
+  
+  
+  

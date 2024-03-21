@@ -29,8 +29,7 @@ import { ComparatorComponent } from './components/comparator/comparator.componen
     HeaderComponent,
     FooterComponent,
     SearchResultsComponent,
-    ComparatorComponent,
-
+    ComparatorComponent
   ],
   imports: [
     CommonModule,

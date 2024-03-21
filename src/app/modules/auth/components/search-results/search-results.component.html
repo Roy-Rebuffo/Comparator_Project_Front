@@ -1,3 +1,10 @@
 <app-header></app-header>
-
+<ul>
+    <li *ngFor="let resultado of resultados">
+      <h2>{{ resultado.title }}</h2>
+      <p>Precio: {{ resultado.price }}</p>
+      <img [src]="resultado.image" alt="{{ resultado.title }}">
+      <button (click)="compareProduct(resultado.title)">Comparar</button>
+    </li>
+  </ul>
 <app-footer></app-footer>
