@@ -4,7 +4,10 @@
   <div class="gallery" *ngFor="let resultado of resultados">
     <img [src]="resultado.image" alt="{{ resultado.title }}">
     <div class="desc">{{ resultado.title }} {{ resultado.price }}</div>
-    <button (click)="compareProduct(resultado.title)">Comparar</button>
+    <div class="button-container">
+      <button (click)="compareProduct(resultado.title)">Comparar</button>
+    </div>
+
   </div>
 </div>
 
