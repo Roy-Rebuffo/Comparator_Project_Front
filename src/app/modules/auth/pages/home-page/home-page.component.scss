@@ -18,6 +18,7 @@ h2{
 
 .item-cards {
   display: inline-block;
+  cursor: pointer;
 }
 
 .item {
@@ -39,4 +40,10 @@ h2{
 
 .item h3 {
   color:#24262b;
+}
+
+@media screen and (max-width: 465px) {
+  .home-container{
+    margin-top: 270px;
+  }
 }

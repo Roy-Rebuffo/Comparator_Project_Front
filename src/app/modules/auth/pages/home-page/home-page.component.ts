@@ -60,4 +60,11 @@ export class HomePageComponent {
     // Obtener los productos aleatorios
     this.ahorramas = indicesAleatorios.map(indice => this.ahorramas[indice]);
   }
+
+  goToAhorramas(){
+    window.open('https://www.ahorramas.com/', '_blank');
+  }
+  goToCarrefour(){
+    window.open('https://www.carrefour.es/supermercado?ic_source=portal-y-corporativo&ic_medium=category-food-box&ic_content=ns', '_blank');
+  }
 }

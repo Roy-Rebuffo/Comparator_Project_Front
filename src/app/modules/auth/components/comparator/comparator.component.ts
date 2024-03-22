@@ -80,8 +80,6 @@ export class ComparatorComponent implements OnInit {
 
   goToSuperMarket(product: any) {
     let url;
-
-    // Determinar la URL según el supermercado del producto actual
     if (product.supermarket === "carrefour") {
       url = 'https://www.carrefour.es/supermercado?ic_source=portal-y-corporativo&ic_medium=category-food-box&ic_content=ns';
     } else {
