@@ -20,15 +20,7 @@ export class SearchResultsComponent implements OnInit {
   ngOnInit(): void {
   this.route.params.subscribe(params=>{
     this.query = params["search"]
-    // this.authservice.getCarrefour().subscribe({
-    //   next: (res:any) => {
-    //     this.resultados = res.filter((item:any) => item.title.toLowerCase().includes(this.query.toLowerCase()));
-    //     console.log(this.resultados);
-
-    //   }
-
-    // })
-    this.productService.obtenerDatos().subscribe({
+    this.productService.obtener().subscribe({
       next: (res:any) => {
             this.resultados = res.filter((item:any) => item.title.toLowerCase().includes(this.query.toLowerCase()));
             console.log(this.resultados);
@@ -42,5 +34,5 @@ export class SearchResultsComponent implements OnInit {
     // Redirigir a la ruta /comparator y pasar el título del producto como parámetro
     this.router.navigate(['/comparator'], { queryParams: { title: title } })
   }
-  
+
 }

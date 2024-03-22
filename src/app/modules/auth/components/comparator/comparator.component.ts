@@ -20,7 +20,7 @@ export class ComparatorComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.title = params['title'];
-      this.productService.obtenerDatos().subscribe((res: any[]) => {
+      this.productService.obtener().subscribe((res: any[]) => {
         this.products = res;
         this.findSimilarProducts();
         this.findCompareProduct();
@@ -53,10 +53,10 @@ export class ComparatorComponent implements OnInit {
             break
 
         }}
-        
-      } 
+
+      }
   }
-    
+
     // Imprime los resultados para depuración
     console.log(this.compareProduct);
     console.log(this.productsToCompare);
