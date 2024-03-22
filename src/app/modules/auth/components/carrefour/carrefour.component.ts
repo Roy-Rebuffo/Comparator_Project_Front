@@ -7,7 +7,6 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./carrefour.component.scss']
 })
 export class CarrefourComponent {
-  datos: any[] = [];
   resultados: any[] = [];
 
   constructor(private productService: ProductService) { }

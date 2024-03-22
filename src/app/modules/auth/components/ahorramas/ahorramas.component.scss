@@ -1,0 +1,72 @@
+.container {
+  font-family: 'Poppins', sans-serif;
+  max-width: 1200px;
+  margin: auto;
+  background: #ffffff;
+  overflow: hidden;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 100px;
+  margin-top: 150px;
+}
+.gallery {
+  margin: 5px;
+  border: 1px solid #24262b57;
+  border-radius: 10px;
+  float: left;
+  width: 390px;
+  height: 450px;
+}
+img {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.gallery img {
+  width: 100%;
+}
+
+.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.button-container {
+  width: 100%;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+button{
+  display: inline-block;
+  padding: 0.6rem 2rem;
+  font-weight: 500;
+  border-radius: 2rem;
+  cursor: pointer;
+  color: white;
+  background-color: hsl(252, 75%, 60%);
+  transition: all 300ms ease;
+  border: none;
+}
+button:hover{
+  opacity: 0.8;
+  color: #ccc;
+}
+@media screen and (max-width: 1660px) {
+  .container{
+    margin-top: 250px;
+
+  }
+}
+@media screen and (max-width: 1510px) {
+
+}
+@media screen and (max-width: 465px) {
+  .container{
+    margin-top: 300px;
+  }
+}
