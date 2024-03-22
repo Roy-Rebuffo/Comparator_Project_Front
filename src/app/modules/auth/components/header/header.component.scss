@@ -16,6 +16,11 @@ body{
 .container{
   width: 80%;
   margin: 0 auto;
+  border-bottom: 1px solid #24262b57;
+}
+.container .header-title{
+  font-size: 50px;
+  color: black;
 }
 nav{
   width: 100%;
@@ -25,7 +30,10 @@ nav{
   top: 0;
   z-index: 10;
   margin-bottom: 20px;
+  color: #24262b;
+  transition: 0.6s;
 }
+
 nav .container{
   display: flex;
   align-items: center;
@@ -52,6 +60,8 @@ nav .button{
 }
 a{
   text-decoration: none;
+  color: #24262b;
+  font-weight: bolder;
 }
 .btn{
   display: inline-block;
@@ -77,7 +87,7 @@ a{
 ul li{
   padding: 20px;
 }
-@media screen and (max-width: 1510px) {
+@media screen and (max-width: 1660px) {
   .container{
       display: flex;
       flex-direction: column;

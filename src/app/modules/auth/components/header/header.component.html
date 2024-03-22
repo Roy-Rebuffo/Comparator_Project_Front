@@ -1,6 +1,6 @@
 <nav>
   <div class="container">
-      <h2 routerLink="/home">Comparator</h2>
+      <a class="header-title" routerLink="/home">Comparator</a>
       <div class="search-bar">
           <i class="fa-solid fa-magnifying-glass"></i>
           <input type="text" [(ngModel)]="query" (keyup.enter)="buscar($event)" placeholder="Search.." name="Buscar">
