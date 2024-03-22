@@ -9,6 +9,7 @@ import { ProductService } from '../../services/product.service';
 })
 export class ComparatorComponent implements OnInit {
   title: string = '';
+  supermarket: string = '';
   products: any[] = [];
   productsToCompare: any = null;
   similarProducts: any[] = [];
@@ -55,11 +56,6 @@ export class ComparatorComponent implements OnInit {
         
       } 
   }
-  
-
-
-
-
     
     // Imprime los resultados para depuración
     console.log(this.compareProduct);
@@ -82,4 +78,17 @@ export class ComparatorComponent implements OnInit {
     }
   }
 
+  goToSuperMarket(product: any) {
+    let url;
+
+    // Determinar la URL según el supermercado del producto actual
+    if (product.supermarket === "carrefour") {
+      url = 'https://www.carrefour.es/supermercado?ic_source=portal-y-corporativo&ic_medium=category-food-box&ic_content=ns';
+    } else {
+      url = 'https://www.ahorramas.com/';
+    }
+
+    // Abrir la URL en una nueva pestaña
+    window.open(url, '_blank');
+  }
 }
