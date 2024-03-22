@@ -22,19 +22,7 @@ export class ProductService {
   getAhorramas(){
     return this.http.get('http://localhost:8084/scrapedataahorramas');
   }
-  // obtenerDatos(): Observable<any[]> {
-
-  //   const url1 = this.http.get('http://localhost:8084/scrapedatacarrefour');
-  //   const url2 = this.http.get('http://localhost:8084/scrapedataahorramas');
-
-  //   // Utiliza forkJoin para combinar las dos solicitudes HTTP y mapea los resultados para obtener un solo array
-  //   return forkJoin([url1, url2]).pipe(
-  //     map((results: any[]) => {
-  //       return results.reduce((acc, curr) => acc.concat(curr), []); // Concatena los resultados en un solo array
-
-  //     })
-  //   );
-  // }
+ 
 
   obtener(): Observable<any[]> {
     let ahorramas = localStorage.getItem("ahorramas");
@@ -52,6 +40,25 @@ export class ProductService {
 
     // Devuelve un observable que emite el resultado
     return of(results);
+  }
+
+  obtenerAhorramas(): Observable<any[]> {
+    let ahorramas = localStorage.getItem("ahorramas");
+    if (ahorramas) {
+      this.dataAhorramas = JSON.parse(ahorramas);
+    }
+    // Devuelve un observable que emite los datos de ahorramas
+    return of(this.dataAhorramas);
+  }
+  
+  // Obtener datos de carrefour
+  obtenerCarrefour(): Observable<any[]> {
+    let carrefour = localStorage.getItem("carrefour");
+    if (carrefour) {
+      this.dataCarrefour = JSON.parse(carrefour);
+    }
+    // Devuelve un observable que emite los datos de carrefour
+    return of(this.dataCarrefour);
   }
 
 }

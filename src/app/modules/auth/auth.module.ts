@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmUserPageComponent } from './pages/confirm-user-page/confirm-user-page.component';
@@ -10,6 +9,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { ComparatorComponent } from './components/comparator/comparator.component';
+import { AhorramasComponent } from './components/ahorramas/ahorramas.component';
+import { CarrefourComponent } from './components/carrefour/carrefour.component';
 
 
 
@@ -21,7 +22,9 @@ import { ComparatorComponent } from './components/comparator/comparator.componen
     HeaderComponent,
     FooterComponent,
     SearchResultsComponent,
-    ComparatorComponent
+    ComparatorComponent,
+    AhorramasComponent,
+    CarrefourComponent
   ],
   imports: [
     CommonModule,
