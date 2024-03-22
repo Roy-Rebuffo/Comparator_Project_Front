@@ -40,16 +40,35 @@ export class ComparatorComponent implements OnInit {
     const regex = new RegExp(this.title.split(" ").join("|"), "i");// "i" para hacer la búsqueda insensible a mayúsculas y minúsculas
 
     // Encuentra el primer producto que coincide con el título buscado
-    const compareProduct = this.products.find(producto => regex.test(producto.title));
+    //const compareProduct = this.products.find(producto => regex.test(producto.title.split(" ")));
+   let conteo = 0;
+    for (let product of this.products){
+      for (let palabra of product.title.split(" ")){
+        let regex = new RegExp("\b" + palabra + "\b", "i"); // \b indica límites de palabra
+        if (regex.test(product)) {
+            conteo++;
+           if(conteo === 2) {
+            this.compareProduct = product;
+            break
 
+        }}
+        
+      } 
+  }
+  
+
+
+
+
+    
     // Imprime los resultados para depuración
-    console.log(compareProduct);
+    console.log(this.compareProduct);
     console.log(this.productsToCompare);
 
-    // Verifica si se encontró un producto para comparar y si es diferente al producto actualmente comparado
-    if (compareProduct && compareProduct !== this.productsToCompare) {
-      this.compareProduct = compareProduct;
-    }
+    // // Verifica si se encontró un producto para comparar y si es diferente al producto actualmente comparado
+    // if (compareProduct && compareProduct !== this.productsToCompare) {
+    //   this.compareProduct = compareProduct;
+    // }
   }
 
   precioMenor(producto: any): string {
