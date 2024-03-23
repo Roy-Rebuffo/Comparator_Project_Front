@@ -14,6 +14,7 @@ import { CarrefourComponent } from './components/carrefour/carrefour.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { FavoritosComponent } from './components/favoritos/favoritos.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 
 
 
@@ -30,7 +31,8 @@ import { FavoritosComponent } from './components/favoritos/favoritos.component';
     CarrefourComponent,
     AboutUsComponent,
     SpinnerComponent,
-    FavoritosComponent
+    FavoritosComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     CommonModule,

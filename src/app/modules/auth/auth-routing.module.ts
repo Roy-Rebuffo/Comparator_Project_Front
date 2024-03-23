@@ -9,6 +9,7 @@ import { AhorramasComponent } from './components/ahorramas/ahorramas.component';
 import { CarrefourComponent } from './components/carrefour/carrefour.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { FavoritosComponent } from './components/favoritos/favoritos.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 
 
 
@@ -21,6 +22,9 @@ import { FavoritosComponent } from './components/favoritos/favoritos.component';
         },
         {
           path: 'about', component: AboutUsComponent
+        },
+        {
+          path: 'privacy-policy', component: PrivacyPolicyComponent
         },
         {
           path: 'confirm-user/:token', component: ConfirmUserPageComponent
