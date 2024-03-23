@@ -12,6 +12,7 @@ import { ComparatorComponent } from './components/comparator/comparator.componen
 import { AhorramasComponent } from './components/ahorramas/ahorramas.component';
 import { CarrefourComponent } from './components/carrefour/carrefour.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { FavoritosComponent } from './components/favoritos/favoritos.component';
 
 
 
@@ -26,7 +27,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     ComparatorComponent,
     AhorramasComponent,
     CarrefourComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    FavoritosComponent
   ],
   imports: [
     CommonModule,

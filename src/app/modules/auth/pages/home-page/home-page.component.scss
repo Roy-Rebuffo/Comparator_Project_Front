@@ -6,24 +6,32 @@ h2{
 }
 
 .item-cards-container {
-  width: 80%; 
-  margin: 10px auto 10px auto ; 
+  width: 75%; 
+  height: 390px;
+  margin: 20px auto 20px auto ; 
   overflow-x: scroll; 
   white-space: nowrap; 
   border-top: 1px solid #ccc; 
   padding-top: 20px; 
   padding-bottom: 20px; 
   position: relative; 
+  overflow-y: hidden;
+  
 }
 
 .item-cards {
   display: inline-block;
   cursor: pointer;
+  
 }
 
 .item {
   display: inline-block;
-  margin-right: 10px; 
+  margin-right: 20px; 
+  margin-top: 10px;
+  max-width: 350px;
+  vertical-align: top;
+  text-align: center;
 }
 
 .item:last-child {
@@ -33,13 +41,27 @@ h2{
 .item img {
   margin-top: 10px;
   margin-bottom: 5px;
-  width: 300px; 
-  height: 300px; 
+  width: 200px; 
+  height: 200px; 
   object-fit:contain; 
 }
 
 .item h3 {
   color:#24262b;
+  margin-bottom: 10px;
+  white-space: normal;
+}
+
+.item-cards-container::-webkit-scrollbar {
+  height: 10px; /* Altura de la barra de desplazamiento */
+}
+.item-cards-container::-webkit-scrollbar-thumb {
+  background-color:  hsl(252, 75%, 60%); /* Color de fondo de la barra de desplazamiento */
+  border-radius: 5px; /* Borde redondeado */
+}
+/* Estilo del botón de la barra de desplazamiento para navegadores Webkit */
+.item-cards-container::-webkit-scrollbar-button {
+  display: none; /* Ocultar el botón de la barra de desplazamiento */
 }
 
 @media screen and (max-width: 465px) {
