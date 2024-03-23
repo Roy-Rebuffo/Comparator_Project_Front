@@ -7,6 +7,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { ComparatorComponent } from './components/comparator/comparator.component';
 import { AhorramasComponent } from './components/ahorramas/ahorramas.component';
 import { CarrefourComponent } from './components/carrefour/carrefour.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 
 
@@ -16,6 +17,9 @@ import { CarrefourComponent } from './components/carrefour/carrefour.component';
       path: '', children: [
         {
           path: 'landing', component: LandingComponent
+        },
+        {
+          path: 'about', component: AboutUsComponent
         },
         {
           path: 'confirm-user/:token', component: ConfirmUserPageComponent
