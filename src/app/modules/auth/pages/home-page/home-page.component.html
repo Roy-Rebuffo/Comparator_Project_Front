@@ -1,5 +1,6 @@
 <app-header></app-header>
-<div class="home-container">
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="home-container" *ngIf="!isLoading">
   <div class="item-cards-container">
     <h2>TOP PRODUCTS CARREFOUR</h2>
     <div (click)="goToCarrefour()" class="item-cards">

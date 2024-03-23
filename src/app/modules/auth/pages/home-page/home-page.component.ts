@@ -12,6 +12,7 @@ import { ProductService } from '../../services/product.service';
 export class HomePageComponent {
   carrefour: Product[] = [];
   ahorramas: Product[] = [];
+  isLoading: boolean = true;
 
   constructor(private productService: ProductService) {}
 
@@ -20,12 +21,14 @@ export class HomePageComponent {
       this.carrefour = data;
       localStorage.setItem("carrefour", JSON.stringify(data));
       this.mostrarProductosAleatorios();
+      this.checkLoadingState();
     });
 
     this.productService.getAhorramas().subscribe((data: any) => {
       this.ahorramas = data;
       localStorage.setItem("ahorramas", JSON.stringify(data));
       this.mostrarProductosAleatoriosAhorraMas();
+      this.checkLoadingState();
     });
   }
 
@@ -59,6 +62,12 @@ export class HomePageComponent {
 
     // Obtener los productos aleatorios
     this.ahorramas = indicesAleatorios.map(indice => this.ahorramas[indice]);
+  }
+  checkLoadingState() {
+    // Verificar si ambos conjuntos de datos han sido cargados
+    if (this.carrefour.length > 0 && this.ahorramas.length > 0) {
+      this.isLoading = false; // Cambiar el estado de isLoading cuando todos los datos estén disponibles
+    }
   }
 
   goToAhorramas(){

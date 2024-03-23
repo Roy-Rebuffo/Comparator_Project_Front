@@ -11,6 +11,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { ComparatorComponent } from './components/comparator/comparator.component';
 import { AhorramasComponent } from './components/ahorramas/ahorramas.component';
 import { CarrefourComponent } from './components/carrefour/carrefour.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 
@@ -24,7 +25,8 @@ import { CarrefourComponent } from './components/carrefour/carrefour.component';
     SearchResultsComponent,
     ComparatorComponent,
     AhorramasComponent,
-    CarrefourComponent
+    CarrefourComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
