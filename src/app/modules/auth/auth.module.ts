@@ -13,6 +13,7 @@ import { AhorramasComponent } from './components/ahorramas/ahorramas.component';
 import { CarrefourComponent } from './components/carrefour/carrefour.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { FavoritosComponent } from './components/favoritos/favoritos.component';
 
 
 
@@ -29,6 +30,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     CarrefourComponent,
     AboutUsComponent,
     SpinnerComponent
+    SpinnerComponent,
+    FavoritosComponent
   ],
   imports: [
     CommonModule,

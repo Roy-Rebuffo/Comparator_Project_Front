@@ -8,6 +8,7 @@ import { ComparatorComponent } from './components/comparator/comparator.componen
 import { AhorramasComponent } from './components/ahorramas/ahorramas.component';
 import { CarrefourComponent } from './components/carrefour/carrefour.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { FavoritosComponent } from './components/favoritos/favoritos.component';
 
 
 
@@ -38,6 +39,9 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
         },
         {
           path: 'comparator', component: ComparatorComponent
+        },
+        {
+          path: 'favoritos', component: FavoritosComponent
         },
         {
           path: '**', redirectTo: 'landing', pathMatch: 'full'
