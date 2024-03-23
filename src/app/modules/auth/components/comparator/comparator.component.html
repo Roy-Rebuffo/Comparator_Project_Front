@@ -1,31 +1,33 @@
 <app-header></app-header>
 
 <div class="comparator-container">
-  <div  *ngIf="productsToCompare">
-    <h1>Comparación para "{{ productsToCompare.title }}"</h1>
-    <div>
-      <h2>{{ productsToCompare.title }}</h2>
-      <p>Precio: {{ productsToCompare.price }}</p>
+  <div class="container-products-comapare" *ngIf="productsToCompare">
+    <h1 class="title-comparation">Comparación para "{{ productsToCompare.title }}"</h1>
+    <div class="products-compare-container">
       <img [src]="productsToCompare.image" alt="{{ productsToCompare.title }}">
-      <button (click)="goToSuperMarket(productsToCompare)">Ir al supermercado</button>
+      <h2 class="desc">{{ productsToCompare.title }}</h2>
+      <p class="compare-price">Precio: {{ productsToCompare.price }}</p>
+      <div class="button-container">
+        <button class="button-compare" (click)="goToSuperMarket(productsToCompare)">Ir al supermercado</button>
+      </div>
     </div>
-    <div *ngIf="compareProduct">
-      <h2>{{ title }}</h2>
-      <p [style.color]="precioMenor(compareProduct)">Precio: {{ compareProduct.price }}</p>
+    <div class="container-products-comapare" *ngIf="compareProduct">
       <img [src]="compareProduct.image" alt="{{ title }}">
-      <button (click)="goToSuperMarket(compareProduct)">Ir al supermercado</button>
+      <h2 class="desc">{{ title }}</h2>
+      <p [style.color]="precioMenor(compareProduct)">Precio: {{ compareProduct.price }}</p>
+      <button class="button-compare" (click)="goToSuperMarket(compareProduct)">Ir al supermercado</button>
     </div>
   </div>
     
-  <div class="similarProducts-container" *ngIf="similarProducts.length > 0">
-    <h2>Productos similares:</h2>
+  <div class="similar-comparator-container" *ngIf="similarProducts.length > 0">
+    <h2 class="title-comparation" >Productos similares:</h2>
     <div class="card-similarProducts">
       <ul>
-        <li *ngFor="let producto of similarProducts">
-          <h3>{{ producto.title }}</h3>
+        <li class="container-products-comapare" *ngFor="let producto of similarProducts">
+          <h3 class="desc">{{ producto.title }}</h3>
           <p [style.color]="precioMenor(producto)">Precio: {{ producto.price }}</p>
           <img [src]="producto.image" alt="{{ producto.title }}">
-          <button (click)="goToSuperMarket(producto)">Ir al supermercado</button>
+          <button class="button-compare" (click)="goToSuperMarket(producto)">Ir al supermercado</button>
         </li>
       </ul>
       
