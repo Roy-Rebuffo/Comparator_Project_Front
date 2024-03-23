@@ -14,6 +14,7 @@ export class ComparatorComponent implements OnInit {
   productsToCompare: any = null;
   similarProducts: any[] = [];
   compareProduct: any = null;
+  resultados: any 
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
@@ -37,34 +38,23 @@ export class ComparatorComponent implements OnInit {
   }
 
   findCompareProduct(): void {
-    // Crea una expresión regular con el título de los productos a comparar
-    const regex = new RegExp(this.title.split(" ").join("|"), "i");// "i" para hacer la búsqueda insensible a mayúsculas y minúsculas
-
-    // Encuentra el primer producto que coincide con el título buscado
-    //const compareProduct = this.products.find(producto => regex.test(producto.title.split(" ")));
-   let conteo = 0;
-    for (let product of this.products){
-      for (let palabra of product.title.split(" ")){
-        let regex = new RegExp("\b" + palabra + "\b", "i"); // \b indica límites de palabra
-        if (regex.test(product)) {
-            conteo++;
-           if(conteo === 2) {
-            this.compareProduct = product;
-            break
-
-        }}
-
+  console.log(this.productsToCompare);
+  
+  const stringsABuscar = this.productsToCompare.title.split(" ");
+  console.log(stringsABuscar);
+  
+  const resultados = this.products.filter(objeto => {
+    let count = 0;
+    for (let palabras of stringsABuscar){
+      if (objeto.title.includes(palabras)){
+        count ++
       }
-  }
-
-    // Imprime los resultados para depuración
-    console.log(this.compareProduct);
-    console.log(this.productsToCompare);
-
-    // // Verifica si se encontró un producto para comparar y si es diferente al producto actualmente comparado
-    // if (compareProduct && compareProduct !== this.productsToCompare) {
-    //   this.compareProduct = compareProduct;
-    // }
+    }
+    return count >= 5  
+      // return stringsABuscar.every((string:any) => objeto.title.includes(string));
+  });
+  
+  console.log(resultados);
   }
 
   precioMenor(producto: any): string {
