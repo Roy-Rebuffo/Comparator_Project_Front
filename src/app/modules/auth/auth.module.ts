@@ -29,7 +29,6 @@ import { FavoritosComponent } from './components/favoritos/favoritos.component';
     AhorramasComponent,
     CarrefourComponent,
     AboutUsComponent,
-    SpinnerComponent
     SpinnerComponent,
     FavoritosComponent
   ],
