@@ -30,6 +30,7 @@ body{
   border-radius: 50%;
   border: 1px solid #fff;
   cursor: pointer;
+  margin-right: 15px;
 }
 nav{
   width: 100%;
@@ -96,7 +97,7 @@ a{
 ul li{
   padding: 20px;
 }
-@media screen and (max-width: 1820px) {
+@media screen and (max-width: 2145px) {
   .container{
       display: flex;
       flex-direction: column;
