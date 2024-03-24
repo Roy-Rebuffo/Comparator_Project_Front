@@ -74,4 +74,29 @@ export class HomePageComponent {
   goToCarrefour(){
     window.open('https://www.carrefour.es/supermercado?ic_source=portal-y-corporativo&ic_medium=category-food-box&ic_content=ns', '_blank');
   }
+
+  addToFavorites(title: string, image: string, price:number) {
+    const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos') || '[]');
+
+    console.log(favoritesFromLocal);
+
+    const existingTitleIndex = favoritesFromLocal.findIndex((prodFav: any) => prodFav.title === title && prodFav.image === image && prodFav.price === price);
+
+    if (existingTitleIndex === -1) {
+        // El producto no está en favoritos, así que lo agregamos
+        favoritesFromLocal.push({ title: title, price: price,image: image }); // Agregamos el producto como un objeto con su título
+    } else {
+        // El producto ya está en favoritos, así que lo eliminamos
+        favoritesFromLocal.splice(existingTitleIndex, 1);
+    }
+
+    // Actualizamos la lista de favoritos en el almacenamiento local
+    localStorage.setItem('favoritos', JSON.stringify(favoritesFromLocal));
+
+}
+isFavorite(productTitle: string): boolean {
+  const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos')!);
+  return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
+}
+
 }

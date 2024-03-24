@@ -3,26 +3,28 @@
 <div class="home-container" *ngIf="!isLoading">
   <div class="item-cards-container">
     <h2>TOP PRODUCTS CARREFOUR</h2>
-    <div (click)="goToCarrefour()" class="item-cards">
+    <div class="item-cards">
       <div class="item" *ngFor="let item of carrefour">
-          <img src={{item.image}} alt="">
-          <h3>{{ item.title }}</h3>
-          <h3>{{ item.price }}</h3>
+        <i (click)="addToFavorites(item.title, item.image, item.price)" class="fa-regular fa-heart" [ngClass]="{'favorite': isFavorite(item.title)}"></i>
+          <img (click)="goToCarrefour()" src={{item.image}} alt="">
+          <h3 (click)="goToCarrefour()">{{ item.title }}</h3>
+          <h3 (click)="goToCarrefour()">{{ item.price }}</h3>
       </div>
     </div>
   </div>
-  
+
   <div class="item-cards-container">
     <h2>TOP PRODUCTS AHORRAMAS</h2>
-    <div (click)="goToAhorramas()" class="item-cards">
+    <div class="item-cards">
       <div class="item" *ngFor="let item of ahorramas">
-          <img src={{item.image}} alt="">
-          <h3>{{ item.title }}</h3>
-          <h3>{{ item.price }}</h3>
+          <i (click)="addToFavorites(item.title, item.image, item.price)" class="fa-regular fa-heart" [ngClass]="{'favorite': isFavorite(item.title)}"></i>
+          <img (click)="goToAhorramas()" src={{item.image}} alt="">
+          <h3 (click)="goToAhorramas()">{{ item.title }}</h3>
+          <h3 (click)="goToAhorramas()">{{ item.price }}</h3>
       </div>
     </div>
   </div>
   <app-footer></app-footer>
-  
+
 
 </div>
