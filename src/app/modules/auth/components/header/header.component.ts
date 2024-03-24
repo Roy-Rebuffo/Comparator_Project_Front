@@ -27,4 +27,11 @@ export class HeaderComponent implements OnInit {
 
     this.router.navigate(['/results',event.target.value])
   }
+
+  logout() {
+    
+    sessionStorage.removeItem('token-app');
+
+    this.router.navigate(['/landing']);
+  }
 }
