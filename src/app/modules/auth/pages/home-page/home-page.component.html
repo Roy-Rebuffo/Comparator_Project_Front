@@ -9,6 +9,7 @@
           <img (click)="goToCarrefour()" src={{item.image}} alt="">
           <h3 (click)="goToCarrefour()">{{ item.title }}</h3>
           <h3 (click)="goToCarrefour()">{{ item.price }}</h3>
+          <button (click)="compareProduct(item.title)">Comparar</button>
       </div>
     </div>
   </div>
@@ -21,6 +22,7 @@
           <img (click)="goToAhorramas()" src={{item.image}} alt="">
           <h3 (click)="goToAhorramas()">{{ item.title }}</h3>
           <h3 (click)="goToAhorramas()">{{ item.price }}</h3>
+          <button (click)="compareProduct(item.title)">Comparar</button>
       </div>
     </div>
   </div>

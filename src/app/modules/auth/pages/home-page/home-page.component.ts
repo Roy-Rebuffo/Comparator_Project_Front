@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../../interfaces/Product.interface';
 import { ProductService } from '../../services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -12,7 +13,7 @@ export class HomePageComponent {
   ahorramas: Product[] = [];
   isLoading: boolean = true;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit(): void {
     this.productService.getCarrefour().subscribe((data: any) => {
@@ -97,6 +98,10 @@ export class HomePageComponent {
 isFavorite(productTitle: string): boolean {
   const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos')!);
   return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
+}
+compareProduct(title: string): void {
+  // Redirigir a la ruta /comparator y pasar el título del producto como parámetro
+  this.router.navigate(['/comparator'], { queryParams: { title: title } })
 }
 
 }
