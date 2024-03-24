@@ -98,7 +98,7 @@ article a:hover{
 }
 .about{
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 70px;
 }
 article{
   margin-top: 30px;
@@ -107,7 +107,7 @@ article h3{
   font-size: 18px;
 }
 article p{
-  font-size: 15px;
+  font-size: 20px;
 }
 article .button{
   margin-bottom: 50px;
@@ -117,4 +117,9 @@ article a{
   font-size: 17px;
 }
 
+}
+@media screen and (max-width: 600px) {
+  .about{
+    margin-top: 170px;
+  }
 }

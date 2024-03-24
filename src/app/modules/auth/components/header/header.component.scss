@@ -98,10 +98,20 @@ ul li{
       margin-top: 20px;
   }
 }
-@media screen and (max-width: 465px) {
+@media screen and (max-width: 600px) {
   .button{
       width: 100%;
       flex-wrap: wrap;
       justify-content: center;
   }
+  .button ul{
+
+  }
 }
+@media screen and (max-width: 415px) {
+  .button ul{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+

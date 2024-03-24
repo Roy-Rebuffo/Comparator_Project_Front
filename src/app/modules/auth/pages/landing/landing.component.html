@@ -9,7 +9,9 @@
           </div>
           <div class="input-field">
               <i class="fa-solid fa-lock"></i>
-              <input name="password" type="password" placeholder="Password" [(ngModel)]="password" required>
+              <input type="{{showPassword ? 'text' : 'password'}}" id="password" name="password" [(ngModel)]="password" required placeholder="Password">
+              <i (click)="togglePasswordVisibility()" *ngIf="showPassword" class="fa-solid fa-eye"></i>
+              <i (click)="togglePasswordVisibility()" *ngIf="!showPassword" class="fa-solid fa-eye-slash"></i>
           </div>
           <input type="submit" value="Login" class="btn">
           <p class="social-text">Or Sign in with social platform</p>
@@ -46,9 +48,11 @@
               <i class="fa-solid fa-envelope"></i>
               <input name="email" type="text" placeholder="Email" [(ngModel)]="email" required>
           </div>
-          <div class="input-field">
+          <div class="input-field" >
               <i class="fa-solid fa-lock"></i>
-              <input name="password" type="password" placeholder="Password" [(ngModel)]="password" required>
+              <input type="{{showPassword ? 'text' : 'password'}}" id="password" name="password" [(ngModel)]="password" required placeholder="Password">
+              <i (click)="togglePasswordVisibility()" *ngIf="showPassword" class="fa-solid fa-eye"></i>
+              <i (click)="togglePasswordVisibility()" *ngIf="!showPassword" class="fa-solid fa-eye-slash"></i>
           </div>
           <input type="submit" value="Register" class="btn">
           <p class="social-text">Or Sign in with social platform</p>
@@ -93,9 +97,3 @@
   </div>
 </div>
 </div>
-
-<!-- <input type="{{showPassword ? 'text' : 'password'}}" id="password" name="password" [(ngModel)]="password" required>
-      <div class="password-toggle" (click)="togglePasswordVisibility()">
-        <img *ngIf="showPassword" src="../../../../../assets/eye-open.png" alt="Show Password">
-        <img *ngIf="!showPassword" src="../../../../../assets/eye-closed.png" alt="Hide Password">
-      </div> -->

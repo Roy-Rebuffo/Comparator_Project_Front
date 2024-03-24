@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent {
+  showPassword: boolean = false;
   name: string = "";
   surname: string = "";
   email: string = "";
@@ -78,8 +79,8 @@ export class LandingComponent {
     });
   }
 
-  // togglePasswordVisibility() {
-  //   this.showPassword = !this.showPassword;
-  // }
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 
 }
