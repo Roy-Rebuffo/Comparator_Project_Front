@@ -1,6 +1,4 @@
-import { catchError } from 'rxjs';
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
 import { Product } from '../../interfaces/Product.interface';
 import { ProductService } from '../../services/product.service';
 

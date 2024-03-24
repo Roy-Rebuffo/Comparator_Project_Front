@@ -77,4 +77,9 @@ export class LandingComponent {
       }
     });
   }
+
+  // togglePasswordVisibility() {
+  //   this.showPassword = !this.showPassword;
+  // }
+
 }

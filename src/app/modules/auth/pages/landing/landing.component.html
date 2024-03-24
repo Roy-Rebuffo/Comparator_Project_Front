@@ -27,6 +27,7 @@
                   <i class="fa-brands fa-linkedin"></i>
               </a>
           </div>
+          <p class="message-text">{{message}}</p>
           <p class="account-text">Don't have an account? <a href="#" id="sign-up-btn2">Sing Up</a></p>
       </form>
 
@@ -92,3 +93,9 @@
   </div>
 </div>
 </div>
+
+<!-- <input type="{{showPassword ? 'text' : 'password'}}" id="password" name="password" [(ngModel)]="password" required>
+      <div class="password-toggle" (click)="togglePasswordVisibility()">
+        <img *ngIf="showPassword" src="../../../../../assets/eye-open.png" alt="Show Password">
+        <img *ngIf="!showPassword" src="../../../../../assets/eye-closed.png" alt="Hide Password">
+      </div> -->
