@@ -6,44 +6,51 @@ h2{
 }
 
 .item-cards-container {
-  width: 75%; 
+  width: 75%;
   height: 390px;
-  margin: 20px auto 20px auto ; 
-  overflow-x: scroll; 
-  white-space: nowrap; 
-  border-top: 1px solid #ccc; 
-  padding-top: 20px; 
-  padding-bottom: 20px; 
-  position: relative; 
+  margin: 20px auto 20px auto ;
+  overflow-x: scroll;
+  white-space: nowrap;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: relative;
   overflow-y: hidden;
-  
+
 }
 
 .item-cards {
   display: inline-block;
   cursor: pointer;
-  
+
 }
 
 .item {
   display: inline-block;
-  margin-right: 20px; 
+  margin-right: 20px;
   margin-top: 10px;
   max-width: 350px;
   vertical-align: top;
   text-align: center;
 }
 
+.item i{
+  position: absolute;
+  margin: 10px 0 0 250px;
+  font-size: 30px;
+  color: #24262ba1;
+}
+
 .item:last-child {
-  margin-right: 0; 
+  margin-right: 0;
 }
 
 .item img {
   margin-top: 10px;
   margin-bottom: 5px;
-  width: 200px; 
-  height: 200px; 
-  object-fit:contain; 
+  width: 200px;
+  height: 200px;
+  object-fit:contain;
 }
 
 .item h3 {
@@ -62,6 +69,9 @@ h2{
 /* Estilo del botón de la barra de desplazamiento para navegadores Webkit */
 .item-cards-container::-webkit-scrollbar-button {
   display: none; /* Ocultar el botón de la barra de desplazamiento */
+}
+.item i.favorite{
+  color: hsl(252, 75%, 60%);
 }
 
 @media screen and (max-width: 465px) {
