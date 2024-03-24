@@ -5,9 +5,11 @@
     <i (click)="toggleFavorite(favorito)" class="fa-regular fa-heart"></i>
     <img [src]="favorito.image" />
     <div class="desc">{{ favorito.title }} {{ favorito.price }}
-    </div> 
-    <!-- <button (click)="compareProduct(favorito.title)">Comparar</button> --> 
-  </div>  
+    </div>
+    <div class="button-container">
+      <button (click)="compareProduct(favorito.title)">Comparar</button>
+    </div>
+  </div>
 </div>
 
 <app-footer></app-footer>

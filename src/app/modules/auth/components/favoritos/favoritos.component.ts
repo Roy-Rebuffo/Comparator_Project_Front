@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-favoritos',
@@ -9,7 +10,7 @@ export class FavoritosComponent {
   @Input() favoriteProduct: any;
   favoritos: any = JSON.parse(localStorage.getItem('favoritos')!)
 
-  constructor(){
+  constructor(private router: Router){
     console.log(this.favoritos);
 
   }
@@ -32,7 +33,7 @@ export class FavoritosComponent {
     } else {
         // El producto ya está en favoritos, así que lo eliminamos
         favoritesFromLocal.splice(existingTitleIndex, 1);
-        
+
     }
 
     // Actualizamos la lista de favoritos en el almacenamiento local
@@ -51,5 +52,9 @@ export class FavoritosComponent {
     // Actualizamos el almacenamiento local
     localStorage.setItem('favoritos', JSON.stringify(this.favoritos));
   }
-  
+  compareProduct(title: string): void {
+    // Redirigir a la ruta /comparator y pasar el título del producto como parámetro
+    this.router.navigate(['/comparator'], { queryParams: { title: title } })
+  }
+
 }
