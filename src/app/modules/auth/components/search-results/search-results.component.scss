@@ -16,8 +16,14 @@
   border: 1px solid #24262b57;
   border-radius: 10px;
   float: left;
-  width: 390px;
+  width: 350px;
   height: 450px;
+}
+.gallery i{
+  position: absolute;
+  margin: 10px 0 0 300px;
+  font-size: 30px;
+  color: #24262ba1;
 }
 img {
   width: 300px;
@@ -56,14 +62,23 @@ button:hover{
   opacity: 0.8;
   color: #ccc;
 }
+.gallery i.favorite{
+  color: hsl(252, 75%, 60%);
+}
+@media screen and (max-width: 2145px) {
+  .container{
+    margin-top: 300px;
+  }
+}
 @media screen and (max-width: 1660px) {
   .container{
     margin-top: 250px;
-
   }
 }
-@media screen and (max-width: 1510px) {
-
+@media screen and (max-width: 765px) {
+  .container{
+    margin-top: 300px;
+  }
 }
 @media screen and (max-width: 465px) {
   .container{
