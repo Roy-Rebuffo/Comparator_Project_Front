@@ -10,6 +10,7 @@ import { CarrefourComponent } from './components/carrefour/carrefour.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { FavoritosComponent } from './components/favoritos/favoritos.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { verifyTokenGuard } from './guards/verify-token.guard';
 
 
 
@@ -21,31 +22,31 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
           path: 'landing', component: LandingComponent
         },
         {
-          path: 'about', component: AboutUsComponent
+          path: 'about', canActivate: [verifyTokenGuard], component: AboutUsComponent
         },
         {
-          path: 'privacy-policy', component: PrivacyPolicyComponent
+          path: 'privacy-policy', canActivate: [verifyTokenGuard], component: PrivacyPolicyComponent
         },
         {
           path: 'confirm-user/:token', component: ConfirmUserPageComponent
         },
         {
-          path: 'home', component: HomePageComponent
+          path: 'home', canActivate: [verifyTokenGuard], component: HomePageComponent
         },
         {
-          path: 'ahorramas', component: AhorramasComponent
+          path: 'ahorramas', canActivate: [verifyTokenGuard], component: AhorramasComponent
         },
         {
-          path: 'carrefour', component: CarrefourComponent
+          path: 'carrefour', canActivate: [verifyTokenGuard], component: CarrefourComponent
         },
         {
-          path: 'results/:search', component: SearchResultsComponent
+          path: 'results/:search', canActivate: [verifyTokenGuard], component: SearchResultsComponent
         },
         {
-          path: 'comparator', component: ComparatorComponent
+          path: 'comparator', canActivate: [verifyTokenGuard], component: ComparatorComponent
         },
         {
-          path: 'favoritos', component: FavoritosComponent
+          path: 'favoritos', canActivate: [verifyTokenGuard], component: FavoritosComponent
         },
         {
           path: '**', redirectTo: 'landing', pathMatch: 'full'
