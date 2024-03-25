@@ -1,18 +1,14 @@
-// *{
-//     margin: 0;
-//     padding: 0;
-//     font-family: 'Poppins', sans-serif;
-//     box-sizing: border-box;
-//   }
-  
+
 .wrapper {
     width: 100%;
     min-height: 100vh;
-    background-color: rgb(133, 133, 224);
+    background: url(../../../../../assets/BGfaq.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 260px;
+    margin-top: 100px;
   }
   .image-section{
     width: 90%;
@@ -28,8 +24,8 @@
     margin: 50px auto;
     box-shadow: 10px 10px 20px;
   }
-  
-  
+
+
   .title h1 {
     color: #fff;
     font-size: 46px;
@@ -39,17 +35,17 @@
     padding: 40px 0;
     font-family: "DM Serif Text", serif;
   }
-  
+
   .about {
     width: 100%;
     max-width: 800px;
     margin-top: 50px;
   }
-  
+
   section {
     margin-bottom: 20px;
   }
-  
+
   h2 {
     cursor: pointer;
     user-select: none;
@@ -58,28 +54,28 @@
     align-items: center;
     color: #24262bb7;
   }
-  
+
   h2:before {
     content: '\25B6';
     display: inline-block;
     margin-right: 5px;
     transition: transform 0.3s;
   }
-  
+
   h2.open:before {
     transform: rotate(90deg);
   }
-  
+
   p {
     display: block;
     color: #24262bb7;;
   }
-  
+
   p.open {
     display: block;
   }
-  
-  
+
+
 //   @media screen and (max-width: 1440px) {
 //   .wrapper{
 //     margin-top: 15px;
@@ -112,11 +108,10 @@
 //     padding: 8px 20px;
 //     font-size: 17px;
 //   }
-  
+
 //   }
 //   @media screen and (max-width: 600px) {
 //     .about{
 //       margin-top: 170px;
 //     }
 //   }
-  

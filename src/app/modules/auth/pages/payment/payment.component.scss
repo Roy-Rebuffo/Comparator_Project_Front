@@ -1,53 +1,148 @@
-// *{
-//     margin: 0;
-//     padding: 0;
-//     font-family: 'Poppins', sans-serif;
-//     box-sizing: border-box;
-//   }
-h1 {
-    color: #fff;
-    font-size: 46px;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    padding-bottom: 40px;
-    font-family: "DM Serif Text", serif;
+.wrapper{
+  width: 100%;
+  min-height: 100vh;
+  width: 100%;
+  background: url(../../../../../assets/BGpayment-options.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.title{
+  margin-top: 100px;
+}
+.title h1{
+  color: #fff;
+  font-size: 46px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 40px 0;
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.about{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  padding: 0px 80px;
+}
+.image-section{
+  width: 50%;
+  height: auto;
+  margin: auto;
+}
+.image-section i{
+ font-size: 200px;
+ display: flex;
+ justify-content: space-around;
+}
+.paypal {
+  transform: rotate(10deg) translateX(-150px);
+  margin-bottom: 20px;
+}
+.visa {
+  transform: rotate(15deg) translateY(-100px) translateX(80px);
+  margin-bottom: 30px;
 }
 
-h2 {
-    color: #24262bb7;
+.transfer {
+  transform: rotate(-15deg) translateY(-100px) translateX(-100px);
+  margin-top: 30px;
 }
 
-.wrapper {
-    width: 100%;
-    min-height: 100vh;
-    background-color: rgb(133, 133, 224);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 260px;
-  }
-  .image-section{
-    width: 90%;
-    height: auto;
-    margin: auto;
-  }
-  .image-section img{
-    height: 180px;
-    width: 180px;
-    border-radius: 50%;
-    border: 1px solid #fff;
-    display: block;
-    margin: 50px auto;
-    box-shadow: 10px 10px 20px;
-  }
+article{
+  width: 90%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+article h3{
+  font-size: 50px;
+  font-weight: 500;
+  color: #24262bb7;
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 10px;
+}
+article p{
+  font-size: 20px;
+  color: #fff;
+  margin-top: 25px;
+  line-height: 1.5;
+  font-family: "DM Serif Text", serif;
+  font-weight: 100;
+  font-style: normal;
+  margin: 10px;
+}
+article ul{
+  margin: 10px;
+}
+article .button{
+  margin-top: 35px;
+  margin-bottom: 50px;
+  margin-left: 10px;
+}
+article a{
+  color: #fff;
+  padding: 10px 25px;
+  font-size: 19px;
+  font-weight: 300;
+  text-decoration: none;
+  border: 1px solid#f3be00;
+  border-radius: 5px;
+  transition: 0.5s ease-in-out;
+}
+article a:hover{
+  background-color: #f3be00;
 
-  p {
-    margin: 5px 0;
-    color: #24262bb7;
-  }
+}
+ul li{
+  font-size: 20px;
+  color: #ccc;
+  margin-top: 15px;
+}
+@media screen and (max-width: 1440px) {
+.wrapper{
+  margin-top: 15px;
+}
+.title h1{
+  font-size: 28px;
+  text-align: center;
+}
+.image-section i{
+  height: 200px;
+  width: 200px;
+}
+.about{
+  flex-direction: column;
+  margin-top: 70px;
+}
+article{
+  margin-top: 30px;
+}
+article h3{
+  font-size: 18px;
+}
+article p{
+  font-size: 20px;
+}
+article .button{
+  margin-bottom: 50px;
+}
+article a{
+  padding: 8px 20px;
+  font-size: 17px;
+}
 
-  li {
-    margin: 10px 0;
-    color: #24262bb7;
+}
+@media screen and (max-width: 600px) {
+  .about{
+    margin-top: 170px;
   }
+}

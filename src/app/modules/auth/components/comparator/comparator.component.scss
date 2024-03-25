@@ -60,7 +60,7 @@ h3{
 .aside-container{
   width: 30%;
   text-align: center;
-  background: rgb(195, 195, 239);
+  background: #206c5fb6;
 }
 .aside-info{
   display: flex;
@@ -87,7 +87,7 @@ h3{
   border-radius: 2rem;
   cursor: pointer;
   color: white;
-  background-color: hsl(252, 75%, 60%);
+  background-color: #337357;
   transition: all 300ms ease;
   border: none;
   position: relative;
@@ -129,13 +129,13 @@ h3{
   margin-top: 10px; /* Espacio entre el título y el precio */
 }
 .img-container i.favorite{
-  color: hsl(252, 75%, 60%);
-  text-shadow: 0 0 8px hsl(252, 75%, 60%);
+  color: #337357;
+  text-shadow: 0 0 8px #337357;
 
 }
 .product-img-container-custom i.favorite{
-  color: hsl(252, 75%, 60%);
-  text-shadow: 0 0 8px hsl(252, 75%, 60%);
+  color: #337357;
+  text-shadow: 0 0 8px #337357;
 }
 @media screen and (max-width: 1330px) {
   .compare-product-container-custom {
