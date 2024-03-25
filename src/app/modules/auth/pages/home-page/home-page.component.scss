@@ -63,7 +63,7 @@ h2{
   height: 10px; /* Altura de la barra de desplazamiento */
 }
 .item-cards-container::-webkit-scrollbar-thumb {
-  background-color:  hsl(252, 75%, 60%); /* Color de fondo de la barra de desplazamiento */
+  background-color:  #337357; /* Color de fondo de la barra de desplazamiento */
   border-radius: 5px; /* Borde redondeado */
 }
 /* Estilo del botón de la barra de desplazamiento para navegadores Webkit */
@@ -71,7 +71,8 @@ h2{
   display: none; /* Ocultar el botón de la barra de desplazamiento */
 }
 .item i.favorite{
-  color: hsl(252, 75%, 60%);
+  color: #337357;
+  text-shadow: 0 0 10px #337357;
 }
 .button-container {
   width: 100%;
@@ -87,7 +88,7 @@ button{
   border-radius: 2rem;
   cursor: pointer;
   color: white;
-  background-color: hsl(252, 75%, 60%);
+  background-color: #337357;
   transition: all 300ms ease;
   border: none;
 }
