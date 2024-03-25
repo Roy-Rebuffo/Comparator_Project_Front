@@ -14,7 +14,8 @@ export class ComparatorComponent implements OnInit {
   productsToCompare: any = null;
   similarProducts: any[] = [];
   compareProduct: any = null;
-  resultados: any 
+  resultados: any[] = [];
+
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
@@ -43,7 +44,7 @@ export class ComparatorComponent implements OnInit {
   const stringsABuscar = this.productsToCompare.title.split(" ");
   console.log(stringsABuscar);
   
-  const resultados = this.products.filter(objeto => {
+  this.resultados = this.products.filter(objeto => {
     let count = 0;
     for (let palabras of stringsABuscar){
       if (objeto.title.includes(palabras)){
@@ -54,7 +55,7 @@ export class ComparatorComponent implements OnInit {
       // return stringsABuscar.every((string:any) => objeto.title.includes(string));
   });
   
-  console.log(resultados);
+  console.log(this.resultados);
   }
 
   precioMenor(producto: any): string {

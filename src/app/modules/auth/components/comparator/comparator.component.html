@@ -9,15 +9,22 @@
       <img [src]="productsToCompare.image" alt="{{ productsToCompare.title }}">
       <button (click)="goToSuperMarket(productsToCompare)">Ir al supermercado</button>
     </div>
-    <div *ngIf="compareProduct">
-      <h2>{{ title }}</h2>
-      <p [style.color]="precioMenor(compareProduct)">Precio: {{ compareProduct.price }}</p>
-      <img [src]="compareProduct.image" alt="{{ title }}">
-      <button (click)="goToSuperMarket(compareProduct)">Ir al supermercado</button>
+    <div *ngIf="resultados && resultados.length > 0">
+      <h2>Productos similares encontrados:</h2>
+      <ul>
+        <li *ngFor="let producto of resultados">
+          <h3>{{ producto.title }}</h3>
+          <p>Precio: {{ producto.price }}</p>
+          <img [src]="producto.image"/>
+          <!-- Puedes añadir más detalles aquí según la estructura de tu objeto de producto -->
+        </li>
+      </ul>
     </div>
-  </div>
+    <div *ngIf="!(resultados && resultados.length > 0)">
+      <p>No se encontraron productos similares.</p>
+    </div>
     
-  <div class="similarProducts-container" *ngIf="similarProducts.length > 0">
+  <!-- <div class="similarProducts-container" *ngIf="similarProducts.length > 0">
     <h2>Productos similares:</h2>
     <div class="card-similarProducts">
       <ul>
@@ -31,7 +38,7 @@
       
     </div>
 
-  </div>
+  </div> -->
 </div>
 
 <app-footer></app-footer>
