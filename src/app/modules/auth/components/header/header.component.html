@@ -1,6 +1,7 @@
 <nav>
   <div class="container">
-      <a class="header-title" routerLink="/home">Comparator</a>
+
+      <a class="header-title" routerLink="/home"><img routerLink="/home" src="../../../../../assets/Logo.png" alt="">GroceryGuru</a>
       <div class="search-bar">
           <i class="fa-solid fa-magnifying-glass"></i>
           <input type="text" [(ngModel)]="query" (keyup.enter)="buscar($event)" placeholder="Search.." name="Buscar">
@@ -10,8 +11,9 @@
               <li><a routerLink="/home">Home</a></li>
               <li><a routerLink="/ahorramas">Ahorramas</a></li>
               <li><a routerLink="/carrefour">Carrefour</a></li>
+              <li><a routerLink="/favoritos">Favoritos<i class="fa-regular fa-heart" style="margin-left: 5px;"></i></a></li>
           </ul>
-          <button class="btn"><a href="">Logout</a></button>
+          <button class="btn" (click)="logout()">Logout</button>
       </div>
   </div>
 </nav>

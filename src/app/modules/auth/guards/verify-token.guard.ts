@@ -4,7 +4,7 @@ export const verifyTokenGuard: CanActivateFn = (route, state) => {
   const token = sessionStorage.getItem('token-app');
   const router = inject(Router)
   if(!token){
-    router.navigate(['auth'])
+    router.navigate(['landing'])
     return false
   }
   return true;

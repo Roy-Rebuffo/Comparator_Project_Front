@@ -14,6 +14,7 @@ export class ComparatorComponent implements OnInit {
   productsToCompare: any = null;
   similarProducts: any[] = [];
   compareProduct: any = null;
+  resultados: any 
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
@@ -36,25 +37,24 @@ export class ComparatorComponent implements OnInit {
     }
   }
 
-  findCompareProduct(): any[] {
-    console.log(this.productsToCompare);
+  findCompareProduct(): void {
+  console.log(this.productsToCompare);
   
-    const stringsABuscar = this.productsToCompare.title.split(" ");
-    console.log(stringsABuscar);
+  const stringsABuscar = this.productsToCompare.title.split(" ");
+  console.log(stringsABuscar);
   
-    const resultados = this.products.filter(objeto => {
-      let count = 0;
-      for (let palabras of stringsABuscar){
-        if (objeto.title.includes(palabras)){
-          count ++
-        }
+  const resultados = this.products.filter(objeto => {
+    let count = 0;
+    for (let palabras of stringsABuscar){
+      if (objeto.title.includes(palabras)){
+        count ++
       }
-      return count >= 5
-        // return stringsABuscar.every((string:any) => objeto.title.includes(string));
-    });
+    }
+    return count >= 5  
+      // return stringsABuscar.every((string:any) => objeto.title.includes(string));
+  });
   
-    console.log(resultados);
-    return resultados;
+  console.log(resultados);
   }
   precioMenor(producto: any): string {
     const comparePrice = this.products.find(prod => prod.title.toLowerCase() === this.title.toLowerCase()).price;

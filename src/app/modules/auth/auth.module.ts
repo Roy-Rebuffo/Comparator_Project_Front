@@ -11,6 +11,10 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { ComparatorComponent } from './components/comparator/comparator.component';
 import { AhorramasComponent } from './components/ahorramas/ahorramas.component';
 import { CarrefourComponent } from './components/carrefour/carrefour.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { FavoritosComponent } from './components/favoritos/favoritos.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 
 
 
@@ -24,7 +28,11 @@ import { CarrefourComponent } from './components/carrefour/carrefour.component';
     SearchResultsComponent,
     ComparatorComponent,
     AhorramasComponent,
-    CarrefourComponent
+    CarrefourComponent,
+    AboutUsComponent,
+    SpinnerComponent,
+    FavoritosComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     CommonModule,

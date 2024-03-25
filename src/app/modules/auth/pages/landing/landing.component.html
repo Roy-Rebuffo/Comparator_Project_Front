@@ -9,24 +9,27 @@
           </div>
           <div class="input-field">
               <i class="fa-solid fa-lock"></i>
-              <input name="password" type="password" placeholder="Password" [(ngModel)]="password" required>
+              <input type="{{showPassword ? 'text' : 'password'}}" id="password" name="password" [(ngModel)]="password" required placeholder="Password">
+              <i (click)="togglePasswordVisibility()" *ngIf="showPassword" class="fa-solid fa-eye"></i>
+              <i (click)="togglePasswordVisibility()" *ngIf="!showPassword" class="fa-solid fa-eye-slash"></i>
           </div>
           <input type="submit" value="Login" class="btn">
           <p class="social-text">Or Sign in with social platform</p>
           <div class="social-media">
-              <a href="#" class="social-icon">
+              <a href="https://www.facebook.com/" class="social-icon">
                   <i class="fa-brands fa-facebook-f"></i>
               </a>
-              <a href="#" class="social-icon">
+              <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw" class="social-icon">
                   <i class="fa-brands fa-twitter"></i>
               </a>
-              <a href="#" class="social-icon">
+              <a href="https://www.google.es/" class="social-icon">
                   <i class="fa-brands fa-google"></i>
               </a>
-              <a href="#" class="social-icon">
+              <a href="https://www.linkedin.com/feed/" class="social-icon">
                   <i class="fa-brands fa-linkedin"></i>
               </a>
           </div>
+          <p class="message-text">{{message}}</p>
           <p class="account-text">Don't have an account? <a href="#" id="sign-up-btn2">Sing Up</a></p>
       </form>
 
@@ -45,9 +48,11 @@
               <i class="fa-solid fa-envelope"></i>
               <input name="email" type="text" placeholder="Email" [(ngModel)]="email" required>
           </div>
-          <div class="input-field">
+          <div class="input-field" >
               <i class="fa-solid fa-lock"></i>
-              <input name="password" type="password" placeholder="Password" [(ngModel)]="password" required>
+              <input type="{{showPassword ? 'text' : 'password'}}" id="password" name="password" [(ngModel)]="password" required placeholder="Password">
+              <i (click)="togglePasswordVisibility()" *ngIf="showPassword" class="fa-solid fa-eye"></i>
+              <i (click)="togglePasswordVisibility()" *ngIf="!showPassword" class="fa-solid fa-eye-slash"></i>
           </div>
           <input type="submit" value="Register" class="btn">
           <p class="social-text">Or Sign in with social platform</p>
@@ -82,8 +87,8 @@
       </div>
       <div class="panel right-panel">
           <div class="content">
-              <h3>¿Estás registrado?</h3>
-              <p>Si aún no tienes una cuenta, ¿a qué esperas? Regístrate ahora para empezar a disfrutar de los beneficios de ahorrar dinero en tus compras. ¡Únete a nuestra comunidad de ahorradores inteligentes y empieza a comparar precios hoy mismo!
+              <h3>¿Aún no estás registrado?</h3>
+              <p>Si todavía no tienes una cuenta, ¿a qué esperas? Regístrate ahora para empezar a disfrutar de los beneficios de ahorrar dinero en tus compras. ¡Únete a nuestra comunidad de ahorradores inteligentes y empieza a comparar precios hoy mismo!
               </p>
               <button class="btn" id="sign-up-btn" (click)="toggleSignUp()">Register</button>
           </div>
