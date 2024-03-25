@@ -5,8 +5,8 @@
 
 }
 .comparator-container {
-    font-family: 'Poppins', sans-serif;
-    max-width: 1200px;
+    font-family: "Rocket Raccoon";
+    max-width: 100%;
     margin: auto;
     background: #ffffff;
     overflow: hidden;
@@ -20,40 +20,68 @@
 
 .container-products-comapare {
     display: flex;
-    align-items: flex-start;
-    margin-top: 50px;
-    align-content: space-around;
-    flex-wrap:wrap;
+    align-items: center;
+    margin-top: 12%;
+    align-content: center;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .similar-comparator-container {
    align-items: center;
    text-align: center;
    margin-top: inherit;
-   
-    
+  
 }
-
 .products-compare-container {
-    display: flex;
-    flex-direction:row;
-    height: 100px;
-    width: 100%;
+    flex-direction: row;
+    height: 14%;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #24262b57;
-    border-radius: 10px;
-    margin: 5px;
+    border: 1px solid rgba(36, 38, 43, 0.3411764706);
+    border-radius: 35px;
+    margin: 2%;
     transition: all 0.3s ease;
     cursor: pointer;
-
-    
 }
 .products-compare-container > img{
-    width: 150px;
+    width: 260px;
+    height: 245px;
+    overflow: hidden;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.listado-productos-compare{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+
+.similar-products-compare-container {
+    flex-direction: row;
+    height: 14%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(36, 38, 43, 0.3411764706);
+    border-radius: 35px;
+    margin: 2%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.similar-products-compare-container > img{
+    width: 136px;
     height: 150px;
     overflow: hidden;
     border-radius: 6px;
@@ -64,15 +92,19 @@
 .title-comparation{
     display: flex;
     font-size: 2.5rem;
-    font-weight: 500;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 12px;
+    margin-top: -160px;
     font-weight: bold;
-    font-family: 'Rocket Raccoon';
-    
+    font-family: "Rocket Raccoon";
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-content: center;
+    flex-direction: row;
 }
 
 img {
+    filter: drop-shadow(white -0.5rem -0.5rem 1rem);
     width: 300px;
     height: 300px;
     object-fit: contain;
@@ -80,32 +112,19 @@ img {
 }
 
 .desc {
+    font-size: 1.5rem;
     padding: 15px;
     text-align: center;
-    font-size: medium;
+    padding-right: 106px;
 }
 
-.products-compare-container {
-    display: flex;
-    flex-direction:row;
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #24262b57;
-    border-radius: 10px;
-    margin: 5px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
 
 .compare-price{
     font-size: 1.5rem;
-    font-weight: 500;
     margin-bottom: 20px;
     margin-top: 20px;
     font-weight: bold;
+    margin-right: 40px;
 }
 
 .product-compare:hover {
@@ -113,11 +132,14 @@ img {
 }
 
 .button-container {
-    width: 100%;
-    height: 55px;
+    width: 89%;
+    height: 20%;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-start;
+    align-content: flex-end;
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
 
 .button-compare {
@@ -130,6 +152,7 @@ img {
     background-color: hsl(252, 75%, 60%);
     transition: all 300ms ease;
     border: none;
+    margin-right: 25px;
 }
 
 .button-compare:hover {

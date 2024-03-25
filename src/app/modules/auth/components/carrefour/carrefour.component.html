@@ -6,9 +6,88 @@
     <div class="button-container">
       <!-- <button (click)="compareProduct(resultado.title)">Comparar</button> -->
     </div>
-
+  </div>
+  <div class="Products-Container"> 
+    <div class="Title-Container">
+      <span title="Productos">Prductos</span>
+      <button role="button">Restablecer</button>
+    </div>
+    <div class="Category-Container">
+      <ul>
+        <li >
+          <input class="Category" type="checkbox" name="Champus" role="checkbox" (change)="filterProductsCategory('Champus')">
+          <div>            
+            <img class="Imagen-Category" alt="Champú" src="/src/assets/images/plastic-blank-tall-shampoo-bottle-600nw-1901181124.webp">
+            <p class="Title-Category">Champús</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input class="Category" type="checkbox" name="Desodorantes" role="checkbox">
+            <img class="Imagen-Category" src="/src/assets/images/85e12vua.jpg">
+            <p class="Title-Category">Desodorantes</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="Precios-Container">
+      <span title="Precio">Precio</span>
+      <button role="button">Restablecer</button>
+    </div>
+    <div>
+      <span></span>
+      <span></span>
+    </div>
+    <div>
+      <form>
+        <div>
+          <input type="number" inputmode="decimal" min="1" placeholder="1" value="1">
+          <span>€</span>
+        </div>
+        <div>
+          <span>-</span>
+        </div>
+        <div>
+          <br>
+          <input type="number" inputmode="decimal" max="100" placeholder="100" value="1">
+          <span>€</span>
+        </div>
+        <button role="button">Filtrar Precio</button>
+        <br>
+      </form>
+    </div>
+    <div>
+      <div>
+        <input type="checkbox" name="checkbox1" role="checkbox">
+        <a title="hasta 20 €" tabindex="0">
+          "hasta 5 €"
+        </a>
+      </div>
+      <div>
+        <input type="checkbox" name="checkbox1" role="checkbox">
+        <a title="hasta 20 €" tabindex="0">
+          "De 5€ a 10€"
+        </a>
+      </div>
+      <div>
+        <input type="checkbox" name="checkbox1" role="checkbox">
+        <a title="hasta 20 €" tabindex="0">
+          "De 10€ a 50€"
+        </a>
+      </div>
+      <div>
+        <input type="checkbox" name="checkbox1" role="checkbox">
+        <a title="hasta 20 €" tabindex="0">
+          "50€ hasta 100 €"
+        </a>
+      </div>
+      <div>
+        <input type="checkbox" name="checkbox1" role="checkbox">
+        <a title="hasta 20 €" tabindex="0">
+          "A partir de 100 €"
+        </a>
+      </div>
+    </div>
   </div>
 </div>
-
-
 <app-footer></app-footer>
