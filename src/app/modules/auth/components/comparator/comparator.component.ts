@@ -40,10 +40,10 @@ export class ComparatorComponent implements OnInit {
 
   findCompareProduct(): void {
   console.log(this.productsToCompare);
-  
+
   const stringsABuscar = this.productsToCompare.title.split(" ");
   console.log(stringsABuscar);
-  
+
   this.resultados = this.products.filter(objeto => {
     let count = 0;
     for (let palabras of stringsABuscar){
@@ -51,10 +51,10 @@ export class ComparatorComponent implements OnInit {
         count ++
       }
     }
-    return count >= 5  
+    return count >= 5
       // return stringsABuscar.every((string:any) => objeto.title.includes(string));
   });
-  
+
   console.log(this.resultados);
   }
 
@@ -63,7 +63,7 @@ export class ComparatorComponent implements OnInit {
     if (producto.price < comparePrice) {
       return 'green';
     } else if (producto.price === comparePrice) {
-      return 'black';
+      return '#24262b';
     } else {
       return 'red';
     }
@@ -71,7 +71,7 @@ export class ComparatorComponent implements OnInit {
 
   goToSuperMarket(product: any) {
     let url;
-    if (product.supermarket === "carrefour") {
+    if (product.supermercado === "carrefour") {
       url = 'https://www.carrefour.es/supermercado?ic_source=portal-y-corporativo&ic_medium=category-food-box&ic_content=ns';
     } else {
       url = 'https://www.ahorramas.com/';
@@ -80,4 +80,28 @@ export class ComparatorComponent implements OnInit {
     // Abrir la URL en una nueva pestaña
     window.open(url, '_blank');
   }
+  addToFavorites(title: string, image: string, price:number) {
+    const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos') || '[]');
+
+    console.log(favoritesFromLocal);
+
+    const existingTitleIndex = favoritesFromLocal.findIndex((prodFav: any) => prodFav.title === title && prodFav.image === image && prodFav.price === price);
+
+    if (existingTitleIndex === -1) {
+        // El producto no está en favoritos, así que lo agregamos
+        favoritesFromLocal.push({ title: title, price: price,image: image }); // Agregamos el producto como un objeto con su título
+    } else {
+        // El producto ya está en favoritos, así que lo eliminamos
+        favoritesFromLocal.splice(existingTitleIndex, 1);
+    }
+
+    // Actualizamos la lista de favoritos en el almacenamiento local
+    localStorage.setItem('favoritos', JSON.stringify(favoritesFromLocal));
+
+}
+isFavorite(productTitle: string): boolean {
+  const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos')!);
+  return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
+}
+
 }
