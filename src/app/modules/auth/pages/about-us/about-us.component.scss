@@ -8,8 +8,10 @@
 .wrapper{
   width: 100%;
   min-height: 100vh;
-  background-color: rgb(133, 133, 224);
   width: 100%;
+  background: url(../../../../../assets/BGabout.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .title{
   margin-top: 100px;
