@@ -11,6 +11,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { FavoritosComponent } from './components/favoritos/favoritos.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { verifyTokenGuard } from './guards/verify-token.guard';
+import { FaqComponent } from './pages/faq/faq.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 
 
@@ -23,6 +25,12 @@ import { verifyTokenGuard } from './guards/verify-token.guard';
         },
         {
           path: 'about', canActivate: [verifyTokenGuard], component: AboutUsComponent
+        },
+        {
+          path: 'faq', canActivate: [verifyTokenGuard], component: FaqComponent
+        },
+        {
+          path: 'payment', canActivate: [verifyTokenGuard], component: PaymentComponent
         },
         {
           path: 'privacy-policy', canActivate: [verifyTokenGuard], component: PrivacyPolicyComponent
