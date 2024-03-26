@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
 
   buscar(event:any) {
 
-    this.router.navigate(['/results',event.target.value])
+    this.router.navigate(['/results',this.query])
   }
 
   logout() {

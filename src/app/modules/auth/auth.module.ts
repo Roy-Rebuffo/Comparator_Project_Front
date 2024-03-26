@@ -15,6 +15,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { FavoritosComponent } from './components/favoritos/favoritos.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { FaqComponent } from './pages/faq/faq.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 
 
@@ -32,7 +34,9 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
     AboutUsComponent,
     SpinnerComponent,
     FavoritosComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    FaqComponent,
+    PaymentComponent
   ],
   imports: [
     CommonModule,

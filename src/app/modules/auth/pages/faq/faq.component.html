@@ -1,0 +1,66 @@
+<!-- <app-header></app-header>
+<div class="wrapper">
+    <div class="title">
+        <h1>FAQ - Comparación de Precios de Supermercados</h1> 
+    </div>
+    <div class="about">
+        <section>
+            <h2 (click)="toggleAnswer(faq)" [class.open]="faq.open">{{ faq.question }}>1. ¿Qué es esta página de comparación de precios de supermercados?</h2>
+            <p>Nuestra página es una plataforma en línea que te permite comparar los precios de productos en diferentes supermercados. Esto te ayuda a encontrar las mejores ofertas y ahorrar dinero en tus compras regulares de comestibles.</p>
+        </section>
+        <section>
+            <h2 (click)="toggleAnswer(faq)" [class.open]="faq.open">{{ faq.question }}>2. ¿Cómo funciona esta página?</h2>
+            <p>Utilizamos datos en tiempo real de varios supermercados para mostrar los precios de productos similares. Simplemente ingresa el nombre del producto y te mostraremos dónde puedes encontrarlo al mejor precio.</p>
+        </section>
+        <section>
+            <h2 (click)="toggleAnswer(faq)" [class.open]="faq.open">{{ faq.question }}>3. ¿Qué supermercados están incluidos en la comparación de precios?</h2>
+            <p>Tratamos de incluir la mayor cantidad posible de supermercados populares en nuestra base de datos. Estamos trabajando constantemente para agregar más tiendas a nuestra lista..</p>
+        </section>
+        <section>
+            <h2 (click)="toggleAnswer(faq)" [class.open]="faq.open">{{ faq.question }}>4. ¿Los precios que veo son actuales?</h2>
+            <p>Sí, actualizamos en tiempo real nuestros datos para reflejar los precios más recientes en los supermercados. Sin embargo, ten en cuenta que los precios pueden variar según la ubicación y la disponibilidad del producto.</p>
+        </section>
+        <section>
+            <h2 (click)="toggleAnswer(faq)" [class.open]="faq.open">{{ faq.question }}>5. ¿Puedo comprar directamente desde esta página?</h2>
+            <p>No, nuestra página de comparación de precios no es una tienda en línea. Solo mostramos los precios y las ofertas disponibles en los supermercados cercanos a ti. Para realizar una compra, deberás visitar o contactar directamente el supermercado correspondiente, puedes hacerlo a desde los enlaces que te proporcionamos en nuestra plataforma.</p>
+        </section>
+        <section>
+            <h2 (click)="toggleAnswer(faq)" [class.open]="faq.open">{{ faq.question }}>6. ¿Qué debo hacer si encuentro un error en los precios mostrados?</h2>
+            <p>Si notas algún error en los precios o la información mostrada en nuestra página, por favor contáctanos de inmediato. Haremos todo lo posible para corregir cualquier error lo antes posible.</p>
+        </section>
+        <section>
+            <h2 (click)="toggleAnswer(faq)" [class.open]="faq.open">{{ faq.question }}>7. ¿Es seguro usar esta página?</h2>
+            <p>Sí, nos tomamos muy en serio la seguridad y la privacidad de nuestros usuarios. No almacenamos información personal sensible y siempre trabajamos para proteger tus datos mientras utilizas nuestra plataforma.</p>
+        </section>
+        <section>
+            <h2 (click)="toggleAnswer(faq)" [class.open]="faq.open">{{ faq.question }}>8. ¿Puedo sugerir un supermercado para que sea incluido en la comparación de precios?</h2>
+            <p>¡Por supuesto! Apreciamos cualquier sugerencia que tengas para mejorar nuestra página. Si hay un supermercado que te gustaría ver incluido, háznoslo saber y haremos nuestro mejor esfuerzo para agregarlo a nuestra base de datos.</p>
+        </section>
+        <section>
+            <h2 (click)="toggleAnswer(faq)" [class.open]="faq.open">{{ faq.question }}>9. ¿Esta página es gratuita?</h2>
+            <p>Sí, el uso de nuestra página de comparación de precios de supermercados es completamente gratuito para todos los usuarios. No cobramos tarifas ni comisiones por usar nuestro servicio.</p>
+        </section>
+        <section>
+            <h2 (click)="toggleAnswer(faq)" [class.open]="faq.open">{{ faq.question }}>10. ¿Cómo puedo contactar al equipo de soporte si tengo alguna pregunta o problema?</h2>
+            <p>Si necesitas ayuda o tienes alguna pregunta relacionada con el uso de nuestra plataforma, no dudes en ponerte en contacto con nuestro equipo de soporte. Puedes enviar un correo electrónico a support@groceryguru.com o llenar el formulario de contacto en nuestra página web. Estamos aquí para ayudarte en cualquier momento.</p>
+        </section>
+    </div>   
+</div>
+<app-footer></app-footer> -->
+<app-header></app-header>
+<div class="wrapper">
+    <div class="image-section">
+        <img src="../../../../../assets/Logo.png" alt="">
+    </div>
+    <div class="title">
+        <h1>FAQ - GroceryGuru</h1> 
+    </div>
+    <div class="about">
+        <section *ngFor="let faq of faqs">
+            <h2 (click)="toggleAnswer(faq)" [class.open]="faq.open">{{ faq.question }}</h2>
+            <p *ngIf="faq.open">{{ faq.answer }}</p>
+        </section>
+    </div>   
+</div>
+<app-footer></app-footer>
+

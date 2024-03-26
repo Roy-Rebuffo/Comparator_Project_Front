@@ -9,14 +9,16 @@
 }
 
 .wrapper{
-  --primary-clr: #6c00f9;
+  --primary-clr: #206c5fe0;
   --white: #fff;
   --text-clr: #464646;
-  --tabs-list-bg-clr: #dfc8fd;
-  --btn-hvr: #4e03b0;
+  --tabs-list-bg-clr: #206c5f4a;
+  --btn-hvr: #206c5fb6;
   min-height: 100vh;
   padding: 0 20px;
-  background: var(--primary-clr);
+  background: url(../../../../../assets/BGprivacy-policy.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
   font-size: 12px;
   color: var(--text-clr);
 }

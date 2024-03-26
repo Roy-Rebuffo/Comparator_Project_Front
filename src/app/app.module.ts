@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {  HTTP_INTERCEPTORS , HttpClientModule } from '@angular/common/http';
 import { AssignTokenInterceptor } from './modules/auth/interceptors/assign-token.interceptor';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { AssignTokenInterceptor } from './modules/auth/interceptors/assign-token
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AssignTokenInterceptor, multi: true   }],
   bootstrap: [AppComponent]
