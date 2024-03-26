@@ -25,6 +25,12 @@ img {
   height: 300px;
   object-fit: contain;
 }
+.gallery i{
+  position: absolute;
+  margin: 10px 0 0 300px;
+  font-size: 30px;
+  color: #24262ba1;
+}
 
 .gallery img {
   width: 100%;
@@ -49,13 +55,17 @@ button{
   border-radius: 2rem;
   cursor: pointer;
   color: white;
-  background-color: hsl(252, 75%, 60%);
+  background-color: #337357;
   transition: all 300ms ease;
   border: none;
 }
 button:hover{
   opacity: 0.8;
   color: #ccc;
+}
+.gallery i.favorite{
+  color: #337357;
+  text-shadow: 0 0 10px #337357;
 }
 @media screen and (max-width: 1660px) {
   .container{
