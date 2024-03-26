@@ -20,6 +20,47 @@ export class CarrefourComponent {
       console.log(this.resultados);
     });
   }
+  filterProducts(category: string, event: any): void {
+    if (event.target.checked) {
+      this.filteredProducts = this.resultados.filter(product => product.title.includes(category));
+    } else {
+      this.filteredProducts = [...this.resultados];
+    }
+  }
+  
+  selectedPriceRanges: { min: number, max: number }[] = [];
+  
+  filterProductsByPrice(min: number, max: number, event: any): void {
+    const range = { min, max };
+    if (event.target.checked) {
+      this.selectedPriceRanges.push(range);
+    } else {
+      this.selectedPriceRanges = this.selectedPriceRanges.filter(r => r.min !== min || r.max !== max);
+    }
+    if (this.selectedPriceRanges.length > 0) {
+      this.filteredProducts = this.resultados.filter(product =>
+        this.selectedPriceRanges.some(range => product.price >= range.min && product.price <= range.max)
+      );
+    } else {
+      this.filteredProducts = [...this.resultados];
+    }
+  }
+  
+  checkbox0to5 = false;
+  checkbox5to10 = false;
+  
+  // ...
+  
+  resetFilters(): void {
+  this.selectedPriceRanges = [];
+  this.filteredProducts = [...this.resultados];
+  this.checkbox0to5 = false;
+  this.checkbox5to10 = false;
+  // Haz lo mismo para todas las demás casillas de verificación
+  }
+
+
+
 
   compareProduct(title: string): void {
     // Redirigir a la ruta /comparator y pasar el título del producto como parámetro
@@ -44,56 +85,12 @@ export class CarrefourComponent {
     // Actualizamos la lista de favoritos en el almacenamiento local
     localStorage.setItem('favoritos', JSON.stringify(favoritesFromLocal));
 
-}
+  }
 
 
-
-isFavorite(productTitle: string): boolean {
+  isFavorite(productTitle: string): boolean {
   const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos')!);
   return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
-}
-
-
-
-filterProducts(category: string, event: any): void {
-  if (event.target.checked) {
-    this.filteredProducts = this.resultados.filter(product => product.title.includes(category));
-  } else {
-    this.filteredProducts = [...this.resultados];
   }
-}
-
-
-
-selectedPriceRanges: { min: number, max: number }[] = [];
-
-filterProductsByPrice(min: number, max: number, event: any): void {
-  const range = { min, max };
-  if (event.target.checked) {
-    this.selectedPriceRanges.push(range);
-  } else {
-    this.selectedPriceRanges = this.selectedPriceRanges.filter(r => r.min !== min || r.max !== max);
-  }
-  if (this.selectedPriceRanges.length > 0) {
-    this.filteredProducts = this.resultados.filter(product =>
-      this.selectedPriceRanges.some(range => product.price >= range.min && product.price <= range.max)
-    );
-  } else {
-    this.filteredProducts = [...this.resultados];
-  }
-}
-
-checkbox0to5 = false;
-checkbox5to10 = false;
-
-// ...
-
-resetFilters(): void {
-this.selectedPriceRanges = [];
-this.filteredProducts = [...this.resultados];
-this.checkbox0to5 = false;
-this.checkbox5to10 = false;
-// Haz lo mismo para todas las demás casillas de verificación
-}
 
 }

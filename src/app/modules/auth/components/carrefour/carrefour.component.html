@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container">
-  <div class="gallery" *ngFor="let resultado of resultados">
+  <div class="gallery" *ngFor="let resultado of filteredProducts">
     <img [src]="resultado.image" alt="{{ resultado.title }}">
     <div class="desc">{{ resultado.title }} {{ resultado.price }}</div>
     <div class="button-container">

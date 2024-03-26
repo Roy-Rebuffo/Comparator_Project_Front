@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container">
-  <div class="gallery" *ngFor="let resultado of resultados">
+  <div class="gallery" *ngFor="let resultado of filteredProducts">
     <i (click)="addToFavorites(resultado.title, resultado.image, resultado.price)" class="fa-regular fa-heart" [ngClass]="{'favorite': isFavorite(resultado.title)}"></i>
     <img [src]="resultado.image" alt="{{ resultado.title }}">
     <div class="desc">{{ resultado.title }} {{ resultado.price }}</div>
@@ -35,7 +35,7 @@
       <p class="Title-Price">0 - 5</p>
     </li>
     <li>
-      <input type="checkbox" (change)="filterProductsByPrice('5', '10', $event)">
+      <input type="checkbox" [(ngModel)]="checkbox5to10" (change)="filterProductsByPrice('5', '10', $event)">>
       <p class="Title-Price">5 - 10</p>
     </li>
     <button (click)="resetFilters()" role="button">Restablecer Filtros</button>

@@ -45,7 +45,7 @@ export class AhorramasComponent {
 
 }
 
-isFavorite(productTitle: string): boolean {
+  isFavorite(productTitle: string): boolean {
   const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos')!);
   return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
 }
@@ -78,6 +78,7 @@ filterProductsByPrice(min: string, max: string, event: any): void {
 }
 
 checkbox0to5 = false;
+checkbox5to10 = false;
 
 // ...
 
@@ -85,6 +86,7 @@ resetFilters(): void {
 this.selectedPriceRanges = [];
 this.filteredProducts = [...this.resultados];
 this.checkbox0to5 = false;
+  
 // Haz lo mismo para todas las demás casillas de verificación
 }
 
