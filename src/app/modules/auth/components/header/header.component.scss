@@ -54,7 +54,7 @@ nav .container{
   font-size: 0.9rem;
   color: #24262b;
 }
-nav .button{
+nav .nav{
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -65,6 +65,7 @@ a{
   font-weight: bolder;
 }
 .btn{
+  height: 40px;
   display: inline-block;
   padding: 0.6rem 2rem;
   font-weight: 500;
@@ -82,12 +83,17 @@ a{
   opacity: 0.8;
 }
 
-.button ul{
+.nav ul{
   display: flex;
   padding: 10px;
 }
 ul li{
-  padding: 20px;
+  margin: 15px;
+}
+.abrir-menu,
+.cerrar-menu
+{
+  display: none;
 }
 @media screen and (max-width: 2145px) {
   .container{
@@ -98,18 +104,48 @@ ul li{
       margin-top: 20px;
   }
 }
-@media screen and (max-width: 600px) {
-  .button{
-      width: 100%;
-      flex-wrap: wrap;
-      justify-content: center;
+@media screen and (max-width: 800px) {
+  .hambuguer-container{
+    display: flex;
+    align-items: center;
   }
-  .button ul{
+  .abrir-menu,
+  .cerrar-menu {
+    display: inline;
+    margin-left: 1rem;
+    margin-top: 15px;
+  }
+
+  .nav{
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #33735770;
+    padding: 2rem;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+    transition: opacity 1s, visibility 0.5s;
+    height: 100vh;
 
   }
+  .nav.visible{
+    opacity: 1;
+    visibility: visible;
+  }
+  ul{
+    flex-direction: column;
+    align-items: flex-end;
+  }
 }
+
 @media screen and (max-width: 415px) {
-  .button ul{
+  .nav ul{
     flex-wrap: wrap;
     justify-content: center;
   }

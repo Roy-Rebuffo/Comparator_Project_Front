@@ -10,7 +10,7 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  navVisible: boolean = false;
   query: string = '';
   resultados: any[] = [];
   datos: any[] = [];
@@ -29,9 +29,12 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    
+
     sessionStorage.removeItem('token-app');
 
     this.router.navigate(['/landing']);
+  }
+  toggleNav() {
+    this.navVisible = !this.navVisible;
   }
 }

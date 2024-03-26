@@ -2,20 +2,35 @@
   <div class="container">
 
       <a class="header-title" routerLink="/home"><img routerLink="/home" src="../../../../../assets/Logo.png" alt="">GroceryGuru</a>
-      <form (ngSubmit)="buscar($event)" class="search-bar">
-        <input type="text" [(ngModel)]="query" (keyup.enter)="buscar($event)" placeholder="Search.." name="query">
-        <i (click)="buscar($event)" class="fa-solid fa-magnifying-glass"></i>
-      </form>
-      
-      <div class="button">
+      <div class="hambuguer-container">
+        <div class="search-bar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" [(ngModel)]="query" (keyup.enter)="buscar($event)" placeholder="Search.." name="Buscar">
+
+      </div>
+      <i class="fa-solid fa-bars abrir-menu" (click)="toggleNav()"></i>
+      </div>
+
+      <div class="nav" id="nav" [class.visible]="navVisible">
+
+        <i style="margin-left: 90px; margin-bottom: -30px;" class="fa-solid fa-xmark cerrar-menu" (click)="toggleNav()"></i>
           <ul>
               <li><a routerLink="/home">Home</a></li>
               <li><a routerLink="/ahorramas">Ahorramas</a></li>
               <li><a routerLink="/carrefour">Carrefour</a></li>
               <li><a routerLink="/favoritos">Favoritos<i class="fa-regular fa-heart" style="margin-left: 5px;"></i></a></li>
+              <button class="btn" (click)="logout()">Logout</button>
           </ul>
-          <button class="btn" (click)="logout()">Logout</button>
+
       </div>
   </div>
 </nav>
+
+
+
+
+
+
+
+
 

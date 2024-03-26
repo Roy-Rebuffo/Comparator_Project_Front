@@ -25,6 +25,12 @@ img {
   height: 300px;
   object-fit: contain;
 }
+.gallery i{
+  position: absolute;
+  margin: 10px 0 0 300px;
+  font-size: 30px;
+  color: #24262ba1;
+}
 
 .gallery img {
   width: 100%;
@@ -49,7 +55,7 @@ button{
   border-radius: 2rem;
   cursor: pointer;
   color: white;
-  background-color: hsl(252, 75%, 60%);
+  background-color: #337357;
   transition: all 300ms ease;
   border: none;
 }
@@ -57,78 +63,24 @@ button:hover{
   opacity: 0.8;
   color: #ccc;
 }
-
-.Products-Container{
-  display: flex;
-  flex-direction: column;
-  background-color: #d7e3ef;
-  border-bottom: 1px solid #fff;
-  color: #2d2d2d;
-  padding: 10px 15px; 
-}
-
-.Title.Container{
-  align-items: center;
-  color: #0a3761;
-  display: flex;
-  gap: 8px;
-}
-
-.Title.Container > span{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 18px;
-}
-
-.Category.Container{
-  align-items: center;
-  display: flex;
-  gap: 8px;
-}
-
-.Category.Container > ul{
-  display: flex;
-  gap: 8px;
-  list-style: none;
-}
-
-.Category{
-  align-items: center;
-  display: flex;
-  height: 85px;
-  padding: 10px;
-}
-
-.Imagen-Category{
-  padding: auto;
-  height: 50px;
-  width: 50px;
-}
-
-.Title-Category {
-  font-size: 18px;
-  font-weight: 500;
-  margin: 0;
-  padding: 0;
-
-}
-
-
-
-
-
 @media screen and (max-width: 1660px) {
   .container{
     margin-top: 250px;
 
   }
 }
-@media screen and (max-width: 1510px) {
-
+@media screen and (max-width: 765px) {
+  .container{
+    margin-top: 280px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .container{
+    margin-top: 320px;
+  }
 }
 @media screen and (max-width: 465px) {
   .container{
-    margin-top: 300px;
+    margin-top: 350px;
   }
 }

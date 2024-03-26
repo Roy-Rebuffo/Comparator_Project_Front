@@ -13,7 +13,8 @@ export class LandingComponent {
   surname: string = "";
   email: string = "";
   password: string = "";
-  message: string = "";
+  messageLogin: string = "";
+  messageRegister: string = "";
   status: 'loading' | 'unauthorized' | 'success' | 'disabled' | 'error' = 'disabled';
   isSignUpMode: boolean = false;
   isSignUpMode2: boolean = false;
@@ -52,7 +53,7 @@ export class LandingComponent {
       });
     } else {
       this.status = 'error';
-      this.message = 'El formulario es inválido, recuerda que la contraseña debe tener de 8 a 12 caracteres y debe incluir al menos un caracter en mayúscula, uno en minúscula, un número y un carácter especial';
+      this.messageLogin = 'El formulario es inválido, recuerda que la contraseña debe tener de 8 a 12 caracteres y debe incluir al menos un caracter en mayúscula, uno en minúscula, un número y un carácter especial';
     }
   }
 
@@ -68,13 +69,13 @@ export class LandingComponent {
     this.authService.register(objectToSend).subscribe({
       next: (response: any) => {
         this.status = 'success';
-        this.message = response.msg;
+        this.messageRegister = response.msg;
         this.router.navigate(['home']);
       },
       error: (error) => {
         console.log(error);
         this.status = 'unauthorized';
-        this.message = error.error.msg;
+        this.messageRegister = error.error;
       }
     });
   }
