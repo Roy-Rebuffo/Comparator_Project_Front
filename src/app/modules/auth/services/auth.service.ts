@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { User } from '../interfaces/User.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,9 @@ export class AuthService {
   getProfile(userObject: any): Observable<any> {
     return this.http.get<any>('http://localhost:8084/api/users/getprofile', { params: userObject });
   }
-}
 
+  editUser(id: string, userToEdit: FormData){
+    return this.http.patch<User>('http://localhost:8084/api/users/edit/:id', userToEdit)
+  }
+}
 
