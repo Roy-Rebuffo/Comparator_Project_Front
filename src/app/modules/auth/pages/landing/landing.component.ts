@@ -44,7 +44,17 @@ export class LandingComponent {
         next: (response: any) => {
           if (response) {
             sessionStorage.setItem('token-app', JSON.stringify(response.token));
+            const userData = {
+              _id: response._id,
+              name: response.name,
+              email: response.email,
+              surname: response.surname
+            };
+            
+            localStorage.setItem('userData', JSON.stringify(userData));
             this.router.navigate(['home']);
+            console.log(response);
+            
           }
         },
         error: (error) => {

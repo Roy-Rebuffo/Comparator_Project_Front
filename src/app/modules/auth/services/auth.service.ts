@@ -28,8 +28,8 @@ export class AuthService {
     return this.http.get<boolean>('http://localhost:8084/api/users/is-admin');
   }
 
-  getProfile(user:any):  Observable<any>  {
-    return this.http.get<any>('http://localhost:8084/api/users/getprofile',user)
+  getProfile(userObject: any): Observable<any> {
+    return this.http.get<any>('http://localhost:8084/api/users/getprofile', { params: userObject });
   }
 }
 
