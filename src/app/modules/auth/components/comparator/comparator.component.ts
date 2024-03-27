@@ -99,6 +99,7 @@ export class ComparatorComponent implements OnInit {
     localStorage.setItem('favoritos', JSON.stringify(favoritesFromLocal));
 
 }
+
 isFavorite(productTitle: string): boolean {
   const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos')!);
   return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
