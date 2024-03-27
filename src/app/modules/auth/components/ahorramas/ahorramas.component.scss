@@ -73,18 +73,8 @@ button:hover{
 
   }
 }
-@media screen and (max-width: 765px) {
+@media screen and (max-width: 800px) {
   .container{
-    margin-top: 280px;
-  }
-}
-@media screen and (max-width: 600px) {
-  .container{
-    margin-top: 320px;
-  }
-}
-@media screen and (max-width: 465px) {
-  .container{
-    margin-top: 350px;
+    margin-top: 200px;
   }
 }

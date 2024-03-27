@@ -97,20 +97,10 @@ button:hover{
   color: #ccc;
 }
 
-@media screen and (max-width: 465px) {
+@media screen and (max-width: 800px) {
   .home-container{
-    margin-top: 550px;
+    margin-top: 200px;
+    margin-bottom: 50px;
   }
 }
 
-@media screen and (max-width: 465px) {
-  .home-container{
-    margin-top: 450px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .home-container{
-    margin-top: 300px;
-  }
-}
