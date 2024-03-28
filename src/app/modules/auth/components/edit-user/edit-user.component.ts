@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { User } from '../../interfaces/User.interface';
 
+
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
@@ -43,21 +44,21 @@ export class EditUserComponent {
   }
 
   edituser() {
-    const formData = new FormData();
-
     const { name, surname, email } = this.edituserForm.value;
 
-    formData.append('name', name);
-    formData.append('surname', surname);
-    formData.append('email', email);
+  const userData = { name, surname, email }; // Construye un objeto JavaScript con los datos del formulario
 
-    this.authService.editUser(this.id, formData).subscribe({
-      next: (updateduser: User) => {
-        console.log(updateduser);
-      },
-      error: (error: any) => {
-        console.log(error);
-      }
-    });
+  console.log(userData); // Verifica el objeto userData antes de enviarlo
+
+  this.authService.editUser(this.id, userData).subscribe({
+    next: (updateduser: User) => {
+      console.log(updateduser);
+    },
+    error: (error: any) => {
+      console.log(error);
+    }
+  });
+
+   
   }
 }
