@@ -13,6 +13,8 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
 import { verifyTokenGuard } from './guards/verify-token.guard';
 import { FaqComponent } from './pages/faq/faq.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 
 
@@ -55,6 +57,12 @@ import { PaymentComponent } from './pages/payment/payment.component';
         },
         {
           path: 'favoritos', canActivate: [verifyTokenGuard], component: FavoritosComponent
+        },
+        {
+          path: 'profile', canActivate: [verifyTokenGuard], component: ProfileComponent
+        },
+        {
+          path: 'edit/:id', canActivate: [verifyTokenGuard], component: EditUserComponent
         },
         {
           path: '**', redirectTo: 'landing', pathMatch: 'full'
