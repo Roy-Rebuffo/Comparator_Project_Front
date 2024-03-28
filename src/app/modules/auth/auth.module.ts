@@ -18,6 +18,7 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
 import { FaqComponent } from './pages/faq/faq.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 
 
@@ -38,7 +39,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     PrivacyPolicyComponent,
     FaqComponent,
     PaymentComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditUserComponent
   ],
   imports: [
     CommonModule,
