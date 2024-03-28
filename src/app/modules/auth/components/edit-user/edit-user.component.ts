@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { User } from '../../interfaces/User.interface';
 
 
@@ -15,7 +15,7 @@ export class EditUserComponent {
   id: string = "";
   userData: any;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private route: ActivatedRoute) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe((param: Params) => this.id = param['id']);
     console.log('ID recogido de la ruta:', this.id);
     this.edituserForm = this.fb.group({
@@ -51,8 +51,9 @@ export class EditUserComponent {
   console.log(userData); // Verifica el objeto userData antes de enviarlo
 
   this.authService.editUser(this.id, userData).subscribe({
-    next: (updateduser: User) => {
-      console.log(updateduser);
+    next: (updatedUser: User) => {
+      console.log(updatedUser);
+      this.router.navigate(['home'])
     },
     error: (error: any) => {
       console.log(error);

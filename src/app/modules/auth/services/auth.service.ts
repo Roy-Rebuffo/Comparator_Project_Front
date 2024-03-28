@@ -9,7 +9,7 @@ import { User } from '../interfaces/User.interface';
 })
 export class AuthService {
   private inputValue: string = '';
-
+  
   constructor(private http: HttpClient) { }
 
   register(user: any) {
@@ -44,7 +44,6 @@ editUser(id: string, userData: any ): Observable<User> {
   // Realiza la solicitud PATCH con la URL actualizada y los datos del usuario a editar
   return this.http.patch<User>(url, userData);
 }
-
 
  }
 
