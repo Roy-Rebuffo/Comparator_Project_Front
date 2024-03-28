@@ -46,20 +46,24 @@ export class EditUserComponent {
   edituser() {
     const { name, surname, email } = this.edituserForm.value;
 
-  const userData = { name, surname, email }; // Construye un objeto JavaScript con los datos del formulario
+    const userData = { name, surname, email }; // Construye un objeto JavaScript con los datos del formulario
 
-  console.log(userData); // Verifica el objeto userData antes de enviarlo
+    console.log(userData); // Verifica el objeto userData antes de enviarlo
 
-  this.authService.editUser(this.id, userData).subscribe({
-    next: (updatedUser: User) => {
-      console.log(updatedUser);
-      this.router.navigate(['home'])
-    },
-    error: (error: any) => {
-      console.log(error);
-    }
-  });
+    this.authService.editUser(this.id, userData).subscribe({
+      next: (updateduser: User) => {
+        console.log(updateduser);
 
-   
+        // Actualizar los datos del usuario en el componente y en el almacenamiento local
+        this.userData = { ...this.userData, name: updateduser.name };
+        localStorage.setItem('userData', JSON.stringify(this.userData));
+
+        this.router.navigate(['/profile']);
+      },
+      error: (error: any) => {
+        console.log(error);
+      }
+    });
   }
+
 }
