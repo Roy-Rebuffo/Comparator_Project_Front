@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/Product.interface';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit {
   carrefour: Product[] = [];
   ahorramas: Product[] = [];
   isLoading: boolean = true;
@@ -16,19 +16,37 @@ export class HomePageComponent {
   constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit(): void {
-    this.productService.getCarrefour().subscribe((data: any) => {
-      this.carrefour = data;
-      localStorage.setItem("carrefour", JSON.stringify(data));
+    // Verificar si los datos de Carrefour están en el localStorage
+    const carrefourLocalStorage = localStorage.getItem('carrefour');
+    if (carrefourLocalStorage) {
+      this.carrefour = JSON.parse(carrefourLocalStorage);
       this.mostrarProductosAleatorios();
       this.checkLoadingState();
-    });
+    } else {
+      // Si no están en el localStorage, hacer la petición al backend
+      this.productService.getCarrefour().subscribe((data: any) => {
+        this.carrefour = data;
+        localStorage.setItem("carrefour", JSON.stringify(data));
+        this.mostrarProductosAleatorios();
+        this.checkLoadingState();
+      });
+    }
 
-    this.productService.getAhorramas().subscribe((data: any) => {
-      this.ahorramas = data;
-      localStorage.setItem("ahorramas", JSON.stringify(data));
+    // Verificar si los datos de Ahorramas están en el localStorage
+    const ahorramasLocalStorage = localStorage.getItem('ahorramas');
+    if (ahorramasLocalStorage) {
+      this.ahorramas = JSON.parse(ahorramasLocalStorage);
       this.mostrarProductosAleatoriosAhorraMas();
       this.checkLoadingState();
-    });
+    } else {
+      // Si no están en el localStorage, hacer la petición al backend
+      this.productService.getAhorramas().subscribe((data: any) => {
+        this.ahorramas = data;
+        localStorage.setItem("ahorramas", JSON.stringify(data));
+        this.mostrarProductosAleatoriosAhorraMas();
+        this.checkLoadingState();
+      });
+    }
   }
 
   mostrarProductosAleatorios() {
@@ -62,6 +80,7 @@ export class HomePageComponent {
     // Obtener los productos aleatorios
     this.ahorramas = indicesAleatorios.map(indice => this.ahorramas[indice]);
   }
+
   checkLoadingState() {
     // Verificar si ambos conjuntos de datos han sido cargados
     if (this.carrefour.length > 0 && this.ahorramas.length > 0) {
@@ -69,14 +88,15 @@ export class HomePageComponent {
     }
   }
 
-  goToAhorramas(){
+  goToAhorramas() {
     window.open('https://www.ahorramas.com/', '_blank');
   }
-  goToCarrefour(){
+
+  goToCarrefour() {
     window.open('https://www.carrefour.es/supermercado?ic_source=portal-y-corporativo&ic_medium=category-food-box&ic_content=ns', '_blank');
   }
 
-  addToFavorites(title: string, image: string, price:number) {
+  addToFavorites(title: string, image: string, price: number) {
     const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos') || '[]');
 
     console.log(favoritesFromLocal);
@@ -84,24 +104,24 @@ export class HomePageComponent {
     const existingTitleIndex = favoritesFromLocal.findIndex((prodFav: any) => prodFav.title === title && prodFav.image === image && prodFav.price === price);
 
     if (existingTitleIndex === -1) {
-        // El producto no está en favoritos, así que lo agregamos
-        favoritesFromLocal.push({ title: title, price: price,image: image }); // Agregamos el producto como un objeto con su título
+      // El producto no está en favoritos, así que lo agregamos
+      favoritesFromLocal.push({ title: title, price: price, image: image }); // Agregamos el producto como un objeto con su título
     } else {
-        // El producto ya está en favoritos, así que lo eliminamos
-        favoritesFromLocal.splice(existingTitleIndex, 1);
+      // El producto ya está en favoritos, así que lo eliminamos
+      favoritesFromLocal.splice(existingTitleIndex, 1);
     }
 
     // Actualizamos la lista de favoritos en el almacenamiento local
     localStorage.setItem('favoritos', JSON.stringify(favoritesFromLocal));
+  }
 
-}
-isFavorite(productTitle: string): boolean {
-  const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos')!);
-  return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
-}
-compareProduct(title: string): void {
-  // Redirigir a la ruta /comparator y pasar el título del producto como parámetro
-  this.router.navigate(['/comparator'], { queryParams: { title: title } })
-}
+  isFavorite(productTitle: string): boolean {
+    const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos')!);
+    return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
+  }
 
+  compareProduct(title: string): void {
+    // Redirigir a la ruta /comparator y pasar el título del producto como parámetro
+    this.router.navigate(['/comparator'], { queryParams: { title: title } })
+  }
 }
