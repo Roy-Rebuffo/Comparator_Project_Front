@@ -1,42 +1,50 @@
 <app-header></app-header>
-<div class="container">
-  <div class="gallery" *ngFor="let resultado of filteredProducts">
-    <img [src]="resultado.image" alt="{{ resultado.title }}">
-    <div class="desc">{{ resultado.title }} {{ resultado.price }}</div>
-    <div class="button-container">
-      <!-- <button (click)="compareProduct(resultado.title)">Comparar</button> -->
-    </div>
-  </div>
-  <div class="Products-Container"> 
+<h1 class="Principal-title">Perfumería e Higiene</h1>
+<div class="Principal-container">
+  <div class="Container-Filters"> 
     <div class="Title-Container">
-      <span title="Productos">Prductos</span>
+      <span title="Productos">Productos:</span>
     </div>
     <div class="Category-Container">
-      <ul>
+      <ul class="Categories">
         <li>
-          <input class="Category" type="checkbox" name="Champus" role="checkbox" (change)="filterProducts('Champú', $event)">
+          <input class="Category-box" type="checkbox" [(ngModel)]="checkboxChmapu" name="Desodorantes" role="checkbox" (change)="filterProducts(0, 5, $event)">
           <div>            
-            <img class="Imagen-Category" alt="Champú" src="/src/assets/images/plastic-blank-tall-shampoo-bottle-600nw-1901181124.webp">
+            <!-- img class="Imagen-Category" alt="Champú" src="/src/assets/images/plastic-blank-tall-shampoo-bottle-600nw-1901181124.webp"-->
             <p class="Title-Category">Champús</p>
           </div>
         </li>
         <li>
-          <div>
-            <input class="Category" type="checkbox"   name="Desodorantes" role="checkbox" (change)="filterProducts('Desodorante', $event)">
-            <img class="Imagen-Category" src="/src/assets/images/85e12vua.jpg">
+          <input class="Category-box" type="checkbox" [(ngModel)]="checkboxDesodorante" name="Desodorantes" role="checkbox" (change)="filterProducts(0, 5, $event)">
+            <!--img class="Imagen-Category" src="/src/assets/images/85e12vua.jpg"-->
             <p class="Title-Category">Desodorantes</p>
-          </div>
         </li>
       </ul>
     </div>
-    <li>
-      <input type="checkbox" [(ngModel)]="checkbox0to5" (change)="filterProductsByPrice(0, 5, $event)">
-      <p class="Title-Price">0 - 5</p>
+    <div class="Title-Container">
+      <span title="Productos">Precios:</span>
+    </div>
+    <li class="Container-prices">
+      <input class="Category-box-prices" type="checkbox" [(ngModel)]="checkbox0to5" (change)="filterProducts(0, 5, $event)">
+      <p class="Title-Price">0 € - 5 €</p>
     </li>
-    <li>
-      <input type="checkbox" [(ngModel)]="checkbox5to10" (change)="filterProductsByPrice(5, 10, $event)">
-      <p class="Title-Price">5 - 10</p>
+    <li class="Container-prices">
+      <input class="Category-box-prices" type="checkbox" [(ngModel)]="checkbox5to20" (change)="filterProducts(5, 20, $event)">
+      <p class="Title-Price">5 € - 20 €</p>
+    </li>
+    <button class="Bottom-reset" (click)="resetFilters()" role="button">Restablecer Filtros</button>
+  </div>
 
-    </li>
-    <button (click)="resetFilters()" role="button">Restablecer Filtros</button>
+  
+  <div class="Container-Products">
+    <div class="gallery" *ngFor="let resultado of filteredProducts">
+    <i (click)="addToFavorites(resultado.title, resultado.image, resultado.price)" class="fa-regular fa-heart" [ngClass]="{'favorite': isFavorite(resultado.title)}"></i>
+    <img [src]="resultado.image" alt="{{ resultado.title }}">
+    <div class="desc">{{ resultado.title }} {{ resultado.price }}</div>
+    <div class="button-container">
+      <button (click)="compareProduct(resultado.title)">Comparar</button>
+    </div>
+  </div>
+</div>
+</div>
 <app-footer></app-footer>

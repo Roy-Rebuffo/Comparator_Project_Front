@@ -20,48 +20,6 @@ export class CarrefourComponent {
       console.log(this.resultados);
     });
   }
-  filterProducts(category: string, event: any): void {
-    if (event.target.checked) {
-      this.filteredProducts = this.resultados.filter(product => product.title.includes(category));
-    } else {
-      this.filteredProducts = [...this.resultados];
-    }
-  }
-  
-  selectedPriceRanges: { min: number, max: number }[] = [];
-  
-  filterProductsByPrice(min: number, max: number, event: any): void {
-    const range = { min, max };
-    if (event.target.checked) {
-      this.selectedPriceRanges.push(range);
-    } else {
-      this.selectedPriceRanges = this.selectedPriceRanges.filter(r => r.min !== min || r.max !== max);
-    }
-    if (this.selectedPriceRanges.length > 0) {
-      this.filteredProducts = this.resultados.filter(product =>
-        this.selectedPriceRanges.some(range => product.price >= range.min && product.price <= range.max)
-      );
-    } else {
-      this.filteredProducts = [...this.resultados];
-    }
-  }
-  
-  checkbox0to5 = false;
-  checkbox5to10 = false;
-  
-  // ...
-  
-  resetFilters(): void {
-  this.selectedPriceRanges = [];
-  this.filteredProducts = [...this.resultados];
-  this.checkbox0to5 = false;
-  this.checkbox5to10 = false;
-  // Haz lo mismo para todas las demás casillas de verificación
-  }
-
-
-
-
   compareProduct(title: string): void {
     // Redirigir a la ruta /comparator y pasar el título del producto como parámetro
     this.router.navigate(['/comparator'], { queryParams: { title: title } })
@@ -85,12 +43,51 @@ export class CarrefourComponent {
     // Actualizamos la lista de favoritos en el almacenamiento local
     localStorage.setItem('favoritos', JSON.stringify(favoritesFromLocal));
 
-  }
-
+}
 
   isFavorite(productTitle: string): boolean {
   const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos')!);
   return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
+}
+
+checkbox0to5 = false;
+checkbox5to20 = false;
+checkboxChmapu = false;
+checkboxDesodorante = false;
+
+
+filterProducts(min: number, max: number, event: any): void {
+  // Inicializar filteredProducts con todos los productos
+  this.filteredProducts = [...this.resultados];
+
+  // Aplicar filtro de categoría si las casillas de verificación correspondientes están marcadas
+  if (this.checkboxChmapu || this.checkboxDesodorante) {
+    this.filteredProducts = this.filteredProducts.filter(product => {
+      const inCategory = (this.checkboxChmapu && product.title.includes('Champú')) || (this.checkboxDesodorante && product.title.includes('Desodorante'));
+      return inCategory;
+    });
   }
 
+  // Aplicar filtro de precio si las casillas de verificación correspondientes están marcadas
+  if (this.checkbox0to5 || this.checkbox5to20) {
+    this.filteredProducts = this.filteredProducts.filter(product => {
+      const price = parseFloat(product.price.replace(',', '.').replace('€', ''));
+      const inRange = (this.checkbox0to5 && price >= 0 && price <= 5) || (this.checkbox5to20 && price >= 5 && price <= 20);
+      return inRange;
+    });
+  }
 }
+
+
+resetFilters(): void {
+this.filteredProducts = [...this.resultados];
+this.checkbox0to5 = false;
+this.checkbox5to20 = false;
+this.checkboxChmapu = false;
+this.checkboxDesodorante = false;
+// Haz lo mismo para todas las demás casillas de verificación
+}
+
+}
+
+
