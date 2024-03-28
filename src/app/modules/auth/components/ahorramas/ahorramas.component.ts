@@ -51,62 +51,34 @@ export class AhorramasComponent {
   return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
 }
 
+checkbox0to5 = false;
+checkbox5to20 = false;
 checkboxChmapu = false;
 checkboxDesodorante = false;
 
-filterProducts(category: string, event: any): void {
-  if (event.target.checked) {
-    if (this.checkboxChmapu && this.checkboxDesodorante) {
-      // Si ambas casillas de verificación están marcadas, mostrar todos los productos
-      this.filteredProducts = [...this.resultados];
-    } else {
-      // Si solo una casilla de verificación está marcada, filtrar los productos por categoría
-      this.filteredProducts = this.resultados.filter(product => product.title.includes(category));
-    }
-  } else {
-    if (this.checkboxChmapu) {
-      // Si se desmarca la casilla de verificación Desodorante, mostrar solo los productos de la categoría Chmapu
-      this.filteredProducts = this.resultados.filter(product => product.title.includes('Champú'));
-    } else if (this.checkboxDesodorante) {
-      // Si se desmarca la casilla de verificación Chmapu, mostrar solo los productos de la categoría Desodorante
-      this.filteredProducts = this.resultados.filter(product => product.title.includes('Desodorante'));
-    } else {
-      // Si ambas casillas de verificación están desmarcadas, no mostrar ningún producto
-      this.filteredProducts = [...this.resultados];
-    }
+
+filterProducts(min: number, max: number, event: any): void {
+  // Inicializar filteredProducts con todos los productos
+  this.filteredProducts = [...this.resultados];
+
+  // Aplicar filtro de categoría si las casillas de verificación correspondientes están marcadas
+  if (this.checkboxChmapu || this.checkboxDesodorante) {
+    this.filteredProducts = this.filteredProducts.filter(product => {
+      const inCategory = (this.checkboxChmapu && product.title.includes('Champú')) || (this.checkboxDesodorante && product.title.includes('Desodorante'));
+      return inCategory;
+    });
+  }
+
+  // Aplicar filtro de precio si las casillas de verificación correspondientes están marcadas
+  if (this.checkbox0to5 || this.checkbox5to20) {
+    this.filteredProducts = this.filteredProducts.filter(product => {
+      const price = parseFloat(product.price.replace(',', '.').replace('€', ''));
+      const inRange = (this.checkbox0to5 && price >= 0 && price <= 5) || (this.checkbox5to20 && price >= 5 && price <= 20);
+      return inRange;
+    });
   }
 }
 
-filterProductsByPrice(min: number, max: number, event: any ): void {
-  if (event.target.checked) {
-    if (this.checkbox0to5 && this.checkbox5to20) {
-      // Si ambas casillas de verificación están marcadas, mostrar todos los productos
-      this.filteredProducts = [...this.resultados];
-    } else {
-      // Si solo una casilla de verificación está marcada, filtrar los productos por categoría
-      this.filteredProducts = this.resultados.filter(product => product.price >= min && product.price <= max);
-    }
-  } else {
-    if (this.checkbox0to5) {
-      // Si se desmarca la casilla de verificación Desodorante, mostrar solo los productos de la categoría Chmapu
-      this.filteredProducts = this.resultados.filter(product => product.price >= min && product.price <= max);
-    } else if (this.checkbox5to20) {
-      // Si se desmarca la casilla de verificación Chmapu, mostrar solo los productos de la categoría Desodorante
-      this.filteredProducts = this.resultados.filter(product => product.price >= min && product.price <= max);
-    } else {
-      // Si ambas casillas de verificación están desmarcadas, no mostrar ningún producto
-      this.filteredProducts = [...this.resultados];
-    }
-  }
-}
-
-
-
-checkbox0to5 = false;
-checkbox5to20 = false;
-
-
-// ...
 
 resetFilters(): void {
 this.filteredProducts = [...this.resultados];

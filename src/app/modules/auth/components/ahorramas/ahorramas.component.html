@@ -8,14 +8,14 @@
     <div class="Category-Container">
       <ul class="Categories">
         <li>
-          <input class="Category-box" type="checkbox" [(ngModel)]="checkboxChmapu" name="Champus" role="checkbox" (change)="filterProducts('Champú', $event)">
+          <input class="Category-box" type="checkbox" [(ngModel)]="checkboxChmapu" name="Desodorantes" role="checkbox" (change)="filterProducts(0, 5, $event)">
           <div>            
             <!-- img class="Imagen-Category" alt="Champú" src="/src/assets/images/plastic-blank-tall-shampoo-bottle-600nw-1901181124.webp"-->
             <p class="Title-Category">Champús</p>
           </div>
         </li>
         <li>
-            <input class="Category-box" type="checkbox" [(ngModel)]="checkboxDesodorante" name="Desodorantes" role="checkbox" (change)="filterProducts('Desodorante', $event)">
+          <input class="Category-box" type="checkbox" [(ngModel)]="checkboxDesodorante" name="Desodorantes" role="checkbox" (change)="filterProducts(0, 5, $event)">
             <!--img class="Imagen-Category" src="/src/assets/images/85e12vua.jpg"-->
             <p class="Title-Category">Desodorantes</p>
         </li>
@@ -25,11 +25,11 @@
       <span title="Productos">Precios:</span>
     </div>
     <li class="Container-prices">
-      <input class="Category-box-prices" type="checkbox" [(ngModel)]="checkbox0to5" (change)="filterProductsByPrice(0, 5, $event )">
+      <input class="Category-box-prices" type="checkbox" [(ngModel)]="checkbox0to5" (change)="filterProducts(0, 5, $event)">
       <p class="Title-Price">0 € - 5 €</p>
     </li>
     <li class="Container-prices">
-      <input class="Category-box" type="checkbox" [(ngModel)]="checkbox5to20" (change)="filterProductsByPrice(5, 20, $event)">
+      <input class="Category-box-prices" type="checkbox" [(ngModel)]="checkbox5to20" (change)="filterProducts(5, 20, $event)">
       <p class="Title-Price">5 € - 20 €</p>
     </li>
     <button class="Bottom-reset" (click)="resetFilters()" role="button">Restablecer Filtros</button>
