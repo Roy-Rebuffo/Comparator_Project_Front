@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { User } from '../../interfaces/User.interface';
 
 
@@ -15,7 +15,7 @@ export class EditUserComponent {
   id: string = "";
   userData: any;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private route: ActivatedRoute) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe((param: Params) => this.id = param['id']);
     console.log('ID recogido de la ruta:', this.id);
     this.edituserForm = this.fb.group({
@@ -46,19 +46,24 @@ export class EditUserComponent {
   edituser() {
     const { name, surname, email } = this.edituserForm.value;
 
-  const userData = { name, surname, email }; // Construye un objeto JavaScript con los datos del formulario
+    const userData = { name, surname, email }; // Construye un objeto JavaScript con los datos del formulario
 
-  console.log(userData); // Verifica el objeto userData antes de enviarlo
+    console.log(userData); // Verifica el objeto userData antes de enviarlo
 
-  this.authService.editUser(this.id, userData).subscribe({
-    next: (updateduser: User) => {
-      console.log(updateduser);
-    },
-    error: (error: any) => {
-      console.log(error);
-    }
-  });
+    this.authService.editUser(this.id, userData).subscribe({
+      next: (updateduser: User) => {
+        console.log(updateduser);
 
-   
+        // Actualizar los datos del usuario en el componente y en el almacenamiento local
+        this.userData = { ...this.userData, name: updateduser.name };
+        localStorage.setItem('userData', JSON.stringify(this.userData));
+
+        this.router.navigate(['/profile']);
+      },
+      error: (error: any) => {
+        console.log(error);
+      }
+    });
   }
+
 }
