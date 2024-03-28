@@ -1,7 +1,3 @@
-// .fav-container{
-//     margin-top: 250px;
-//     height: 250px;
-// }
 h2 {
     margin-top: 260px;
     text-align: center;
@@ -11,7 +7,6 @@ h2 {
     max-width: 1200px;
     background: #ffffff;
     overflow: hidden;
-    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -25,7 +20,7 @@ h2 {
     width: 350px;
     height: 450px;
     box-shadow: 2px 2px 8px #337357;
-    
+
   }
   .gallery i{
     position: absolute;
@@ -33,7 +28,7 @@ h2 {
     font-size: 30px;
     color: #337357;
     text-shadow: 0 0 10px #337357
-    
+
 
   }
   img {
@@ -41,16 +36,16 @@ h2 {
     height: 300px;
     object-fit: contain;
   }
-  
+
   .gallery img {
     width: 100%;
   }
-  
+
   .desc {
     padding: 15px;
     text-align: center;
   }
-  
+
   .button-container {
     width: 100%;
     height: 55px;
@@ -73,7 +68,7 @@ h2 {
     opacity: 0.8;
     color: #ccc;
   }
-  
+
   @media screen and (max-width: 2145px) {
     .container{
       margin-top: 40px;
@@ -84,13 +79,12 @@ h2 {
       margin-top: 60px;
     }
   }
-  @media screen and (max-width: 765px) {
+  @media screen and (max-width: 800px) {
     .container{
-      margin-top: 90px;
+      margin-top: 30px;
     }
     h2 {
-        margin-top: 300px;
+        margin-top: 200px;
     }
   }
- 
-  
+

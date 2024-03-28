@@ -15,23 +15,45 @@ export class HomePageComponent {
 
   constructor(private productService: ProductService, private router: Router) {}
 
-  ngOnInit(): void {
-    this.productService.getCarrefour().subscribe((data: any) => {
-      this.carrefour = data;
-      localStorage.setItem("carrefour", JSON.stringify(data));
-      this.mostrarProductosAleatorios();
+ ngOnInit(): void {
+    const carrefourCache = localStorage.getItem("carrefour");
+  
+    if (carrefourCache) {
+      this.carrefour = JSON.parse(carrefourCache);
+      console.log(this.carrefour); // Añade esta línea
+      this.mostrarProductosAleatoriosCarrefour();
       this.checkLoadingState();
-    });
+    } else {
+      this.productService.getCarrefour().subscribe((data: any) => {
+        console.log(data); // Añade esta línea
+        this.carrefour = data;
+        localStorage.setItem("carrefour", JSON.stringify(data));
+        this.mostrarProductosAleatoriosCarrefour();
+        this.checkLoadingState();
+      });
+    }
 
-    this.productService.getAhorramas().subscribe((data: any) => {
-      this.ahorramas = data;
-      localStorage.setItem("ahorramas", JSON.stringify(data));
+    const ahorramasCache = localStorage.getItem("ahorramas");
+  
+    if (ahorramasCache) {
+      this.ahorramas = JSON.parse(ahorramasCache);
+      console.log(this.ahorramas)
       this.mostrarProductosAleatoriosAhorraMas();
       this.checkLoadingState();
-    });
+    } else {
+      this.productService.getAhorramas().subscribe((data: any) => {
+        console.log(data); // Añade esta línea
+        this.ahorramas = data;
+        localStorage.setItem("ahorramas", JSON.stringify(data));
+        this.mostrarProductosAleatoriosAhorraMas();
+        this.checkLoadingState();
+      });
+    }
+      // Hacer lo mismo para Ahorramas...
   }
+  // Hacer lo mismo para Ahorramas..
 
-  mostrarProductosAleatorios() {
+  mostrarProductosAleatoriosCarrefour() {
     const totalProductos = this.carrefour.length;
     const indicesAleatorios: number[] = [];
 

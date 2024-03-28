@@ -17,6 +17,8 @@ import { FavoritosComponent } from './components/favoritos/favoritos.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 
 
@@ -36,7 +38,9 @@ import { PaymentComponent } from './pages/payment/payment.component';
     FavoritosComponent,
     PrivacyPolicyComponent,
     FaqComponent,
-    PaymentComponent
+    PaymentComponent,
+    ProfileComponent,
+    EditUserComponent
   ],
   imports: [
     CommonModule,
