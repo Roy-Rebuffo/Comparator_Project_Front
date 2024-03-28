@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -36,13 +36,15 @@ export class AuthService {
 //   editUser(id: string, userToEdit: FormData){
 //     return this.http.patch<User>('http://localhost:8084/api/users/edit/:id', userToEdit)
 //   }
-editUser(id: string, userToEdit: FormData): Observable<User> {
-  // Utiliza una plantilla de cadena para incluir dinámicamente el ID en la URL
+
+editUser(id: string, userData: any ): Observable<User> {
+  // Utiliza comillas invertidas para incluir dinámicamente el ID en la URL
   const url = `http://localhost:8084/api/users/edit/${id}`;
 
   // Realiza la solicitud PATCH con la URL actualizada y los datos del usuario a editar
-  return this.http.patch<User>(url, userToEdit);
+  return this.http.patch<User>(url, userData);
 }
+
 
  }
 
