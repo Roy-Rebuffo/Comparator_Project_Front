@@ -1,6 +1,6 @@
+import { AuthService } from './../../services/auth.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { User } from '../../interfaces/User.interface';
 
@@ -66,4 +66,17 @@ export class EditUserComponent {
     });
   }
 
+  deleteUserFromComponent(id: any) {
+    this.authService.deleteUser(id).subscribe(
+      (response) => {
+        console.log('Usuario eliminado con éxito');
+        // Aquí podrías implementar la lógica adicional después de eliminar el usuario
+        this.router.navigate(['/landing']);
+      },
+      (error) => {
+        console.error('Error al eliminar el usuario:', error);
+        // Aquí podrías implementar la lógica para manejar el error si es necesario
+      }
+    );
+  }
 }

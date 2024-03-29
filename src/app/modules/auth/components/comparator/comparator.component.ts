@@ -51,7 +51,7 @@ export class ComparatorComponent implements OnInit {
         count ++
       }
     }
-    return count >= 5
+    return count >= 3
       // return stringsABuscar.every((string:any) => objeto.title.includes(string));
   });
 

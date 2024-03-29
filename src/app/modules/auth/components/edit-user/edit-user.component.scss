@@ -35,6 +35,21 @@ form {
     border-radius: 5px;
 }
 
+button{
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: red;
+    border: none;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+}
+
 button[type="submit"] {
     display: block;
     width: 100%;
