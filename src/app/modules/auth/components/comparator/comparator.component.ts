@@ -51,7 +51,7 @@ export class ComparatorComponent implements OnInit {
         count ++
       }
     }
-    return count >= 5
+    return count >= 3
       // return stringsABuscar.every((string:any) => objeto.title.includes(string));
   });
 
@@ -70,7 +70,7 @@ export class ComparatorComponent implements OnInit {
 
   goToSuperMarket(product: any) {
     let url;
-    if (product.supermercado === "carrefour") {
+    if (product.supermarket === "carrefour") {
       url = 'https://www.carrefour.es/supermercado?ic_source=portal-y-corporativo&ic_medium=category-food-box&ic_content=ns';
     } else {
       url = 'https://www.ahorramas.com/';
@@ -79,6 +79,7 @@ export class ComparatorComponent implements OnInit {
     // Abrir la URL en una nueva pestaña
     window.open(url, '_blank');
   }
+
   addToFavorites(title: string, image: string, price:number) {
     const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos') || '[]');
 
@@ -100,8 +101,12 @@ export class ComparatorComponent implements OnInit {
 }
 
 isFavorite(productTitle: string): boolean {
-  const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos')!);
-  return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
+  const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos') || '[]');
+  if (favoritesFromLocal !== null) {
+    return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
+  } else {
+    return false; // Si no hay favoritos, retornamos falso
+  }
 }
 
 }

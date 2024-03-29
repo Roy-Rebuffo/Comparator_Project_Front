@@ -9,6 +9,7 @@
       </div>
       <div class="info-container">
         <h2>{{productsToCompare.title}}</h2>
+        <p>{{productsToCompare.supermarket}}</p>
         <h3>Precio:  {{productsToCompare.price}}</h3>
         <button class="btn" (click)="goToSuperMarket(productsToCompare)">Ir al supermercado</button>
       </div>
@@ -25,6 +26,7 @@
             <img style="height: 80px; margin-left: 5px; margin-right: 10px;" class="left-image-aside" [src]="productsToCompare.image" alt="">
             <div class="right-info-aside">
               <h2 style="font-size: 15px; text-align: start; margin-bottom: 10px;">{{productsToCompare.title}}</h2>
+              <p>{{productsToCompare.supermarket}}</p>
               <h3 style="text-align: start;">{{productsToCompare.price}}</h3>
             </div>
           </div>
@@ -38,6 +40,7 @@
             </div>
             <div class="product-info-container-custom">
                 <h2>{{producto.title}}</h2>
+                <p>{{producto.supermarket}}</p>
                 <h3 [style.color]="precioMenor(producto)">Precio:  {{producto.price}}</h3>
                 <button class="btn" (click)="goToSuperMarket(producto)">Ir al supermercado</button>
             </div>

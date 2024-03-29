@@ -1,3 +1,46 @@
-div {
-    margin-top: 300px;
+.profile-wrapper .profile-container {
+    margin-top: 250px;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-wrapper .gallery {
+    margin: 20px; /* Agregamos más margen para separación */
+    padding: 20px; /* Agregamos padding para espacio interno */
+    border-radius: 10px;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centramos verticalmente */
+    align-items: center; /* Centramos horizontalmente */
+    background-color: #337357a7;
+}
+
+.profile-wrapper .gallery h3{
+    margin: 5px 0; 
+}
+.profile-wrapper .gallery button {
+    margin: 15px 0; /* Agregamos margen entre elementos */
+}
+
+.profile-wrapper button {
+    display: inline-block;
+    padding: 0.6rem 2rem;
+    font-weight: 500;
+    border-radius: 2rem;
+    cursor: pointer;
+    color: white;
+    background-color: #337357;
+    transition: all 300ms ease;
+    border: none;
+    width: 40%;
+}
+
+.profile-wrapper button:hover {
+    opacity: 0.8;
+    color: #ccc;
 }

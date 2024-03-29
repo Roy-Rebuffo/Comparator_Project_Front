@@ -1,4 +1,6 @@
-<form (ngSubmit)="edituser()" [formGroup]="edituserForm">
+<app-header></app-header>
+<div class="form-container">
+  <form (ngSubmit)="edituser()" [formGroup]="edituserForm">
     <div class="form-group">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" formControlName="name" required>
@@ -12,5 +14,8 @@
       <input type="email" id="email" name="email" formControlName="email" required>
     </div>
     
-    <button type="submit">Editar producto</button>
+    <button type="submit">Editar perfil</button>
+    <button (click)="deleteUserFromComponent(userData._id)">Borrar</button>
   </form>
+</div>
+<app-footer></app-footer>

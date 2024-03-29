@@ -45,5 +45,9 @@ editUser(id: string, userData: any ): Observable<User> {
   return this.http.patch<User>(url, userData);
 }
 
+deleteUser(id: any){
+  return this.http.delete(`http://localhost:8084/api/users/delete/${id}`)
+}
+
  }
 

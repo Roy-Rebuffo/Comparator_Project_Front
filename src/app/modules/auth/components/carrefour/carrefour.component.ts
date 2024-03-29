@@ -45,7 +45,7 @@ export class CarrefourComponent {
 
 }
 
-  isFavorite(productTitle: string): boolean {
+isFavorite(productTitle: string): boolean {
   const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos')!);
   return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
 }
