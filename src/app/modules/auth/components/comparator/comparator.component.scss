@@ -161,6 +161,17 @@ h3{
     margin-top: 200px;
   }
 }
+@media screen and (max-width: 625px) {
+  .aside-container{
+    display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .product-item-container-custom{
+    width: 440px;
+  }
+}
+
 
 
 
