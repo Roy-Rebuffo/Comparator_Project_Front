@@ -21,6 +21,7 @@ export class LandingComponent {
   isSignUpMode: boolean = false;
   isSignUpMode2: boolean = false;
   carrefour: Product[] = [];
+  isLoading: boolean = true;
 
   constructor(private authService: AuthService, private productService: ProductService, private router: Router) {}
 
@@ -107,11 +108,18 @@ export class LandingComponent {
         this.carrefour = data;
         localStorage.setItem("carrefour", JSON.stringify(data));
         console.log("Datos de Carrefour cargados correctamente");
+        this.checkLoadingState();
       },
       error: (error) => {
         console.error("Error al cargar datos de Carrefour:", error);
       }
     });
+  }
+
+  checkLoadingState() {
+    if (this.carrefour.length > 0 ) {
+      this.isLoading = false; 
+    }
   }
   
 
