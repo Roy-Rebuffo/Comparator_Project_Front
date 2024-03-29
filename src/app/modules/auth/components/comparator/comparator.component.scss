@@ -20,6 +20,8 @@
 }
 img{
   border-radius: 50px;
+  background-color: #ccc;
+  width: 100px;
 }
 .img-container i{
   position: absolute;
@@ -62,9 +64,16 @@ h3{
   width: 30%;
   text-align: center;
   background: #206c5fb6;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
 }
 .aside-info{
   display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  max-width: 90%;
+  overflow: hidden;
 }
 .product-item-container-custom-main{
   display: flex;

@@ -15,6 +15,7 @@ export class ComparatorComponent implements OnInit {
   similarProducts: any[] = [];
   compareProduct: any = null;
   resultados: any[] = [];
+  productosAleatorios: any[] = [];
 
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
@@ -26,6 +27,7 @@ export class ComparatorComponent implements OnInit {
         this.products = res;
         this.findSimilarProducts();
         this.findCompareProduct();
+        this.obtenerProductosAleatorios();
       });
     });
   }
@@ -108,6 +110,21 @@ isFavorite(productTitle: string): boolean {
   } else {
     return false; // Si no hay favoritos, retornamos falso
   }
+}
+obtenerProductosAleatorios(): void {
+  const totalProductos = this.products.length;
+  const indicesAleatorios: number[] = [];
+
+  // Generar 10 índices aleatorios únicos
+  while (indicesAleatorios.length < 10) {
+    const indiceAleatorio = Math.floor(Math.random() * totalProductos);
+    if (!indicesAleatorios.includes(indiceAleatorio)) {
+      indicesAleatorios.push(indiceAleatorio);
+    }
+  }
+
+  // Obtener los productos aleatorios
+  this.productosAleatorios = indicesAleatorios.map(indice => this.products[indice]);
 }
 
 }

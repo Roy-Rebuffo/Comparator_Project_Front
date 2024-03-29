@@ -18,16 +18,16 @@
 
   <div class="compare-product-container-custom" *ngIf="resultados && resultados.length > 0">
     <h2 style="margin-bottom: 30px;">Productos similares que te pueden interesar:</h2>
-    <div class="product-container-custom" *ngIf="productsToCompare">
+    <div class="product-container-custom">
       <div class="aside-container">
         <aside>
           <h2 style="margin-bottom: 30px;">TOP 10 PRODUCTS:</h2>
-          <div class="aside-info">
-            <img style="height: 80px; margin-left: 5px; margin-right: 10px;" class="left-image-aside" [src]="productsToCompare.image" alt="">
+          <div class="aside-info" *ngFor="let producto of productosAleatorios">
+            <img style="height: 80px; margin-left: 5px; margin-right: 10px;" class="left-image-aside" [src]="producto.image" alt="">
             <div class="right-info-aside">
-              <h2 style="font-size: 15px; text-align: start; margin-bottom: 10px;">{{productsToCompare.title}}</h2>
-              <p>{{productsToCompare.supermarket}}</p>
-              <h3 style="text-align: start;">{{productsToCompare.price}}</h3>
+              <h2 style="font-size: 15px; text-align: start; margin-bottom: 10px;">{{producto.title}}</h2>
+              <p>{{producto.supermarket}}</p>
+              <h3 style="text-align: start;">{{producto.price}}</h3>
             </div>
           </div>
         </aside>
