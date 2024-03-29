@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../interfaces/Product.interface';
 
 @Component({
   selector: 'app-landing',
@@ -18,8 +20,13 @@ export class LandingComponent {
   status: 'loading' | 'unauthorized' | 'success' | 'disabled' | 'error' = 'disabled';
   isSignUpMode: boolean = false;
   isSignUpMode2: boolean = false;
+  carrefour: Product[] = [];
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private productService: ProductService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.getDataCarrefour();
+  }
 
   toggleSignIn() {
     this.isSignUpMode = false;
@@ -93,5 +100,19 @@ export class LandingComponent {
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
+
+  getDataCarrefour() {
+    this.productService.getCarrefour().subscribe({
+      next: (data: any) => {
+        this.carrefour = data;
+        localStorage.setItem("carrefour", JSON.stringify(data));
+        console.log("Datos de Carrefour cargados correctamente");
+      },
+      error: (error) => {
+        console.error("Error al cargar datos de Carrefour:", error);
+      }
+    });
+  }
+  
 
 }

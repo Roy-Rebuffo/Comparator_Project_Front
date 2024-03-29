@@ -16,21 +16,14 @@ export class HomePageComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit(): void {
-    // Verificar si los datos de Carrefour están en el localStorage
+    
     const carrefourLocalStorage = localStorage.getItem('carrefour');
-    if (carrefourLocalStorage) {
-      this.carrefour = JSON.parse(carrefourLocalStorage);
-      this.mostrarProductosAleatorios();
-      this.checkLoadingState();
-    } else {
-      // Si no están en el localStorage, hacer la petición al backend
-      this.productService.getCarrefour().subscribe((data: any) => {
-        this.carrefour = data;
-        localStorage.setItem("carrefour", JSON.stringify(data));
-        this.mostrarProductosAleatorios();
-        this.checkLoadingState();
-      });
-    }
+  if (carrefourLocalStorage) {
+    this.carrefour = JSON.parse(carrefourLocalStorage);
+    this.mostrarProductosAleatorios();
+    this.checkLoadingState();
+  }
+
 
     // Verificar si los datos de Ahorramas están en el localStorage
     const ahorramasLocalStorage = localStorage.getItem('ahorramas');

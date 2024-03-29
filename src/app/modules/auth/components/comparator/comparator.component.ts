@@ -102,8 +102,12 @@ export class ComparatorComponent implements OnInit {
 }
 
 isFavorite(productTitle: string): boolean {
-  const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos')!);
-  return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
+  const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos') || '[]');
+  if (favoritesFromLocal !== null) {
+    return favoritesFromLocal.some((prodFav: any) => prodFav.title === productTitle);
+  } else {
+    return false; // Si no hay favoritos, retornamos falso
+  }
 }
 
 }
