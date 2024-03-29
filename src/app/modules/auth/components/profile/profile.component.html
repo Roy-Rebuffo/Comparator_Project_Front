@@ -1,9 +1,12 @@
 <app-header></app-header>
-<p>profile works!</p>
-<div *ngIf="userData">
-    <p>{{userData.name}}</p>
-    <p>{{userData.surname}}</p>
-    <p>{{userData.email}}</p>
-    <button [routerLink]="['/edit', userData._id]">Editar</button>
+<div class="profile-wrapper">
+    <div class="profile-container">
+        <div class="gallery" *ngIf="userData">
+            <h3>{{userData.name}}</h3>
+            <h3>{{userData.surname}}</h3>
+            <h3>{{userData.email}}</h3> 
+            <button [routerLink]="['/edit', userData._id]">Editar</button>
+        </div>
+    </div>
 </div>
 <app-footer></app-footer>

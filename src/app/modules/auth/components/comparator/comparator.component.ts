@@ -71,7 +71,7 @@ export class ComparatorComponent implements OnInit {
 
   goToSuperMarket(product: any) {
     let url;
-    if (product.supermercado === "carrefour") {
+    if (product.supermarket === "carrefour") {
       url = 'https://www.carrefour.es/supermercado?ic_source=portal-y-corporativo&ic_medium=category-food-box&ic_content=ns';
     } else {
       url = 'https://www.ahorramas.com/';
@@ -80,6 +80,7 @@ export class ComparatorComponent implements OnInit {
     // Abrir la URL en una nueva pestaña
     window.open(url, '_blank');
   }
+
   addToFavorites(title: string, image: string, price:number) {
     const favoritesFromLocal = JSON.parse(localStorage.getItem('favoritos') || '[]');
 
