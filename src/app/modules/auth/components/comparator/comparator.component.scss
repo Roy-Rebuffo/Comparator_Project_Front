@@ -39,6 +39,7 @@ img{
 
 .info-container h3 {
   margin-top: 10px; /* Espacio entre el título y el precio */
+  font-size: 25px;
 }
 h2{
   color: #24262b;
@@ -79,6 +80,7 @@ h3{
   border-radius: 20px;
   margin-left: 10px;
   box-shadow: 2px 2px 8px #337357;
+  padding-top: 5px;
 }
 .btn{
   margin-top: 15px;
@@ -124,6 +126,7 @@ h3{
 .product-info-container-custom h2,
 .product-info-container-custom h3 {
   margin: 0; /* Eliminar márgenes predeterminados */
+  font-size: 25px;
 }
 
 .product-info-container-custom h3 {

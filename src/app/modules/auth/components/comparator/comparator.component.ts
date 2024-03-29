@@ -51,7 +51,7 @@ export class ComparatorComponent implements OnInit {
         count ++
       }
     }
-    return count >= 3
+    return count >= 4
       // return stringsABuscar.every((string:any) => objeto.title.includes(string));
   });
 
@@ -72,9 +72,9 @@ export class ComparatorComponent implements OnInit {
   goToSuperMarket(product: any) {
     let url;
     if (product.supermarket === "carrefour") {
-      url = 'https://www.carrefour.es/supermercado?ic_source=portal-y-corporativo&ic_medium=category-food-box&ic_content=ns';
+      url = 'https://www.carrefour.es/supermercado/bebidas/refrescos/cat650001/c';
     } else {
-      url = 'https://www.ahorramas.com/';
+      url = 'https://www.ahorramas.com/bebidas/refrescos/'
     }
 
     // Abrir la URL en una nueva pestaña
