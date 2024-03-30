@@ -7,37 +7,35 @@
     </div>
     <div class="Category-Container">
       <ul class="Categories">
-        <li>
-          <input class="Category-box" type="checkbox" [(ngModel)]="checkboxEnergeticas" name="Enegéticas" role="checkbox" (change)="filterProducts(0, 5, $event)">
-          <div>            
+        <li class="category-productos">
+          <input class="Category-box" type="checkbox" [(ngModel)]="checkboxEnergeticas" name="Enegéticas" role="checkbox" (change)="filterProducts(0, 5, $event)">            
             <p class="Title-Category">Energéticas</p>
-          </div>
         </li>
-        <li>
+        <li class="category-productos">
           <input class="Category-box" type="checkbox" [(ngModel)]="checkboxCola" name="Cola" role="checkbox" (change)="filterProducts(0, 5, $event)">
             <p class="Title-Category">Cola</p>
         </li>
-        <li>
+        <li class="category-productos">
           <input class="Category-box" type="checkbox" [(ngModel)]="checkboxIsotonico" name="Isotónico" role="checkbox" (change)="filterProducts(0, 5, $event)">
             <!--img class="Imagen-Category" src="/src/assets/images/85e12vua.jpg"-->
             <p class="Title-Category">Isotónico</p>
         </li>
-        <li>
+        <li class="category-productos">
           <input class="Category-box" type="checkbox" [(ngModel)]="checkboxGaseosa" name="Gaseosa" role="checkbox" (change)="filterProducts(0, 5, $event)">
             <!--img class="Imagen-Category" src="/src/assets/images/85e12vua.jpg"-->
             <p class="Title-Category">Gaseosa</p>
         </li>
-        <li>
+        <li class="category-productos">
           <input class="Category-box" type="checkbox" [(ngModel)]="checkboxTonica" name="Tónica" role="checkbox" (change)="filterProducts(0, 5, $event)">
             <!--img class="Imagen-Category" src="/src/assets/images/85e12vua.jpg"-->
             <p class="Title-Category">Tónica</p>
         </li>
-        <li>
+        <li class="category-productos">
           <input class="Category-box" type="checkbox" [(ngModel)]="checkboxLight" name="Light" role="checkbox" (change)="filterProducts(0, 5, $event)">
             <!--img class="Imagen-Category" src="/src/assets/images/85e12vua.jpg"-->
             <p class="Title-Category">Light</p>
         </li>
-        <li>
+        <li class="category-productos">
           <input class="Category-box" type="checkbox" [(ngModel)]="checkboxZero" name="Zero" role="checkbox" (change)="filterProducts(0, 5, $event)">
             <!--img class="Imagen-Category" src="/src/assets/images/85e12vua.jpg"-->
             <p class="Title-Category">Zero</p>
@@ -49,112 +47,118 @@
     </div>
     <div class="Category-Container">
       <ul class="Categories">
-        <li>
+        <li class="category-productos">
           <input class="Category-box" type="checkbox" [(ngModel)]="checkboxLata" name="Latas" role="checkbox" (change)="filterProducts(0, 5, $event)">
           <div>            
             <p class="Title-Category">Latas</p>
           </div>
         </li>
-          <li>
+          <li class="category-productos">
             <input class="Category-box" type="checkbox" [(ngModel)]="checkboxBotella" name="Botella" role="checkbox" (change)="filterProducts(0, 5, $event)">
             <div>            
               <p class="Title-Category">Botella</p>
             </div>
           </li>
-          <li>
+          <li class="category-productos">
             <input class="Category-box" type="checkbox" [(ngModel)]="checkboxSobre" name="Sobre" role="checkbox" (change)="filterProducts(0, 5, $event)">
             <div>            
               <p class="Title-Category">Sobre</p>
             </div>
           </li>
-    <div class="Title-Container">
-      <span title="Productos">Marcas:</span>
-    </div>
-    <div class="Category-Container">
-        <ul class="Categories">
-            <li>
-              <input class="Category-box" type="checkbox" [(ngModel)]="checkboxCocaCola" name="Coca Cola" role="checkbox" (change)="filterProducts(0, 5, $event)">
-               <div>            
-                 <p class="Title-Category">Coca Cola</p>
-              </div>
-            </li>
-            <li>
-              <input class="Category-box" type="checkbox" [(ngModel)]="checkboxAquarius" name="Aquarius" role="checkbox" (change)="filterProducts(0, 5, $event)">
-               <div>            
-                 <p class="Title-Category">Aquarius</p>
-              </div>
-            </li>
-            <li>
-              <input class="Category-box" type="checkbox" [(ngModel)]="checkboxBurn" name="Burn" role="checkbox" (change)="filterProducts(0, 5, $event)">
-               <div>            
-                 <p class="Title-Category">Burn</p>
-              </div>
-            </li>
-            <li>
-              <input class="Category-box" type="checkbox" [(ngModel)]="checkboxFanta" name="Fanta" role="checkbox" (change)="filterProducts(0, 5, $event)">
-               <div>            
-                 <p class="Title-Category">Fanta</p>
-              </div>
-            </li>
-            <li>
-              <input class="Category-box" type="checkbox" [(ngModel)]="checkboxMonster" name="Monster" role="checkbox" (change)="filterProducts(0, 5, $event)">
-               <div>            
-                 <p class="Title-Category">Monster</p>
-              </div>
-            </li>
-            <li>
-              <input class="Category-box" type="checkbox" [(ngModel)]="checkboxNestea" name="Nestea" role="checkbox" (change)="filterProducts(0, 5, $event)">
-               <div>            
-                 <p class="Title-Category">Nestea</p>
-              </div>
-            </li>
-            <li>
-              <input class="Category-box" type="checkbox" [(ngModel)]="checkboxPowerade" name="Powerade" role="checkbox" (change)="filterProducts(0, 5, $event)">
-               <div>            
-                 <p class="Title-Category">Powerade</p>
-              </div>
-            </li>
-            <li>
-              <input class="Category-box" type="checkbox" [(ngModel)]="checkboxRedBull" name="RedBull" role="checkbox" (change)="filterProducts(0, 5, $event)">
-               <div>            
-                 <p class="Title-Category">Red Bull</p>
-              </div>
-            </li>
-            <li>
-              <input class="Category-box" type="checkbox" [(ngModel)]="checkboxSchweppes" name="Schweppes" role="checkbox" (change)="filterProducts(0, 5, $event)">
+        <div class="Title-Container">
+            <span class="title-marcas" title="Productos">Marcas:</span>
+        </div>
+          <div class="Category-Container">
+            <ul class="Categories">
+              <li class="category-productos">
+                <input class="Category-box" type="checkbox" [(ngModel)]="checkboxMonster" name="Monster" role="checkbox" (change)="filterProducts(0, 5, $event)">
                 <div>            
-                 <p class="Title-Category">Schweppes</p>
-              </div>
-            </li>
-        </ul>
+                  <p class="marcas-category">Monster</p>
+                </div>
+              </li>
+                <li class="category-productos">
+                  <input class="Category-box" type="checkbox" [(ngModel)]="checkboxCocaCola" name="Coca Cola" role="checkbox" (change)="filterProducts(0, 5, $event)">
+                  <div>            
+                    <p class="marcas-category">Coca Cola</p>
+                  </div>
+                </li>
+                <li class="category-productos">
+                  <input class="Category-box" type="checkbox" [(ngModel)]="checkboxAquarius" name="Aquarius" role="checkbox" (change)="filterProducts(0, 5, $event)">
+                  <div>            
+                    <p class="marcas-category">Aquarius</p>
+                  </div>
+                </li>
+                <li class="category-productos">
+                  <input class="Category-box" type="checkbox" [(ngModel)]="checkboxBurn" name="Burn" role="checkbox" (change)="filterProducts(0, 5, $event)">
+                  <div>            
+                    <p class="marcas-category">Burn</p>
+                  </div>
+                </li>
+                <li class="category-productos">
+                  <input class="Category-box" type="checkbox" [(ngModel)]="checkboxFanta" name="Fanta" role="checkbox" (change)="filterProducts(0, 5, $event)">
+                  <div>            
+                    <p class="marcas-category">Fanta</p>
+                  </div>
+                </li>
+                <li class="category-productos">
+                  <input class="Category-box" type="checkbox" [(ngModel)]="checkboxMonster" name="Monster" role="checkbox" (change)="filterProducts(0, 5, $event)">
+                  <div>            
+                    <p class="marcas-category">Monster</p>
+                  </div>
+                </li>
+                <li class="category-productos">
+                  <input class="Category-box" type="checkbox" [(ngModel)]="checkboxNestea" name="Nestea" role="checkbox" (change)="filterProducts(0, 5, $event)">
+                  <div>            
+                    <p class="marcas-category">Nestea</p>
+                  </div>
+                </li>
+                <li class="category-productos">
+                  <input class="Category-box" type="checkbox" [(ngModel)]="checkboxPowerade" name="Powerade" role="checkbox" (change)="filterProducts(0, 5, $event)">
+                  <div>            
+                    <p class="marcas-category">Powerade</p>
+                  </div>
+                </li>
+                <li class="category-productos">
+                  <input class="Category-box" type="checkbox" [(ngModel)]="checkboxRedBull" name="RedBull" role="checkbox" (change)="filterProducts(0, 5, $event)">
+                  <div>            
+                    <p class="marcas-category">Red Bull</p>
+                  </div>
+                </li>
+                <li class="category-productos">
+                  <input class="Category-box" type="checkbox" [(ngModel)]="checkboxSchweppes" name="Schweppes" role="checkbox" (change)="filterProducts(0, 5, $event)">
+                  <div>            
+                    <p class="marcas-category">Schweppes</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+      <div class="Title-Container">
+        <span title="Productos">Precios:</span>
       </div>
-    <div class="Title-Container">
-      <span title="Productos">Precios:</span>
-    </div>
-    <li class="Container-prices">
+      <li class="Container-prices">
       <input class="Category-box-prices" type="checkbox" [(ngModel)]="checkbox0to2" (change)="filterProducts(0, 2, $event)">
       <p class="Title-Price">0 € - 2 €</p>
-    </li>
-    <li class="Container-prices">
+      </li>
+     <li class="Container-prices">
       <input class="Category-box-prices" type="checkbox" [(ngModel)]="checkbox2to5" (change)="filterProducts(2, 5, $event)">
       <p class="Title-Price">2 € - 5 €</p>
-    </li>
-    <li class="Container-prices">
+      </li>
+      <li class="Container-prices">
       <input class="Category-box-prices" type="checkbox" [(ngModel)]="checkbox5to10" (change)="filterProducts(5, 10, $event)">
       <p class="Title-Price">5 € - 10 €</p>
-    </li>
-    <li class="Container-prices">
+      </li>
+      <li class="Container-prices">
       <input class="Category-box-prices" type="checkbox" [(ngModel)]="checkbox10to15" (change)="filterProducts(10, 15, $event)">
       <p class="Title-Price">10 € - 15 €</p>
-    </li>
-    <li class="Container-prices">
+      </li>
+      <li class="Container-prices">
       <input class="Category-box-prices" type="checkbox" [(ngModel)]="checkbox15to20" (change)="filterProducts(15, 20, $event)">
       <p class="Title-Price">15 € - 20 €</p>
-    </li>
-    <li class="Container-prices">
+      </li>
+      <li class="Container-prices">
       <input class="Category-box-prices" type="checkbox" [(ngModel)]="checkboxMas20" (change)="filterProducts(0, 20, $event)">
       <p class="Title-Price">Más de 20 € €</p>
-    </li>
+      </li>
     <button class="Bottom-reset" (click)="resetFilters()" role="button">Restablecer Filtros</button>
 
   <div class="Container-Products">
