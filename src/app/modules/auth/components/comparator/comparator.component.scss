@@ -18,10 +18,11 @@
   height: 300px;
 
 }
-img{
+img {
   border-radius: 50px;
   background-color: #ccc;
   width: 100px;
+  object-fit: cover;
 }
 .img-container i{
   position: absolute;
@@ -172,11 +173,12 @@ h3{
   .compare-product-container {
     margin-top: 200px;
   }
-}
-@media screen and (max-width: 625px) {
   .aside-container{
     display: none;
   }
+}
+@media screen and (max-width: 625px) {
+  
 }
 @media screen and (max-width: 500px) {
   .product-item-container-custom{

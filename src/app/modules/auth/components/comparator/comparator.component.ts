@@ -73,7 +73,7 @@ export class ComparatorComponent implements OnInit {
 
   goToSuperMarket(product: any) {
     let url;
-    if (product.supermarket === "carrefour") {
+    if (product.supermarket === "Carrefour") {
       url = 'https://www.carrefour.es/supermercado/bebidas/refrescos/cat650001/c';
     } else {
       url = 'https://www.ahorramas.com/bebidas/refrescos/'
