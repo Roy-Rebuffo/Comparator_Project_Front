@@ -19,7 +19,7 @@ export class HomePageComponent implements OnInit {
     this.productService.getCarrefour().subscribe((data: any) => {
       this.carrefour = data;
       localStorage.setItem("carrefour", JSON.stringify(data));
-      this.mostrarProductosAleatorios();
+      this.mostrarProductosAleatoriosCarrefour(); // Renamed method
       this.checkLoadingState();
     });
 
