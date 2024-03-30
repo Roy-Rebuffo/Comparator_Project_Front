@@ -52,11 +52,10 @@ isFavorite(productTitle: string): boolean {
 }
 
 checkbox0to2 = false;
-checkbox2to5 = false;
-checkbox5to10 = false;
-checkbox10to15 = false;
-checkbox15to20 = false; 
-checkboxMas20 = false;
+checkbox2to4 = false;
+checkbox4to6 = false;
+checkbox6to8 = false;
+checkbox8to10 = false; 
 checkboxRedBull =  false;
 checkboxSchweppes=  false;
 checkboxPowerade = false;
@@ -76,31 +75,56 @@ checkboxGaseosa = false;
 checkboxIsotonico = false;
 checkboxCola = false;
 checkboxEnergeticas = false;
+checkboxPepsi = false;
 
 
 
-
+removeAccents(str: string): string {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
 filterProducts(min: number, max: number, event: any): void {
   // Inicializar filteredProducts con todos los productos
   this.filteredProducts = [...this.resultados];
 
   // Aplicar filtro de categoría si las casillas de verificación correspondientes están marcadas
   if (this.checkboxEnergeticas || this.checkboxCola || this.checkboxZero || this.checkboxLight || this.checkboxTonica || this.checkboxGaseosa || this.checkboxIsotonico) {
-    this.filteredProducts = this.resultados.filter(product => {
+    this.filteredProducts = this.filteredProducts.filter(product => {
       let inCategory = false;
       if (product.title) {
-        inCategory = (this.checkboxEnergeticas && product.title.includes('Energéticas')) || (this.checkboxCola && product.title.includes('Cola')) || (this.checkboxZero && product.title.includes('Zero')) || (this.checkboxLight && product.title.includes('Light')) || (this.checkboxTonica && product.title.includes('Tónica')) || (this.checkboxGaseosa && product.title.includes('Gaseosa')) || (this.checkboxIsotonico && product.title.includes('Isotónico'));
+        const titleWithoutAccents = this.removeAccents(product.title.toLowerCase());
+        inCategory = (this.checkboxEnergeticas && (titleWithoutAccents.includes(this.removeAccents('Red Bull').toLowerCase()) || titleWithoutAccents.includes(this.removeAccents('Burn').toLowerCase()))) || (this.checkboxCola && titleWithoutAccents.includes(this.removeAccents('Cola').toLowerCase())) || (this.checkboxZero && titleWithoutAccents.includes(this.removeAccents('Zero').toLowerCase())) || (this.checkboxLight && titleWithoutAccents.includes(this.removeAccents('Light').toLowerCase())) || (this.checkboxTonica && titleWithoutAccents.includes(this.removeAccents('Tónica').toLowerCase())) || (this.checkboxGaseosa && titleWithoutAccents.includes(this.removeAccents('Gaseosa').toLowerCase())) || (this.checkboxIsotonico && titleWithoutAccents.includes(this.removeAccents('Isotónica').toLowerCase()));
       }
       return inCategory;
     });
   }
 
+
   // Aplicar filtro de precio si las casillas de verificación correspondientes están marcadas
-  if (this.checkbox0to2 || this.checkbox2to5 || this.checkbox5to10 || this.checkbox10to15 || this.checkbox15to20 || this.checkboxMas20) {
+  if (this.checkbox0to2 || this.checkbox2to4 || this.checkbox4to6 || this.checkbox6to8 || this.checkbox8to10) {
     this.filteredProducts = this.filteredProducts.filter(product => {
       const price = parseFloat(product.price.replace(',', '.').replace('€', ''));
-      const inRange = (this.checkbox0to2 && price >= 0 && price <= 2) || (this.checkbox2to5 && price >= 2 && price <= 5) || (this.checkbox5to10 && price >= 5 && price <= 10) || (this.checkbox10to15 && price >= 10 && price <= 15) || (this.checkbox15to20 && price >= 15 && price <= 20) || (this.checkboxMas20 && price > 20);
+      const inRange = (this.checkbox0to2 && price >= 0 && price <= 2) || (this.checkbox2to4 && price >= 2 && price <= 5) || (this.checkbox4to6 && price >= 4 && price <= 6) || (this.checkbox6to8 && price >= 6 && price <= 8) || (this.checkbox8to10 && price >= 8 && price <= 10);
       return inRange;
+    });
+  }
+
+  if (this.checkboxAquarius || this.checkboxCocaCola || this.checkboxFanta || this.checkboxMonster || this.checkboxBurn || this.checkboxNestea || this.checkboxPowerade || this.checkboxRedBull || this.checkboxSchweppes || this.checkboxPepsi) {
+    this.filteredProducts = this.filteredProducts.filter(product => {
+      let inBrand = false;
+      if (product.title) {
+        inBrand = (this.checkboxAquarius && product.title.includes('Aquarius')) || (this.checkboxCocaCola && product.title.includes('Coca-Cola')) || (this.checkboxFanta && product.title.includes('Fanta')) || (this.checkboxMonster && product.title.includes('Monster')) || (this.checkboxBurn && product.title.includes('Burn')) || (this.checkboxNestea && product.title.includes('Nestea')) || (this.checkboxPowerade && product.title.includes('Powerade')) || (this.checkboxRedBull && product.title.includes('Red Bull')) || (this.checkboxSchweppes && product.title.includes('Schweppes')) || (this.checkboxPepsi && product.title.includes('Pepsi'));
+      }
+      return inBrand;
+    });
+  }
+  if (this.checkboxLata || this.checkboxBotella || this.checkboxSobre) {
+    this.filteredProducts = this.filteredProducts.filter(product => {
+      let inFormat = false;
+      if (product.title) {
+        const lowerCaseTitle = product.title.toLowerCase();
+        inFormat = (this.checkboxLata && lowerCaseTitle.includes('lata')) || (this.checkboxBotella && lowerCaseTitle.includes('botella')) || (this.checkboxSobre && lowerCaseTitle.includes('sobre'));
+      }
+      return inFormat;
     });
   }
 }
@@ -109,11 +133,10 @@ filterProducts(min: number, max: number, event: any): void {
 resetFilters(): void {
 this.filteredProducts = [...this.resultados];
 this.checkbox0to2 = false;
-this.checkbox2to5 = false;
-this.checkbox5to10 = false;
-this.checkbox10to15 = false;
-this.checkbox15to20 = false; 
-this.checkboxMas20 = false;
+this.checkbox2to4 = false;
+this.checkbox4to6 = false;
+this.checkbox6to8 = false;
+this.checkbox8to10 = false; 
 this.checkboxRedBull =  false;
 this.checkboxSchweppes=  false;
 this.checkboxPowerade = false;
@@ -133,6 +156,7 @@ this.checkboxGaseosa = false;
 this.checkboxIsotonico = false;
 this.checkboxCola = false;
 this.checkboxEnergeticas = false;
+this.checkboxPepsi = false;
 
 // Haz lo mismo para todas las demás casillas de verificación
 }

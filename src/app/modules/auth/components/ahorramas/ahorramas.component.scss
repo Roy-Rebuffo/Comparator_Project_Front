@@ -6,14 +6,14 @@
   font-family: "DM Serif Text", serif;
   font-weight: 550;
   font-style: italic;
-  margin-left: -524px;
+  margin-left: 160px;
   margin-top: 235px;
   height: auto;
   width: auto;
   align-content: center;
   flex-wrap: nowrap;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .Principal-container{
@@ -24,17 +24,19 @@
 }
 
 .Container-Filters{
-  display: flex;
+  display: inline-block;
   flex-wrap: nowrap;
   justify-content: center;
   margin-top: 50px;
-  width: 20%;
-  height: auto;
+  width: 15%;
+  height: 100%;
   text-align: center;
   background: rgba(32, 108, 95, 0.7137254902);
   align-items: flex-start;
   flex-direction: column;
-  margin-left: 108px;
+  margin-left: 160px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .Title-Container{
@@ -45,173 +47,85 @@
   font-family: "DM Serif Text", serif;
   font-weight: 550;
   font-style: italic;
-  margin-left: 10px;
-  margin-top: 18px;
-  height: auto;
-  width: 60%;
+  margin-left: -5px;
+  width: 100%;
   align-content: center;
   flex-wrap: nowrap;
   flex-direction: row;
-  justify-content: center;
-}
-
-.title-marcas{
-  font-style: italic;
-  margin-left: 152px;
-  margin-top: 18px;
-}
-
-.marcas-category{
-  font-size: 14px;
-  color: white;
-  display: flex;
-  width: 50%;
-  height: 100%;
-  margin-left: -238px;
-  margin-top: -34px;
-  margin-bottom: auto;
-  align-content: center;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
+  justify-content: flex-start;
 }
 
 .Category-Container{
   display: flex;
-  flex-wrap: nowrap;
-  margin-top: 85px;
   width: 100%;
-  height: 100%;
-  text-align: center;
-  align-items: flex-start;
-  margin-left: 170px;
-  justify-content: space-around;
+  justify-content: flex-end;
   flex-direction: column;
+  flex-wrap: wrap;
+  align-content: stretch;
+  align-items: stretch;
 
 }
-
-.Categories{
-  font-size: 14px;
-  color: white;
-  display: flex;
-  width: 50%;
-  height: 100%;
-  margin-left: -238px;
-  margin-top: -34px;
-  margin-bottom: auto;
-  align-content: center;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-}
-
 .category-productos{
-  font-size: 14px;
-  color: white;
   display: flex;
-  width: 61%;
-  height: auto;
-  margin-left: -150px;
-  margin-top: -5px;
-  margin-bottom: auto;
+  width: 100%;
+  justify-content: flex-end;
   flex-direction: column;
-  justify-content: center;
-  /* align-items: stretch; */
   flex-wrap: wrap;
-  align-content: flex-start;
+  align-content: stretch;
+  align-items: stretch;
+  margin-bottom: 30px;
 }
 
-
-.Category-box{
+.checkbox-title{
+  width: 100%;
   display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    margin-top: 24px;
-    width: 17%;
-    height: 70%;
-    text-align: center;
-    align-items: flex-start;
-    flex-direction: column;
-    margin-left: 176px;
-    box-sizing: 10px;
-    transform: scale(0.4);
-}
-
-.Title-Price{
-  font-size: 15px;
-  color: white;
-  display: flex;
-  margin-top: auto;
-  height: auto;
-  width: auto;
-  align-content: center;
   flex-wrap: nowrap;
+  margin-left: 6px;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: stretch;
+  align-content: center;
+  justify-content: flex-start;
+  margin-top: 10px;
 }
 
-.Container-prices{
+.Title-Category{
+  width: 100%;
   display: flex;
-  justify-content: center;
-  margin-top: auto;
-  width: auto;
-  height: auto;
-  text-align: center;
-  flex-direction: column;
-  margin-left: auto;
-  align-content: flex-end;
+  margin-left: 6px;
+}
+
+.Container-Products {
+  display: flex;
+  width: 80%;
+  height: 100%;
   flex-wrap: wrap;
-}
-
-.Category-box-prices{
-  display: flex;
-  flex-wrap: nowrap;
   justify-content: center;
-  margin-top: auto;
-  width: auto;
-  height: auto;
-  text-align: center;
-  align-items: flex-start;
-  flex-direction: column;
-  margin-left: auto;
-  box-sizing: 10px;
-  transform: scale(0.4);
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  font-family: "Poppins", sans-serif;
+  background: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .Bottom-reset{
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  margin-top: auto;
-  width: auto;
-  height: auto;
-  text-align: center;
-  background: rgba(32, 108, 95, 0.7137254902);
-  align-items: center;
-  flex-direction: column;
-  margin-left: auto;
-  margin-bottom: auto;
-
+  margin-left: 8px;
+  width: 90%;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  border-radius: 2rem;
+  cursor: pointer;
+  color: white;
+  background-color: #337357;
+  transition: all 300ms ease;
+  border: none;
+  margin-top: 20px;
 }
 
 
-.Container-Products {
-  font-family: 'Poppins', sans-serif;
-  max-width: 10%;
-  margin: auto;
-  background: #ffffff;
-  overflow: hidden;
-  margin-top: 50px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-bottom: auto;
-  margin-top: auto;
-  margin-left: 20px;
-  height: auto;
-}
 .gallery {
   margin: 5px;
   border: 1px solid #24262b57;
@@ -226,6 +140,21 @@ img {
   height: 300px;
   object-fit: contain;
 }
+
+.fa-heart::before {
+  color: #24262b;
+}
+
+.fa-heart:hover {
+  color: #337357;
+  text-shadow: 0 0 8px #337357;
+}
+
+.fa-heart::after {
+  color: #337357;
+  text-shadow: 0 0 8px #337357
+}
+
 .gallery i{
   position: absolute;
   margin: 10px 0 0 300px;
@@ -264,6 +193,7 @@ button:hover{
   opacity: 0.8;
   color: #ccc;
 }
+
 
 @media screen and (max-width: 1660px) {
   .container{
