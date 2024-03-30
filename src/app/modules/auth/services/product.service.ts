@@ -17,12 +17,12 @@ export class ProductService {
 
 
   getCarrefour(){
-    return this.http.get('http://localhost:8084/scrapedatacarrefour');
+    return this.http.get('https://comparator-project-back.vercel.app/scrapedatacarrefour');
   }
   getAhorramas(){
-    return this.http.get('http://localhost:8084/scrapedataahorramas');
+    return this.http.get('https://comparator-project-back.vercel.app/scrapedataahorramas');
   }
- 
+
 
   obtener(): Observable<any[]> {
     let ahorramas = localStorage.getItem("ahorramas");
@@ -50,7 +50,7 @@ export class ProductService {
     // Devuelve un observable que emite los datos de ahorramas
     return of(this.dataAhorramas);
   }
-  
+
   // Obtener datos de carrefour
   obtenerCarrefour(): Observable<any[]> {
     let carrefour = localStorage.getItem("carrefour");
