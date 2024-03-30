@@ -7,7 +7,7 @@
   background-size: cover;
 }
 .title{
-  margin-top: 100px;
+  margin-top: 200px;
 }
 .title h1{
   color: #fff;
@@ -25,33 +25,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
   padding: 0px 80px;
 }
-.image-section{
-  width: 50%;
-  height: auto;
-  margin: auto;
+.image-section {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.image-section i{
- font-size: 200px;
- display: flex;
- justify-content: space-around;
+
+.image-section i {
+  font-size: 10vw; /* Utiliza unidades de viewport width (vw) para hacerlo responsive */
 }
-.paypal {
-  transform: rotate(10deg) translateX(-150px);
-  margin-bottom: 20px;
-}
+
 .visa {
-  transform: rotate(15deg) translateY(-100px) translateX(80px);
+  transform: rotate(15deg) translateY(-20px) translateX(-100px);
   margin-bottom: 30px;
 }
 
 .transfer {
-  transform: rotate(-15deg) translateY(-100px) translateX(-100px);
+  transform: rotate(-15deg) translateY(-20px) translateX(20px);
   margin-top: 30px;
 }
-
 article{
   width: 90%;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
@@ -60,6 +55,7 @@ article{
     border-radius: 20px;
     border:1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    margin-bottom: 50px;
 }
 article h3{
   font-size: 50px;
@@ -104,7 +100,7 @@ article a:hover{
 }
 ul li{
   font-size: 20px;
-  color: #ccc;
+  color: #fff;
   margin-top: 15px;
 }
 @media screen and (max-width: 1440px) {
@@ -115,9 +111,8 @@ ul li{
   font-size: 28px;
   text-align: center;
 }
-.image-section i{
-  height: 200px;
-  width: 200px;
+.image-section i {
+  font-size: 15vw; /* Tamaño de fuente responsive */
 }
 .about{
   flex-direction: column;
@@ -140,9 +135,35 @@ article a{
   font-size: 17px;
 }
 
+
 }
-@media screen and (max-width: 600px) {
-  .about{
-    margin-top: 170px;
+@media screen and (max-width: 3000px) {
+  .image-section {
+    position: static;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px; /* Ajuste para espacio entre el título y la imagen en pantallas más pequeñas */
+  }
+
+  .image-section i {
+    font-size: 10vw; /* Tamaño de fuente responsive */
+    padding: 10px;
+  }
+
+  .visa {
+    transform: none;
+  }
+  .transfer{
+    transform: translateY(-30px);
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  .about {
+    margin-top: -50px;
   }
 }
+
+

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { verifyTokenGuard } from './modules/auth/guards/verify-token.guard';
-import { LandingComponent } from './modules/auth/pages/landing/landing.component';
+
 
 const routes: Routes = [
   {

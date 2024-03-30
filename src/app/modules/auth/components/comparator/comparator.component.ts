@@ -15,6 +15,7 @@ export class ComparatorComponent implements OnInit {
   similarProducts: any[] = [];
   compareProduct: any = null;
   resultados: any[] = [];
+  productosAleatorios: any[] = [];
 
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
@@ -26,6 +27,7 @@ export class ComparatorComponent implements OnInit {
         this.products = res;
         this.findSimilarProducts();
         this.findCompareProduct();
+        this.obtenerProductosAleatorios();
       });
     });
   }
@@ -51,7 +53,7 @@ export class ComparatorComponent implements OnInit {
         count ++
       }
     }
-    return count >= 3
+    return count >= 4
       // return stringsABuscar.every((string:any) => objeto.title.includes(string));
   });
 
@@ -71,9 +73,9 @@ export class ComparatorComponent implements OnInit {
   goToSuperMarket(product: any) {
     let url;
     if (product.supermarket === "carrefour") {
-      url = 'https://www.carrefour.es/supermercado?ic_source=portal-y-corporativo&ic_medium=category-food-box&ic_content=ns';
+      url = 'https://www.carrefour.es/supermercado/bebidas/refrescos/cat650001/c';
     } else {
-      url = 'https://www.ahorramas.com/';
+      url = 'https://www.ahorramas.com/bebidas/refrescos/'
     }
 
     // Abrir la URL en una nueva pestaña
@@ -107,6 +109,21 @@ isFavorite(productTitle: string): boolean {
   } else {
     return false; // Si no hay favoritos, retornamos falso
   }
+}
+obtenerProductosAleatorios(): void {
+  const totalProductos = this.products.length;
+  const indicesAleatorios: number[] = [];
+
+  // Generar 10 índices aleatorios únicos
+  while (indicesAleatorios.length < 10) {
+    const indiceAleatorio = Math.floor(Math.random() * totalProductos);
+    if (!indicesAleatorios.includes(indiceAleatorio)) {
+      indicesAleatorios.push(indiceAleatorio);
+    }
+  }
+
+  // Obtener los productos aleatorios
+  this.productosAleatorios = indicesAleatorios.map(indice => this.products[indice]);
 }
 
 }
