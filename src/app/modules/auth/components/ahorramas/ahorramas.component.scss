@@ -142,25 +142,17 @@ img {
   object-fit: contain;
 }
 
-.fa-heart::before {
-  color: #24262b;
-}
-
-.fa-heart:hover {
-  color: #337357;
-  text-shadow: 0 0 8px #337357;
-}
-
-.fa-heart::after {
-  color: #337357;
-  text-shadow: 0 0 8px #337357
-}
 
 .gallery i{
   position: absolute;
   margin: 10px 0 0 300px;
   font-size: 30px;
   color: #24262ba1;
+}
+
+.gallery i.favorite{
+  color:#337357;
+  text-shadow: 0 0 10px #337357;
 }
 
 .gallery img {
