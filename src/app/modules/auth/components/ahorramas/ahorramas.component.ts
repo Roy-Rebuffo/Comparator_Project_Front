@@ -76,7 +76,8 @@ checkboxIsotonico = false;
 checkboxCola = false;
 checkboxEnergeticas = false;
 checkboxPepsi = false;
-
+checkbox10to15  = false;
+checkboxMas20 = false;
 
 
 removeAccents(str: string): string {
@@ -112,7 +113,7 @@ filterProducts(min: number, max: number, event: any): void {
     this.filteredProducts = this.filteredProducts.filter(product => {
       let inBrand = false;
       if (product.title) {
-        inBrand = (this.checkboxAquarius && product.title.includes('Aquarius')) || (this.checkboxCocaCola && product.title.includes('Coca-Cola')) || (this.checkboxFanta && product.title.includes('Fanta')) || (this.checkboxMonster && product.title.includes('Monster')) || (this.checkboxBurn && product.title.includes('Burn')) || (this.checkboxNestea && product.title.includes('Nestea')) || (this.checkboxPowerade && product.title.includes('Powerade')) || (this.checkboxRedBull && product.title.includes('Red Bull')) || (this.checkboxSchweppes && product.title.includes('Schweppes')) || (this.checkboxPepsi && product.title.includes('Pepsi'));
+        inBrand = (this.checkboxAquarius && product.title.includes('Aquarius')) || (this.checkboxCocaCola && product.title.includes('Coca Cola')) || (this.checkboxFanta && product.title.includes('Fanta')) || (this.checkboxMonster && product.title.includes('Monster')) || (this.checkboxBurn && product.title.includes('Burn')) || (this.checkboxNestea && product.title.includes('Nestea')) || (this.checkboxPowerade && product.title.includes('Powerade')) || (this.checkboxRedBull && product.title.includes('Red Bull')) || (this.checkboxSchweppes && product.title.includes('Schweppes')) || (this.checkboxPepsi && product.title.includes('Pepsi'));
       }
       return inBrand;
     });
@@ -158,7 +159,5 @@ this.checkboxCola = false;
 this.checkboxEnergeticas = false;
 this.checkboxPepsi = false;
 
-// Haz lo mismo para todas las demás casillas de verificación
 }
-
 }

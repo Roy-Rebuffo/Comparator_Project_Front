@@ -14,7 +14,7 @@ export class CarrefourComponent {
   constructor(private router: Router, private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.obtenerAhorramas().subscribe((data: any) => {
+    this.productService.obtenerCarrefour().subscribe((data: any) => {
       this.resultados = data;
       this.filteredProducts = [...this.resultados];
       console.log(this.resultados);
@@ -75,6 +75,8 @@ checkboxIsotonico = false;
 checkboxCola = false;
 checkboxEnergeticas = false;
 checkboxPepsi = false;
+checkbox10to15 = false;
+checkboxMas20 = false;
 
 
 
@@ -99,10 +101,10 @@ filterProducts(min: number, max: number, event: any): void {
 
 
   // Aplicar filtro de precio si las casillas de verificación correspondientes están marcadas
-  if (this.checkbox0to2 || this.checkbox2to4 || this.checkbox4to6 || this.checkbox6to8 || this.checkbox8to10) {
+  if (this.checkbox0to2 || this.checkbox2to4 || this.checkbox4to6 || this.checkbox6to8 || this.checkbox8to10 || this.checkbox10to15 || this.checkboxMas20) {
     this.filteredProducts = this.filteredProducts.filter(product => {
       const price = parseFloat(product.price.replace(',', '.').replace('€', ''));
-      const inRange = (this.checkbox0to2 && price >= 0 && price <= 2) || (this.checkbox2to4 && price >= 2 && price <= 5) || (this.checkbox4to6 && price >= 4 && price <= 6) || (this.checkbox6to8 && price >= 6 && price <= 8) || (this.checkbox8to10 && price >= 8 && price <= 10);
+      const inRange = (this.checkbox0to2 && price >= 0 && price <= 2) || (this.checkbox2to4 && price >= 2 && price <= 5) || (this.checkbox4to6 && price >= 4 && price <= 6) || (this.checkbox6to8 && price >= 6 && price <= 8) || (this.checkbox8to10 && price >= 8 && price <= 10 || this.checkbox10to15 && price >= 10 && price <= 15 || this.checkboxMas20 && price >= 20 );
       return inRange;
     });
   }
@@ -111,7 +113,7 @@ filterProducts(min: number, max: number, event: any): void {
     this.filteredProducts = this.filteredProducts.filter(product => {
       let inBrand = false;
       if (product.title) {
-        inBrand = (this.checkboxAquarius && product.title.includes('Aquarius')) || (this.checkboxCocaCola && product.title.includes('Coca-Cola')) || (this.checkboxFanta && product.title.includes('Fanta')) || (this.checkboxMonster && product.title.includes('Monster')) || (this.checkboxBurn && product.title.includes('Burn')) || (this.checkboxNestea && product.title.includes('Nestea')) || (this.checkboxPowerade && product.title.includes('Powerade')) || (this.checkboxRedBull && product.title.includes('Red Bull')) || (this.checkboxSchweppes && product.title.includes('Schweppes')) || (this.checkboxPepsi && product.title.includes('Pepsi'));
+        inBrand = (this.checkboxAquarius && product.title.includes('Aquarius')) || (this.checkboxCocaCola && product.title.includes('Coca Cola')) || (this.checkboxFanta && product.title.includes('Fanta')) || (this.checkboxMonster && product.title.includes('Monster')) || (this.checkboxBurn && product.title.includes('Burn')) || (this.checkboxNestea && product.title.includes('Nestea')) || (this.checkboxPowerade && product.title.includes('Powerade')) || (this.checkboxRedBull && product.title.includes('Red Bull')) || (this.checkboxSchweppes && product.title.includes('Schweppes')) || (this.checkboxPepsi && product.title.includes('Pepsi'));
       }
       return inBrand;
     });
@@ -156,6 +158,8 @@ this.checkboxIsotonico = false;
 this.checkboxCola = false;
 this.checkboxEnergeticas = false;
 this.checkboxPepsi = false;
+this.checkbox10to15 = false;
+this.checkboxMas20 = false;
 
 // Haz lo mismo para todas las demás casillas de verificación
 }

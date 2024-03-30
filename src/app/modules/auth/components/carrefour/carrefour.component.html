@@ -129,6 +129,14 @@
           <input type="checkbox" [(ngModel)]="checkbox8to10" (change)="filterProducts(8, 10, $event)">
             <p class="Title-Category">8 € - 10 €</p>
         </li>
+        <li class="checkbox-title">
+          <input type="checkbox" [(ngModel)]="checkbox10to15" (change)="filterProducts(10, 15, $event)">
+            <p class="Title-Category">10 € - 15 €</p>
+        </li>
+        <li class="checkbox-title">
+          <input type="checkbox" [(ngModel)]="checkboxMas20" (change)="filterProducts(20, 20, $event)">
+            <p class="Title-Category">Más de 20 €</p>
+        </li>
         <button class="Bottom-reset" (click)="resetFilters()" role="button">Restablecer Filtros</button>
       </ul>
     </div>
