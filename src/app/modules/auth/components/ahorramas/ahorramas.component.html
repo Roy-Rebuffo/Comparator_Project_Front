@@ -161,7 +161,7 @@
       </li>
     <button class="Bottom-reset" (click)="resetFilters()" role="button">Restablecer Filtros</button>
 
-  <div class="Container-Products">
+  <div class="Container-Productr">
     <div class="gallery" *ngFor="let resultado of filteredProducts">
     <i (click)="addToFavorites(resultado.title, resultado.image, resultado.price)" class="fa-regular fa-heart" [ngClass]="{'favorite': isFavorite(resultado.title)}"></i>
     <img [src]="resultado.image" alt="{{ resultado.title }}">
