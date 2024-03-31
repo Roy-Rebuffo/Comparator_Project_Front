@@ -188,14 +188,155 @@ button:hover{
 }
 
 
-@media screen and (max-width: 1660px) {
-  .container{
-    margin-top: 250px;
+@media screen and (max-width: 768px) {
+  .Principal-title {
+    font-size: 18px;
+    margin-left: 100px;
+    margin-top: 160px;
+  }
 
+  .Container-Filters {
+    width: 30%;
+    margin-left: 100px;
+  }
+
+  .Title-Container {
+    font-size: 14px;
+  }
+
+  .Container-Products {
+    width: 65%;
+    margin-left: 20px;
+  }
+
+  .gallery {
+    width: 250px;
+    height: 300px;
+  }
+
+  .gallery i{
+    position: absolute;
+    margin: 10px 0 0 200px;
+    font-size: 30px;
+    color: #24262ba1;
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
   }
 }
-@media screen and (max-width: 800px) {
-  .container{
-    margin-top: 200px;
+
+@media screen and (max-width: 576px) {
+  .Principal-title {
+    font-size: 16px;
+    margin-left: 80px;
+    margin-top: 170px;
+  }
+
+  .Container-Filters {
+    width: 35%;
+    margin-left: 80px;
+  }
+
+  .checkbox-title {
+    font-size: 12px;
+    margin-left: 3px;
+    margin-top: 5px;
+  }
+
+  .Title-Category {
+
+    font-size: 12px;
+    margin-left: 3px;
+  }
+
+  .Title-Container {
+    font-size: 12px;
+  }
+
+  .Container-Products {
+    width: 60%;
+    margin-left: 10px;
+  }
+
+  .gallery {
+    width: 200px;
+    height: 250px;
+  }
+
+  .gallery i{
+    position: absolute;
+    margin: 10px 0 0 150px;
+    font-size: 30px;
+    color: #24262ba1;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .Principal-title {
+    display: flex;
+    width: auto;
+    font-size: 14px;
+    margin-left: 30px;
+    margin-top: 190px;
+  }
+
+  .Container-Filters {
+    width: 40%;
+    margin-left: 20px;
+    margin-top: 50px;
+  }
+
+  .Title-Container {
+    font-size: 10px;
+  }
+
+  .Container-Products {
+    width: 55%;
+    margin-left: 20px;
+    margin-top: 50px;
+  }
+
+  .gallery {
+    width: 150px;
+    height: 200px;
+  }
+
+  .gallery i{
+    position: absolute;
+    margin: 10px 0 0 120px;
+    font-size: 20px;
+    color: #24262ba1;
+  }
+
+  img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .button-container {
+    height: 35px;
+    align-items: center;
+  }
+
+  button {
+    padding: 0.4rem 1rem;
+    font-size: 12px;
+  }
+
+  button:hover{
+    opacity: 0.8;
+    color: #ccc;
+  }
+
+  .desc {
+    padding: 5px;
+    text-align: center;
   }
 }
