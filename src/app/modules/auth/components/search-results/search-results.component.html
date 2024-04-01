@@ -3,7 +3,7 @@
   <div class="gallery" *ngFor="let resultado of resultados">
     <i (click)="addToFavorites(resultado.title, resultado.image, resultado.price)" class="fa-regular fa-heart" [ngClass]="{'favorite': isFavorite(resultado.title)}"></i>
     <img [src]="resultado.image" alt="{{ resultado.title }}">
-    <div class="desc">{{ resultado.title }} {{ resultado.price }}</div>
+    <div class="desc">{{ resultado.title }} {{ resultado.price }} {{ resultado.supermarket }}</div>
     <div class="button-container">
       <button (click)="compareProduct(resultado.title)">Comparar</button>
     </div>

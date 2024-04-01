@@ -43,7 +43,7 @@ export class ComparatorComponent implements OnInit {
   findCompareProduct(): void {
   console.log(this.productsToCompare);
 
-  const stringsABuscar = this.productsToCompare.title.split(" ");
+  const stringsABuscar = this.productsToCompare.title.toLowerCase().split(" ");
   console.log(stringsABuscar);
 
   this.resultados = this.products.filter(objeto => {
