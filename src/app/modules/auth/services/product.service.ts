@@ -17,10 +17,10 @@ export class ProductService {
 
 
   getCarrefour(){
-    return this.http.get('https://comparator-project-back.vercel.app/scrapedatacarrefour');
+    return this.http.get('http://localhost:8084/scrapedatacarrefour');
   }
   getAhorramas(){
-    return this.http.get('https://comparator-project-back.vercel.app/scrapedataahorramas');
+    return this.http.get('http://localhost:8084/scrapedataahorramas');
   }
 
 
