@@ -51,7 +51,7 @@
           </div>
           <div class="input-field" >
               <i class="fa-solid fa-lock"></i>
-              <input type="{{showPassword ? 'text' : 'password'}}" id="password" name="password" [(ngModel)]="password" required placeholder="Password">
+              <input type="{{showPassword ? 'text' : 'password'}}" id="password2" name="password" [(ngModel)]="password" required placeholder="Password">
               <i (click)="togglePasswordVisibility()" *ngIf="showPassword" class="fa-solid fa-eye"></i>
               <i (click)="togglePasswordVisibility()" *ngIf="!showPassword" class="fa-solid fa-eye-slash"></i>
           </div>
@@ -95,7 +95,7 @@
               <button class="btn" id="sign-up-btn" (click)="toggleSignUp()">Register</button>
           </div>
           <div class="img-container" style="display: flex; justify-content: center; width: 150%;">
-            <img src="../../../../../assets/MarketMatch.svg" alt="" class="image" style="padding-left: 20%;">
+            <img src="../../../../../assets/MarketMatch.svg" alt="" class="image">
           </div>
 
       </div>
