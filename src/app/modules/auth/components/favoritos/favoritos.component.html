@@ -1,5 +1,6 @@
 <app-header></app-header>
 <h2>¡Bienvenido a tu página de favoritos!</h2>
+<div class="main-container" style="display: flex; justify-content: center; margin-top: 50px;">
 <div class="container">
   <div class="gallery" *ngFor="let favorito of favoritos">
     <i (click)="toggleFavorite(favorito)" class="fa-regular fa-heart"></i>
@@ -10,6 +11,7 @@
       <button (click)="compareProduct(favorito.title)">Comparar</button>
     </div>
   </div>
+</div>
 </div>
 
 <app-footer></app-footer>
