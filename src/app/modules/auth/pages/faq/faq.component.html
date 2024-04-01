@@ -1,17 +1,17 @@
 <app-header></app-header>
 <div class="wrapper">
     <div class="image-section">
-        <img src="../../../../../assets/Logo.png" alt="">
+        <img src="../../../../../assets/23-29.svg" alt="">
     </div>
     <div class="title">
-        <h1>FAQ - MarketMatch</h1> 
+        <h1>FAQ - MarketMatch</h1>
     </div>
     <div class="about">
         <section *ngFor="let faq of faqs">
             <h2 (click)="toggleAnswer(faq)" [class.open]="faq.open">{{ faq.question }}</h2>
             <p *ngIf="faq.open">{{ faq.answer }}</p>
         </section>
-    </div>   
+    </div>
 </div>
 <app-footer></app-footer>
 
