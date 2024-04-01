@@ -40,24 +40,60 @@ export class ComparatorComponent implements OnInit {
     }
   }
 
-  findCompareProduct(): void {
-  console.log(this.productsToCompare);
+  levenshteinDistance(a: string, b: string): number {
+    const dp: number[][] = [];
 
-  const stringsABuscar = this.productsToCompare.title.toLowerCase().split(" ");
-  console.log(stringsABuscar);
-
-  this.resultados = this.products.filter(objeto => {
-    let count = 0;
-    for (let palabras of stringsABuscar){
-      if (objeto.title.includes(palabras)){
-        count ++
+    for (let i = 0; i <= a.length; i++) {
+      dp[i] = [];
+      for (let j = 0; j <= b.length; j++) {
+        if (i === 0) {
+          dp[i][j] = j;
+        } else if (j === 0) {
+          dp[i][j] = i;
+        } else {
+          dp[i][j] = Math.min(
+            dp[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1),
+            dp[i - 1][j] + 1,
+            dp[i][j - 1] + 1
+          );
+        }
       }
     }
-    return count >= 4
-      // return stringsABuscar.every((string:any) => objeto.title.includes(string));
-  });
 
-  console.log(this.resultados);
+    return dp[a.length][b.length];
+  }
+
+  findCompareProduct(): void {
+    console.log(this.productsToCompare);
+
+    const stringsABuscar = this.productsToCompare.title.toLowerCase().split(" ");
+    console.log(stringsABuscar);
+
+    this.resultados = this.products.filter(objeto => {
+      let count = 0;
+      for (let palabras of stringsABuscar){
+        if (objeto.title.includes(palabras)){
+          count ++;
+        }
+      }
+      
+      // Calcular la similitud utilizando la distancia de Levenshtein
+      const titleSimilarity = this.levenshteinDistance(this.productsToCompare.title.toLowerCase(), objeto.title.toLowerCase());
+
+      return count >= 3 && titleSimilarity <= 25; // Por ejemplo, aquí se requiere al menos 4 palabras en común y similitud Levenshtein de 5 o menos
+    });
+
+    this.resultados.sort((a, b) => {
+      if (a.supermarket === this.productsToCompare.supermarket && b.supermarket !== this.productsToCompare.supermarket) {
+        return 1; // Coloca b antes que a si b es de otro supermercado
+      } else if (a.supermarket !== this.productsToCompare.supermarket && b.supermarket === this.productsToCompare.supermarket) {
+        return -1; // Coloca a antes que b si a es de otro supermercado
+      } else {
+        return 0; // Mantén el orden actual si ambos son del mismo supermercado
+      }
+    });
+
+    console.log(this.resultados);
   }
 
   precioMenor(producto: any): string {
