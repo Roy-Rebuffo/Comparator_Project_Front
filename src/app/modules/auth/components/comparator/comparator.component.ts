@@ -80,7 +80,7 @@ export class ComparatorComponent implements OnInit {
       // Calcular la similitud utilizando la distancia de Levenshtein
       const titleSimilarity = this.levenshteinDistance(this.productsToCompare.title.toLowerCase(), objeto.title.toLowerCase());
 
-      return count >= 3 && titleSimilarity <= 25; // Por ejemplo, aquí se requiere al menos 4 palabras en común y similitud Levenshtein de 5 o menos
+      return count >= 3 && titleSimilarity <= 25; 
     });
 
     this.resultados.sort((a, b) => {

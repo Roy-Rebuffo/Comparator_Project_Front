@@ -11,13 +11,33 @@ export class SpinnerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // Comprobamos si hay datos del Carrefour en el localStorage cuando se inicializa el componente
+    this.checkCarrefourData();
   }
 
-  show(): void {
+  checkCarrefourData(): void {
+    // Aquí comprobamos si hay un array del Carrefour en el localStorage
+    const Carrefour = localStorage.getItem('carrefour');
+
+    // Si hay datos del Carrefour, no mostramos el spinner, de lo contrario lo mostramos
+    if (Carrefour) {
+      const carrefourData = JSON.parse(Carrefour);
+      if (Array.isArray(carrefourData) && carrefourData.length > 0) {
+        this.hideSpinner();
+      } else {
+        this.showSpinner();
+      }
+    } else {
+      this.showSpinner();
+    }
+  }
+
+  showSpinner(): void {
     this.visible = true;
   }
 
-  hide(): void {
+  hideSpinner(): void {
     this.visible = false;
   }
 }
+
