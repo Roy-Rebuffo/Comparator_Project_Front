@@ -55,7 +55,7 @@ export class EditUserComponent {
         console.log(updateduser);
 
         // Actualizar los datos del usuario en el componente y en el almacenamiento local
-        this.userData = { ...this.userData, name: updateduser.name };
+        this.userData = { ...this.userData, name: updateduser.name, surname: updateduser.surname, email: updateduser.email };
         localStorage.setItem('userData', JSON.stringify(this.userData));
 
         this.router.navigate(['/profile']);
